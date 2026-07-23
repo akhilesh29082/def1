@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WITHX Defence | Sovereign Defence Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  :root{
+    --bg:#0a0a0b;
+    --panel:#101113;
+    --ink:#f2f1ec;
+    --muted:#9a988f;
+    --line:rgba(242,241,236,0.14);
+    --accent:#c7a35a;
+    --overlay:rgba(6,7,8,0.62);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; width:100%; height:100%; object-fit:cover;}
+  .wrap{padding-left:clamp(20px,5vw,64px); padding-right:clamp(20px,5vw,64px);}
+
+  .eyebrow{
+    display:flex; align-items:center; gap:14px;
+    font-size:11px; letter-spacing:3px; color:var(--muted); text-transform:uppercase;
+    margin-bottom:26px;
+  }
+  .eyebrow .rule{width:34px; height:1px; background:var(--muted); display:inline-block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; width:100%; z-index:70;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    padding:22px clamp(20px,5vw,64px);
+    font-family:'Space Grotesk',sans-serif; font-weight:600;
+    background:linear-gradient(180deg, rgba(6,7,8,0.6) 0%, rgba(6,7,8,0) 100%);
+  }
+  .brand{display:flex; align-items:center; gap:14px;}
+  .brand-logo{height:56px; width:auto; flex-shrink:0;}
+  .brand-logo img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;opacity:1;visibility:visible;}
+  .footer-brand-logo{height:60px; width:auto; flex-shrink:0;}
+  .footer-brand-logo img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;opacity:1;visibility:visible;}
+  @media (max-width:480px){ .brand-logo{height:42px;} }
+  .menu-btn{display:flex; flex-direction:column; gap:6px; cursor:pointer; padding:8px; z-index:110;}
+  .menu-btn span{width:26px; height:1.5px; background:var(--ink); display:block; transition:transform .3s ease, opacity .3s ease;}
+  .menu-btn span:last-child{width:16px;}
+  .menu-btn.open span:first-child{transform:translateY(3.5px) rotate(45deg); width:24px;}
+  .menu-btn.open span:last-child{transform:translateY(-3.5px) rotate(-45deg); width:24px;}
+
+  /* ---------- NAV LINKS + MEGA MENU (desktop) ---------- */
+  .nav-links{display:flex; align-items:center; gap:36px;}
+  .nav-link{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); opacity:.85; transition:opacity .2s;}
+  .nav-link:hover{opacity:1;}
+  .mega-item{position:relative;}
+  .mega-item > a{font-size:12px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85;}
+  .mega-item:hover > a{opacity:1;}
+  .mega-menu{
+    position:fixed; top:96px; left:0; width:100%; background:#0a0a0b; color:var(--ink);
+    padding:50px clamp(20px,5vw,64px); display:grid; grid-template-columns:1.2fr 1fr; gap:80px;
+    opacity:0; visibility:hidden; transform:translateY(-14px);
+    transition:opacity .3s ease, transform .3s ease, visibility .3s ease;
+    z-index:60; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .mega-item:hover .mega-menu, .mega-item.active .mega-menu{opacity:1; visibility:visible; transform:translateY(0);}
+  .mega-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:20px; text-transform:uppercase;}
+  .mega-col p{font-size:16px; line-height:1.6; max-width:420px; color:#d8d7d0;}
+  .product-toggle{background:transparent; border:none; color:var(--ink); font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; cursor:pointer; padding:0; transition:all .3s ease;}
+  .product-toggle:hover, .product-toggle.active{color:var(--accent); transform:translateX(6px);}
+  .product-list{display:none; margin-top:12px; padding-left:20px; border-left:1px solid var(--line);}
+  .product-list.show{display:block;}
+  .product-list a{display:block; font-size:14px; margin-bottom:10px; color:var(--muted); transition:all .3s ease;}
+  .product-list a:hover{color:var(--ink); transform:translateX(6px);}
+  .nav-touch{padding:11px 24px; font-size:11px; letter-spacing:2px; border:1px solid var(--ink); flex-shrink:0;}
+  .nav-touch a{text-decoration:none;}
+  @media (max-width:1000px){ .nav-links, .nav-touch{display:none;} }
+  @media (min-width:1001px){ .menu-btn{display:none;} }
+
+  /* ---------- MOBILE NAV DRAWER ---------- */
+  .mobile-nav{
+    position:fixed; inset:0; z-index:95; background:#0a0a0b;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:110px clamp(24px,8vw,64px) 60px;
+    transform:translateX(100%);
+    transition:transform .45s cubic-bezier(.16,1,.3,1);
+    overflow-y:auto;
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav-links a{
+    display:block; font-family:'Space Grotesk',sans-serif; font-weight:600;
+    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
+    padding:16px 0; border-bottom:1px solid var(--line); color:var(--ink);
+  }
+  .mnav-systems{border-bottom:1px solid var(--line);}
+  .mnav-systems-toggle{
+    display:flex; align-items:center; justify-content:space-between;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; width:100%;
+    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
+    padding:16px 0; color:var(--ink); background:none; border:none; cursor:pointer;
+  }
+  .mnav-systems-toggle i{font-size:16px; color:var(--muted); transition:transform .3s ease;}
+  .mnav-systems-toggle.open i{transform:rotate(180deg);}
+  .mnav-sub{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .mnav-sub.show{max-height:220px;}
+  .mnav-sub a{
+    display:block; font-size:14px; letter-spacing:1px; color:var(--muted);
+    padding:12px 0 12px 4px; border-top:1px solid var(--line);
+  }
+  .mnav-cta{margin-top:32px; display:inline-block; padding:16px 30px; border:1px solid var(--ink); font-size:12px; letter-spacing:2px; color:var(--ink);}
+  @media (min-width:1001px){ .mobile-nav{display:none;} }
+
+  body.nav-open{overflow:hidden;}
+
+  /* ---------- TECHNOLOGY ---------- */
+  .tech-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .tech-list{border-top:1px solid var(--line);}
+  .tech-row{display:flex; gap:22px; padding:26px 4px; border-bottom:1px solid var(--line); cursor:default;}
+  .tech-row .tech-num{font-size:12px; letter-spacing:2px; color:var(--muted); min-width:38px; padding-top:4px;}
+  .tech-row h3{font-size:19px; text-transform:uppercase; font-weight:700; margin-bottom:8px;}
+  .tech-row p{font-size:14px; line-height:1.65; color:var(--muted); max-width:420px;}
+  .tech-visual{position:relative; aspect-ratio:1/1; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 50% 45%, rgba(199,163,90,0.10) 0%, transparent 60%);}
+  .tech-visual svg{width:70%; height:70%;}
+  @media (max-width:900px){ .tech-wrap{grid-template-columns:1fr;} .tech-visual{max-width:320px; margin:0 auto;} }
+
+  /* ---------- DRONE CURSOR ---------- */
+  #drone-cursor{
+    position:fixed; top:-25px; left:-25px; width:50px; height:50px;
+    background-size:contain; background-repeat:no-repeat; background-position:center;
+    pointer-events:none; z-index:9999; transition:background-image .2s ease-in-out; will-change:transform, background-image;
+  }
+  @media (max-width:900px){ #drone-cursor{display:none;} }
+
+  /* ---------- SYSTEMS POPUP ---------- */
+  .section-tag-wrapper{position:relative; display:inline-block; margin-bottom:14px;}
+  .section-tag-wrapper .eyebrow{margin-bottom:0; cursor:pointer;}
+  .systems-popup{
+    position:absolute; top:30px; left:0; width:300px; max-width:calc(100vw - 40px); padding:20px;
+    background:#111214; color:var(--ink); border:1px solid var(--line); border-radius:4px;
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
+    opacity:0; visibility:hidden; transform:translateY(10px); transition:.25s ease;
+    pointer-events:none; z-index:80;
+  }
+  .systems-popup.show{opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto;}
+  .systems-popup h4{font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; color:var(--muted);}
+  .systems-popup p{font-size:14px; line-height:1.6; color:#d8d7d0;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:85vh; width:100%;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding-bottom:60px; overflow:hidden;
+  }
+  
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.70)
+        ),
+        url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+  
+  
+  
+  .hero-inner{padding-top:180px; width:100%;}
+  .coords{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-bottom:28px; font-size:11px; letter-spacing:3px; color:var(--muted);
+    border-bottom:1px solid var(--line); margin-bottom:36px;
+  }
+  .coords .rule{width:34px; height:1px; background:var(--muted); display:inline-block; margin-right:14px; vertical-align:middle;}
+  .coords-right{text-align:right; color:var(--ink);}
+
+  h1.headline{
+    font-weight:400; text-transform:uppercase; line-height:0.96; letter-spacing:-0.5px;
+    font-size:clamp(38px, 8.4vw, 104px); max-width:1050px;
+  }
+  h1.headline .accent{font-style:italic; font-weight:500; text-transform:none; display:block;}
+
+  .hero-text{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-top:38px; flex-wrap:wrap;}
+  .hero-copy{max-width:440px; font-size:16px; line-height:1.75; color:var(--muted);}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{padding:16px 30px; font-size:13px; letter-spacing:2px; border:1px solid var(--ink); transition:all .25s ease; white-space:nowrap; display:inline-block;}
+  .btn.primary{background:var(--ink); color:var(--bg);}
+  .btn.primary:hover{background:var(--accent); border-color:var(--accent);}
+  .btn.ghost{background:transparent; color:var(--ink);}
+  .btn.ghost:hover{background:rgba(242,241,236,0.08);}
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:18px clamp(20px,5vw,64px);
+    display:flex; gap:40px; align-items:center; flex-wrap:wrap;
+    font-size:12px; letter-spacing:2px; color:var(--muted);
+  }
+  .ticker span.dot{color:var(--accent);}
+
+  /* ---------- DOCTRINE ---------- */
+  section{padding:120px 0 0;}
+  .doctrine{display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:start;}
+  .doctrine h2{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(30px,4.4vw,52px); line-height:1.12; text-transform:uppercase;}
+  .doctrine h2 .fade{color:var(--muted);}
+  .doctrine-copy{font-size:16px; line-height:1.8; color:var(--muted); margin-top:26px; max-width:480px;}
+  .link-arrow{display:inline-block; margin-top:28px; font-size:13px; letter-spacing:2px; border-bottom:1px solid var(--ink); padding-bottom:4px;}
+
+  /* ---------- STATS ---------- */
+  .stats{
+    margin-top:110px; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .stat{padding:46px clamp(16px,3vw,36px); border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(32px,4vw,48px); letter-spacing:-1px;}
+  .stat .label{margin-top:10px; font-size:11px; letter-spacing:2px; color:var(--muted); text-transform:uppercase;}
+  @media (max-width:900px){
+    section{padding-top:80px;}
+    .hero-inner{padding-top:130px;}
+    .coords{flex-direction:column; align-items:flex-start; gap:10px; padding-bottom:20px; margin-bottom:26px;}
+    .coords-right{text-align:left;}
+    .hero-text{flex-direction:column; align-items:flex-start; gap:26px;}
+    .hero-copy{max-width:100%;}
+    .hero-bg svg{width:70%; opacity:0.14; right:-10%;}
+    .btn{padding:14px 24px; font-size:12px;}
+    .cap-head{align-items:flex-start; flex-direction:column;}
+    .doctrine{grid-template-columns:1fr; gap:30px;}
+    .foot-brand p{max-width:100%;}
+  }
+  @media (max-width:768px){ .stats{grid-template-columns:repeat(2,1fr);} .stat:nth-child(2){border-right:none;} }
+
+  /* ---------- CAPABILITIES ---------- */
+  .cap-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px; margin-bottom:56px;}
+  .cap-head h2{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(30px,4.4vw,52px); line-height:1.1; text-transform:uppercase;}
+  .cap-head h2 .fade{color:var(--muted);}
+  .domains{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line);}
+  .domains-two{grid-template-columns:1fr 1fr;}
+  .domains-two .domain{min-height:auto; padding:44px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0;}
+  .chip{font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border:1px solid var(--line); padding:6px 12px;}
+  .status-tag{display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-top:6px;}
+  .dot-status{width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block;}
+  @media (max-width:700px){ .domains-two{grid-template-columns:1fr;} .domains-two .domain{border-right:none;} }
+  .domain{
+    padding:44px 30px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    min-height:340px; display:flex; flex-direction:column; justify-content:space-between;
+    transition:background .3s ease;
+  }
+  .domain:hover{background:rgba(242,241,236,0.03);}
+  .domain:last-child{border-right:none;}
+  .domain-tag{font-size:11px; letter-spacing:2px; color:var(--muted); display:flex; justify-content:space-between;}
+  .product-name{font-size:12px; letter-spacing:1px; color:var(--accent); margin-bottom:12px; text-transform:uppercase;}
+
+  /* ---------- MISSION IMPACT ---------- */
+  .mission-grid{margin-top:60px; border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr);}
+  .mission-card{padding:46px clamp(16px,3vw,36px); border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .mission-card:last-child{border-right:none;}
+  .mission-num{display:flex; align-items:baseline; gap:4px;}
+  .mission-num .counter{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(32px,4vw,48px); letter-spacing:-1px;}
+  .mission-num .suffix{font-size:20px; color:var(--muted);}
+  .mission-card h4{font-size:14px; text-transform:uppercase; letter-spacing:1px; margin:14px 0 8px;}
+  .mission-card p{font-size:13px; line-height:1.6; color:var(--muted);}
+  @media (max-width:768px){ .mission-grid{grid-template-columns:repeat(2,1fr);} .mission-card:nth-child(2){border-right:none;} }
+  .domain h3{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:24px; margin:30px 0 16px; text-transform:uppercase;}
+  .domain p{font-size:14px; line-height:1.7; color:var(--muted);}
+  .domain .learn{margin-top:24px; font-size:12px; letter-spacing:2px;}
+  @media (max-width:900px){ .domains{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .domains{grid-template-columns:1fr;} .domain{border-right:none;} }
+
+  /* ---------- SITUATION REPORT ---------- */
+  .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:10px;}
+  .news-card{position:relative; height:460px; overflow:hidden; background:linear-gradient(155deg,#17181b 0%,#0a0a0b 65%);}
+  .news-card .card-art{position:absolute; inset:0; opacity:.7; transition:opacity .35s ease, transform .5s ease;}
+  .news-card .card-art svg{width:100%; height:100%;}
+  .news-card:hover .card-art{opacity:1; transform:scale(1.04);}
+  .news-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,10,0.1) 0%, rgba(6,7,8,0.95) 78%); display:flex; flex-direction:column; justify-content:flex-end; padding:30px;}
+  .news-meta{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:14px;}
+  .news-card h3{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; line-height:1.35; text-transform:uppercase; margin-bottom:12px;}
+  .news-card p{font-size:13px; line-height:1.6; color:var(--muted); margin-bottom:16px;}
+  .news-card .read{font-size:12px; letter-spacing:2px;}
+  @media (max-width:900px){ .news-grid{grid-template-columns:1fr;} }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    margin-top:130px; padding:110px clamp(20px,5vw,64px);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  .cta h2{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(34px,6vw,64px); text-transform:uppercase; line-height:1.08;}
+  .cta h2 .fade{color:var(--muted);}
+  .cta .hero-actions{justify-content:center; margin-top:40px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:90px clamp(20px,5vw,64px) 40px;}
+  .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid var(--line);}
+  .foot-brand .brand{margin-bottom:22px;}
+  .foot-brand p{font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:26px;}
+  .foot-contact div{font-size:13px; color:var(--muted); line-height:1.9;}
+  .foot-contact{display:flex; flex-direction:column; gap:16px;}
+  .foot-contact a{display:flex; align-items:center; gap:12px; font-size:14px; color:#d8d7d0; transition:all .3s ease;}
+  .foot-contact a:hover{color:var(--ink); transform:translateX(6px);}
+  .foot-contact i{width:20px; font-size:16px; text-align:center;}
+  .foot-contact .whatsapp{color:#25D366;}
+  .foot-contact .linkedin{color:#4a90e2;}
+  .foot-contact .instagram{color:#e07a9e;}
+  .foot-contact .youtube{color:#e05c5c;}
+  .foot-contact .phone{color:var(--accent);}
+  .foot-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:22px; text-transform:uppercase;}
+  .foot-col a{display:block; font-size:14px; margin-bottom:14px; color:var(--ink);}
+  .foot-col a:hover{color:var(--accent);}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:34px; font-size:11px; letter-spacing:1.5px; color:var(--muted);}
+  .foot-bottom a{margin-left:24px; color:var(--muted);}
+  .foot-bottom a:hover{color:var(--ink);}
+  @media (max-width:900px){ .foot-top{grid-template-columns:1fr 1fr; row-gap:50px;} }
+  @media (max-width:560px){ .foot-top{grid-template-columns:1fr;} .foot-bottom{flex-direction:column; align-items:flex-start;} .foot-bottom a{margin-left:0; margin-right:20px;} }
+  @media (max-width:480px){
+    header{padding:18px 20px;}
+    .brand-name{font-size:16px;}
+    .brand-mark{width:36px; height:36px;}
+    h1.headline{font-size:clamp(34px,11vw,52px);}
+    .cta{padding:70px 20px;}
+    .news-card{height:360px;}
+  }
+
+  /* ---------- COOKIE BANNER ---------- */
+  .cookie-banner{
+    position:fixed; left:20px; right:20px; bottom:20px; z-index:100;
+    max-width:520px; margin:0 auto; background:#111214; border:1px solid var(--line);
+    padding:26px 26px 22px; transform:translateY(140%); transition:transform .5s ease .4s;
+  }
+  .cookie-banner.show{transform:translateY(0);}
+  .cookie-banner p{font-size:14px; line-height:1.7; color:#d8d7d0; margin-bottom:18px;}
+  .cookie-banner a{text-decoration:underline;}
+  .cookie-actions{display:flex; flex-direction:column; gap:10px;}
+  .cookie-actions button{font-family:inherit; font-size:12px; letter-spacing:2px; padding:14px; border:1px solid var(--ink); cursor:pointer; background:transparent; color:var(--ink);}
+  .cookie-actions button.accept{background:var(--ink); color:var(--bg);}
+  .cookie-actions button.manage{border-color:transparent; color:var(--muted); padding:6px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-logo"><img src="images/logo.png" alt="WITHX"></div>
+  </div>
+
+  <div class="nav-links">
+    <a href="#" class="nav-link">Home</a>
+    <a href="#" class="nav-link">About</a>
+    <a href="#" class="nav-link">Technology</a>
+
+    <div class="mega-item">
+      <a>Systems</a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h4>What We Build</h4>
+          <p>WITHX Defence engineers focused unmanned hardware — starting with aerial surveillance and drone survivability — solving real operational problems.</p>
+        </div>
+        <div class="mega-col">
+          <h4>Products</h4>
+          <button class="product-toggle" type="button">+ Our Systems</button>
+          <div class="product-list"><a href="#">Drone Surveillance System</a><a href="#">Drone Airbag Recovery System</a></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="nav-link">Contact</a>
+  </div>
+
+  <div class="nav-touch"><a href="#">Get in Touch</a></div>
+  <div class="menu-btn" id="menuBtn" aria-label="Open menu" role="button" tabindex="0"><span></span><span></span></div>
+</header>
+
+<!-- ===== MOBILE NAV DRAWER ===== -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Technology</a>
+    <div class="mnav-systems">
+      <button class="mnav-systems-toggle" id="mnavSystemsToggle" type="button">Systems <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="mnav-sub" id="mnavSub">
+        <a href="#">Drone Surveillance System</a>
+        <a href="#">Drone Airbag Recovery System</a>
+      </div>
+    </div>
+    <a href="#">Contact</a>
+  </div>
+  <a href="#" class="mnav-cta">Get in Touch</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-top:0;">
+  <div class="hero-bg"></div>
+<div class="grid-lines"></div>
+
+ 
+
+  <div class="wrap hero-inner">
+    <h1 class="headline">
+      EDGE OF THE
+      <span class="accent">unmanned</span>
+      BATTLESPACE
+    </h1>
+
+    
+    <div class="hero-text">
+      <p class="hero-copy">Withx Defence builds mission-critical unmanned platforms and command software for allied forces operating across air, land, sea, and cyber domains.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn primary">Explore Platforms</a>
+        <a href="#" class="btn ghost">Request Brief</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <span><span class="dot">●</span>&nbsp; STANAG 4586 COMPLIANT</span>
+  <span><span class="dot">●</span>&nbsp; MISSION READY 24/7</span>
+  <span><span class="dot">●</span>&nbsp; TRUSTED BY 14 NATIONS</span>
+</div>
+
+<!-- ===== DOCTRINE ===== -->
+<section class="wrap">
+  
+  <div class="doctrine">
+    <h2>WE BUILD THE SYSTEMS THAT SEE, DECIDE AND ACT — <span class="fade">BEFORE THE ADVERSARY DOES.</span></h2>
+    <div>
+      <p class="doctrine-copy">Founded in 2024 by Sharad Waybase, WITHX Defence takes a problem-first approach to unmanned systems — identifying real operational gaps in surveillance and drone survivability, then engineering focused, field-ready hardware to solve them.</p>
+      <a href="#" class="link-arrow">OUR STORY →</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">2024</div><div class="label">Founded</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Core Systems</div></div>
+    <div class="stat"><div class="num">1</div><div class="label">Founder-Led Team</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label">Problem-First Design</div></div>
+  </div>
+</section>
+
+<!-- ===== CAPABILITIES ===== -->
+<section class="wrap">
+  <div class="section-tag-wrapper">
+    <div class="eyebrow" id="systemsBtn"><span class="rule"></span></div>
+    <div class="systems-popup" id="systemsPopup">
+      <h4>Our Systems</h4>
+      <p>WITHX Defence builds focused unmanned hardware aerial surveillance and drone survivability — engineered around real operational problems.</p>
+    </div>
+  </div>
+  <div class="cap-head">
+    <h2>TWO SYSTEMS.<br><span class="fade">ONE MISSION.</span></h2>
+    <a href="#" class="link-arrow">VIEW ALL SYSTEMS →</a>
+  </div>
+
+  <div class="domains domains-two">
+    <div class="domain">
+      <div class="domain-tag"><span>SYSTEM 01/02</span><span>AIR</span></div>
+      <div>
+        <h3>Drone Surveillance System</h3>
+        <div class="product-name">Advanced Aerial Monitoring &amp; Reconnaissance</div>
+        <p>Real time aerial monitoring, reconnaissance and situational awareness for security, inspection and surveillance missions — built for rapid deployment.</p>
+        <div class="chip-row">
+          <span class="chip">Real Time Video</span>
+          <span class="chip">Autonomous Flight</span>
+          <span class="chip">Day &amp; Night Ops</span>
+        </div>
+        <div class="status-tag"><span class="dot-status"></span> Under Development</div>
+      </div>
+      <a href="#" class="learn">LEARN MORE →</a>
+    </div>
+    <div class="domain">
+      <div class="domain-tag"><span>SYSTEM 02/02</span><span>RECOVERY</span></div>
+      <div>
+        <h3>Drone Airbag Recovery System</h3>
+        <div class="product-name">Water-Activated Recovery Technology</div>
+        <p>Protects drones during accidental water landings — an automatic flotation mechanism deploys on contact with water, improving visibility and recovery.</p>
+        <div class="chip-row">
+          <span class="chip">Water-Activated</span>
+          <span class="chip">No Standby Power</span>
+          <span class="chip">Lightweight</span>
+        </div>
+        <div class="status-tag"><span class="dot-status"></span> Research &amp; Prototype</div>
+      </div>
+      <a href="#" class="learn">LEARN MORE →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TECHNOLOGY ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span></div>
+  <div class="cap-head">
+    <h2>INTELLIGENCE BEHIND<br><span class="fade">EVERY MISSION.</span></h2>
+  </div>
+
+  <div class="tech-wrap">
+    <div class="tech-list">
+      <div class="tech-row">
+        <div class="tech-num">01</div>
+        <div><h3>AI Tracking</h3><p>Real-time object detection and autonomous target tracking powered by advanced machine learning.</p></div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-num">02</div>
+        <div><h3>Computer Vision</h3><p>Intelligent image analysis for enhanced situational awareness and threat identification.</p></div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-num">03</div>
+        <div><h3>Swarm Intelligence</h3><p>Coordinated multi-drone operations enabling efficient area coverage and mission execution.</p></div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-num">04</div>
+        <div><h3>Airbag Recovery System</h3><p>Innovative recovery technology designed to improve landing safety and protect critical equipment.</p></div>
+      </div>
+    </div>
+
+    <div class="tech-visual">
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="130" fill="none" stroke="#f2f1ec" stroke-opacity="0.15"/>
+        <circle cx="150" cy="150" r="90" fill="none" stroke="#f2f1ec" stroke-opacity="0.15"/>
+        <circle cx="150" cy="150" r="50" fill="none" stroke="#c7a35a" stroke-opacity="0.6"/>
+        <path d="M40 160 L150 148 L180 100 L192 100 L182 148 L250 143 L262 135 L272 138 L260 150 L245 156 L184 162 L165 198 L148 198 L162 164 L40 172 Z" fill="#f2f1ec" fill-opacity="0.9"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MISSION IMPACT ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span></div>
+  <div class="cap-head">
+    <h2>BUILT FOR<br><span class="fade">MISSION SUCCESS.</span></h2>
+  </div>
+  <p class="doctrine-copy" style="margin-top:-30px; margin-bottom:0; max-width:560px;">Our intelligent systems are designed to maximize operational effectiveness, reliability, and situational awareness.</p>
+
+  <div class="mission-grid">
+    <div class="mission-card">
+      <div class="mission-num"><span class="counter" data-target="95">0</span><span class="suffix">%</span></div>
+      <h4>Mission Reliability</h4>
+      <p>Engineered for dependable performance during critical operations.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-num"><span class="counter" data-target="100">0</span><span class="suffix">%</span></div>
+      <h4>AI Tracking Accuracy</h4>
+      <p>Advanced algorithms delivering precise target monitoring.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-num"><span class="counter" data-target="24">0</span><span class="suffix">/7</span></div>
+      <h4>Operational Monitoring</h4>
+      <p>Continuous surveillance capabilities for enhanced security.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-num"><span class="counter" data-target="50">0</span><span class="suffix">+</span></div>
+      <h4>Test Flight Hours</h4>
+      <p>Extensive testing ensuring mission readiness and safety.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SITUATION REPORT ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span></div>
+  <div class="cap-head">
+    <h2>SITUATION REPORT.</h2>
+    <a href="#" class="link-arrow">ALL DISPATCHES →</a>
+  </div>
+
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="card-art">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="130" r="140" fill="none" stroke="#f2f1ec" stroke-opacity="0.18"/>
+          <circle cx="200" cy="130" r="90" fill="none" stroke="#f2f1ec" stroke-opacity="0.18"/>
+          <path d="M60 150 L200 138 L235 90 L248 90 L236 138 L300 133 L316 124 L326 127 L314 138 L298 145 L238 150 L218 188 L200 188 L214 152 L60 163 Z" fill="#f2f1ec" fill-opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="news-overlay">
+        <div class="news-meta">12 JAN 2026 / PROGRAM</div>
+        <h3>WITHX Delivers 40th Sentinel Mk-IV to Allied Air Command</h3>
+        <p>Milestone delivery marks completion of Phase II under the multi-year long endurance ISR programme.</p>
+        <a href="#" class="read">READ FILE →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-art">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#f2f1ec" stroke-opacity="0.35" stroke-width="1">
+            <line x1="90" y1="90" x2="200" y2="150"/>
+            <line x1="200" y1="150" x2="310" y2="90"/>
+            <line x1="200" y1="150" x2="200" y2="230"/>
+            <line x1="200" y1="230" x2="120" y2="270"/>
+            <line x1="200" y1="230" x2="280" y2="270"/>
+            <line x1="90" y1="90" x2="90" y2="180"/>
+            <line x1="310" y1="90" x2="310" y2="180"/>
+          </g>
+          <circle cx="200" cy="150" r="14" fill="#f2f1ec"/>
+          <circle cx="90" cy="90" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
+          <circle cx="310" cy="90" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
+          <circle cx="90" cy="180" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
+          <circle cx="310" cy="180" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
+          <circle cx="120" cy="270" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
+          <circle cx="280" cy="270" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
+          <circle cx="200" cy="230" r="10" fill="#f2f1ec" fill-opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="news-overlay">
+        <div class="news-meta">08 JAN 2026 / TECHNOLOGY</div>
+        <h3>AEGIS C2 Achieves NATO STANAG 4586 Level 5 Interoperability</h3>
+        <p>Independent certification confirms full command and control interoperability across coalition unmanned platforms.</p>
+        <a href="#" class="read">READ FILE →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-art">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="200" x2="400" y2="200" stroke="#f2f1ec" stroke-opacity="0.18"/>
+          <line x1="0" y1="220" x2="400" y2="220" stroke="#f2f1ec" stroke-opacity="0.12"/>
+          <path d="M110 200 L120 175 L280 175 L295 200 Z" fill="#f2f1ec" fill-opacity="0.85"/>
+          <rect x="150" y="150" width="60" height="28" fill="#f2f1ec" fill-opacity="0.85"/>
+          <line x1="180" y1="150" x2="180" y2="120" stroke="#f2f1ec" stroke-width="2" stroke-opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="news-overlay">
+        <div class="news-meta">03 JAN 2026 / MARITIME</div>
+        <h3>Marlin USV Completes 90-Day Autonomous Ocean Patrol</h3>
+        <p>Longest recorded unmanned surface deployment in the Indian Ocean conducted without operator intervention.</p>
+        <a href="#" class="read">READ FILE →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>00 / ENGAGE<span class="rule"></span></div>
+  <h2>SOVEREIGN FORCE. <span class="fade">DELIVERED.</span></h2>
+  <div class="hero-actions">
+    <a href="#" class="btn primary">Schedule a Briefing</a>
+    <a href="#" class="btn ghost">Join the Mission</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="brand">
+        <div class="footer-brand-logo"><img src="images/logo.png" alt="WITHX Defence"></div>
+      </div>
+      <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
+      <div class="foot-contact">
+
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Technology</a>
+      <a href="#">System</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="foot-col">
+      <h4>Systems</h4>
+      <a href="#">Drone Surveillance System</a>
+      <a href="#">Drone Airbag Recovery System</a>
+    </div>
+
+    <div class="foot-col">
+      <h4>Classified Info</h4>
+      <a href="#">Compliance</a>
+      <a href="#">Export Controls</a>
+      <a href="#">Supplier Portal</a>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <div>© 2026 WITHX DEFENCE CORP. ALL RIGHTS RESERVED.</div>
+    <div>
+      <a href="#">CLASSIFIED HANDLING NOTICE</a>
+      <a href="#">PRIVACY POLICY</a>
+      <a href="#">TERMS OF ENGAGEMENT</a>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to enhance your development experience and keep your data secure. <a href="#">Privacy Policy</a> · <a href="#">Cookie Policy</a></p>
+  <div class="cookie-actions">
+    <button class="accept" id="cookieAccept">OK</button>
+    <button class="manage">Manage preferences</button>
+  </div>
+</div>
+
+<script>
+  setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'), 600);
+  document.getElementById('cookieAccept').addEventListener('click', ()=>{
+    document.getElementById('cookieBanner').classList.remove('show');
+  });
+
+  /* MISSION IMPACT COUNTERS */
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const counter = entry.target;
+        const target = +counter.dataset.target;
+        let count = 0;
+        const update = () => {
+          count++;
+          counter.innerText = count;
+          if(count < target) requestAnimationFrame(update);
+        };
+        update();
+        counterObserver.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(counter => counterObserver.observe(counter));
+
+  document.querySelectorAll('.product-toggle').forEach((btn) => {
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      const list = this.nextElementSibling;
+      const isOpen = list.classList.contains('show');
+      document.querySelectorAll('.product-list').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll('.product-toggle').forEach(el => el.classList.remove('active'));
+      if(!isOpen){ list.classList.add('show'); this.classList.add('active'); }
+    });
+  });
+
+  /* MOBILE NAV DRAWER */
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  function toggleMobileNav(){
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+  }
+  menuBtn.addEventListener('click', toggleMobileNav);
+  menuBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggleMobileNav(); } });
+
+  // Close drawer when a nav link is tapped
+  document.querySelectorAll('#mobileNav .mobile-nav-links > a, #mobileNav .mnav-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+      document.body.classList.remove('nav-open');
+    });
+  });
+
+  // Systems accordion inside mobile drawer
+  const mnavSystemsToggle = document.getElementById('mnavSystemsToggle');
+  const mnavSub = document.getElementById('mnavSub');
+  mnavSystemsToggle.addEventListener('click', () => {
+    mnavSub.classList.toggle('show');
+    mnavSystemsToggle.classList.toggle('open');
+  });
+
+  /* DRONE CURSOR (desktop only) */
+  if (window.matchMedia('(min-width: 901px)').matches) {
+    const cursor = document.createElement('div');
+    cursor.id = 'drone-cursor';
+    document.body.appendChild(cursor);
+
+    const normalDrone = 'https://static.vecteezy.com/system/resources/thumbnails/049/514/995/small/drone-hovering-in-mid-air-above-a-landscape-during-daylight-cut-out-transparent-png.png';
+    const hoverDrone = normalDrone;
+    cursor.style.backgroundImage = `url('${normalDrone}')`;
+
+    let mx = 0, my = 0;
+    let cx = 0, cy = 0;
+    const speed = 0.1;
+
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+    function animateCursor(){
+      cx += (mx - cx) * speed;
+      cy += (my - cy) * speed;
+      cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('a, button, .domain, .news-card, .tech-row').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.backgroundImage = `url('${hoverDrone}')`; });
+      el.addEventListener('mouseleave', () => { cursor.style.backgroundImage = `url('${normalDrone}')`; });
+    });
+  }
+
+  /* SYSTEMS POPUP */
+  const sysWrapper = document.querySelector('.section-tag-wrapper');
+  const sysBtn = document.getElementById('systemsBtn');
+  const sysPopup = document.getElementById('systemsPopup');
+
+  sysBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    sysPopup.classList.toggle('show');
+  });
+
+  document.addEventListener('click', function(e){
+    if(!sysWrapper.contains(e.target)){
+      sysPopup.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>
