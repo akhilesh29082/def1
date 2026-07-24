@@ -55,6 +55,7 @@
   /* ---------- NAV LINKS + MEGA MENU (desktop) ---------- */
   .nav-links{display:flex; align-items:center; gap:36px;}
   .nav-link{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); opacity:.85; transition:opacity .2s;}
+  .nav-link.current{opacity:1; color:var(--accent);}
   .nav-link:hover{opacity:1;}
   .mega-item{position:relative;}
   .mega-item > a{font-size:12px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85;}
@@ -334,9 +335,9 @@
   </div>
 
   <div class="nav-links">
-    <a href="#" class="nav-link">Home</a>
-    <a href="#" class="nav-link">About</a>
-    <a href="#" class="nav-link">Technology</a>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="technologies.html" class="nav-link current">Technology</a>
 
     <div class="mega-item">
       <a>Systems</a>
@@ -348,34 +349,34 @@
         <div class="mega-col">
           <h4>Products</h4>
           <button class="product-toggle" type="button">+ Our Systems</button>
-          <div class="product-list"><a href="#">Drone Surveillance System</a><a href="#">Drone Airbag Recovery System</a></div>
+          <div class="product-list"><a href="drone-surveillance-system.html">Drone Surveillance System</a><a href="drone-recovery-bag.html">Drone Airbag Recovery System</a></div>
         </div>
       </div>
     </div>
 
-    <a href="#" class="nav-link">Contact</a>
+    <a href="contact.html" class="nav-link">Contact</a>
   </div>
 
-  <div class="nav-touch"><a href="#">Get in Touch</a></div>
+  <div class="nav-touch"><a href="contact.html">Get in Touch</a></div>
   <div class="menu-btn" id="menuBtn" aria-label="Open menu" role="button" tabindex="0"><span></span><span></span></div>
 </header>
 
 <!-- ===== MOBILE NAV DRAWER ===== -->
 <nav class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-links">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Technology</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="technologies.html">Technology</a>
     <div class="mnav-systems">
       <button class="mnav-systems-toggle" id="mnavSystemsToggle" type="button">Systems <i class="fa-solid fa-chevron-down"></i></button>
       <div class="mnav-sub" id="mnavSub">
-        <a href="#">Drone Surveillance System</a>
-        <a href="#">Drone Airbag Recovery System</a>
+        <a href="drone-surveillance-system.html">Drone Surveillance System</a>
+        <a href="drone-recovery-bag.html">Drone Airbag Recovery System</a>
       </div>
     </div>
-    <a href="#">Contact</a>
+    <a href="contact.html">Contact</a>
   </div>
-  <a href="#" class="mnav-cta">Get in Touch</a>
+  <a href="contact.html" class="mnav-cta">Get in Touch</a>
 </nav>
 
 <!-- ===== HERO ===== -->
@@ -684,17 +685,17 @@
 
     <div class="foot-col">
       <h4>Navigate</h4>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Technology</a>
-      <a href="#">System</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="technologies.html">Technology</a>
+      <a href="technologies.html#overview">System</a>
+      <a href="contact.html">Contact</a>
     </div>
 
     <div class="foot-col">
       <h4>Systems</h4>
-      <a href="#">Drone Surveillance System</a>
-      <a href="#">Drone Airbag Recovery System</a>
+      <a href="drone-surveillance-system.html">Drone Surveillance System</a>
+      <a href="drone-recovery-bag.html">Drone Airbag Recovery System</a>
     </div>
 
     <div class="foot-col">
