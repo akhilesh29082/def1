@@ -53,9 +53,8 @@
   .menu-btn.open span:last-child{transform:translateY(-3.5px) rotate(-45deg); width:24px;}
 
   /* ---------- NAV LINKS + MEGA MENU (desktop) ---------- */
-  .nav-links{display:flex; align-items:center; gap:30px;}
+  .nav-links{display:flex; align-items:center; gap:36px;}
   .nav-link{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); opacity:.85; transition:opacity .2s;}
-  .nav-link.current{opacity:1; color:var(--accent);}
   .nav-link:hover{opacity:1;}
   .mega-item{position:relative;}
   .mega-item > a{font-size:12px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85;}
@@ -93,25 +92,25 @@
   .mobile-nav.open{transform:translateX(0);}
   .mobile-nav-links a{
     display:block; font-family:'Space Grotesk',sans-serif; font-weight:600;
-    font-size:clamp(24px,7vw,34px); text-transform:uppercase; letter-spacing:0.5px;
-    padding:14px 0; border-bottom:1px solid var(--line); color:var(--ink);
+    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
+    padding:16px 0; border-bottom:1px solid var(--line); color:var(--ink);
   }
   .mnav-systems{border-bottom:1px solid var(--line);}
   .mnav-systems-toggle{
     display:flex; align-items:center; justify-content:space-between;
     font-family:'Space Grotesk',sans-serif; font-weight:600; width:100%;
-    font-size:clamp(24px,7vw,34px); text-transform:uppercase; letter-spacing:0.5px;
-    padding:14px 0; color:var(--ink); background:none; border:none; cursor:pointer;
+    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
+    padding:16px 0; color:var(--ink); background:none; border:none; cursor:pointer;
   }
   .mnav-systems-toggle i{font-size:16px; color:var(--muted); transition:transform .3s ease;}
   .mnav-systems-toggle.open i{transform:rotate(180deg);}
   .mnav-sub{max-height:0; overflow:hidden; transition:max-height .35s ease;}
-  .mnav-sub.show{max-height:160px;}
+  .mnav-sub.show{max-height:220px;}
   .mnav-sub a{
     display:block; font-size:14px; letter-spacing:1px; color:var(--muted);
-    padding:10px 0 10px 4px; border-top:1px solid var(--line);
+    padding:12px 0 12px 4px; border-top:1px solid var(--line);
   }
-  .mnav-cta{margin-top:28px; display:inline-block; padding:16px 30px; border:1px solid var(--ink); font-size:12px; letter-spacing:2px; color:var(--ink);}
+  .mnav-cta{margin-top:32px; display:inline-block; padding:16px 30px; border:1px solid var(--ink); font-size:12px; letter-spacing:2px; color:var(--ink);}
   @media (min-width:1001px){ .mobile-nav{display:none;} }
 
   body.nav-open{overflow:hidden;}
@@ -287,6 +286,7 @@
   .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid var(--line);}
   .foot-brand .brand{margin-bottom:22px;}
   .foot-brand p{font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:26px;}
+  .foot-contact div{font-size:13px; color:var(--muted); line-height:1.9;}
   .foot-contact{display:flex; flex-direction:column; gap:16px;}
   .foot-contact a{display:flex; align-items:center; gap:12px; font-size:14px; color:#d8d7d0; transition:all .3s ease;}
   .foot-contact a:hover{color:var(--ink); transform:translateX(6px);}
@@ -296,8 +296,6 @@
   .foot-contact .instagram{color:#e07a9e;}
   .foot-contact .youtube{color:#e05c5c;}
   .foot-contact .phone{color:var(--accent);}
-  .foot-contact .location{color:var(--accent);}
-  .foot-contact .email{color:var(--accent);}
   .foot-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:22px; text-transform:uppercase;}
   .foot-col a{display:block; font-size:14px; margin-bottom:14px; color:var(--ink);}
   .foot-col a:hover{color:var(--accent);}
@@ -336,85 +334,48 @@
   </div>
 
   <div class="nav-links">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="technologies.html" class="nav-link current">Technology</a>
+    <a href="#" class="nav-link">Home</a>
+    <a href="#" class="nav-link">About</a>
+    <a href="#" class="nav-link">Technology</a>
 
     <div class="mega-item">
-      <a>Sea</a>
+      <a>Systems</a>
       <div class="mega-menu">
         <div class="mega-col">
-          <h4>Sea Domain</h4>
-          <p>Advanced maritime surveillance and recovery technologies designed for coastal monitoring, marine operations, water-based reconnaissance, and autonomous recovery missions.</p>
+          <h4>What We Build</h4>
+          <p>WITHX Defence engineers focused unmanned hardware — starting with aerial surveillance and drone survivability — solving real operational problems.</p>
         </div>
         <div class="mega-col">
           <h4>Products</h4>
-          <button class="product-toggle" type="button">+ Sea Products</button>
-          <div class="product-list"><a href="drone-recovery-bag.html">Drone Recovery Bag</a></div>
+          <button class="product-toggle" type="button">+ Our Systems</button>
+          <div class="product-list"><a href="#">Drone Surveillance System</a><a href="#">Drone Airbag Recovery System</a></div>
         </div>
       </div>
     </div>
 
-    <div class="mega-item">
-      <a>Land</a>
-      <div class="mega-menu">
-        <div class="mega-col">
-          <h4>Land Domain</h4>
-          <p>Autonomous monitoring and security technologies designed for infrastructure protection, perimeter surveillance, reconnaissance, and critical asset monitoring.</p>
-        </div>
-        <div class="mega-col">
-          <h4>Products</h4>
-          <button class="product-toggle" type="button">+ Land Products</button>
-          <div class="product-list"><a href="land-monitoring-system.html">Autonomous Monitoring System</a></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mega-item">
-      <a>Air</a>
-      <div class="mega-menu">
-        <div class="mega-col">
-          <h4>Air Domain</h4>
-          <p>Advanced aerial intelligence systems providing real-time surveillance, autonomous flight capability, reconnaissance, mapping, and situational awareness.</p>
-        </div>
-        <div class="mega-col">
-          <h4>Products</h4>
-          <button class="product-toggle" type="button">+ Air Products</button>
-          <div class="product-list"><a href="drone-surveillance-system.html">WITHX Drone Surveillance System</a></div>
-        </div>
-      </div>
-    </div>
-
-    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="#" class="nav-link">Contact</a>
   </div>
 
-  <div class="nav-touch"><a href="contact.html">Get in Touch</a></div>
+  <div class="nav-touch"><a href="#">Get in Touch</a></div>
   <div class="menu-btn" id="menuBtn" aria-label="Open menu" role="button" tabindex="0"><span></span><span></span></div>
 </header>
 
 <!-- ===== MOBILE NAV DRAWER ===== -->
 <nav class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="technologies.html">Technology</a>
-
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Technology</a>
     <div class="mnav-systems">
-      <button class="mnav-systems-toggle" data-target="mnavSea" type="button">Sea <i class="fa-solid fa-chevron-down"></i></button>
-      <div class="mnav-sub" id="mnavSea"><a href="drone-recovery-bag.html">Drone Recovery Bag</a></div>
+      <button class="mnav-systems-toggle" id="mnavSystemsToggle" type="button">Systems <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="mnav-sub" id="mnavSub">
+        <a href="#">Drone Surveillance System</a>
+        <a href="#">Drone Airbag Recovery System</a>
+      </div>
     </div>
-    <div class="mnav-systems">
-      <button class="mnav-systems-toggle" data-target="mnavLand" type="button">Land <i class="fa-solid fa-chevron-down"></i></button>
-      <div class="mnav-sub" id="mnavLand"><a href="land-monitoring-system.html">Autonomous Monitoring System</a></div>
-    </div>
-    <div class="mnav-systems">
-      <button class="mnav-systems-toggle" data-target="mnavAir" type="button">Air <i class="fa-solid fa-chevron-down"></i></button>
-      <div class="mnav-sub" id="mnavAir"><a href="drone-surveillance-system.html">WITHX Drone Surveillance System</a></div>
-    </div>
-
-    <a href="contact.html">Contact</a>
+    <a href="#">Contact</a>
   </div>
-  <a href="contact.html" class="mnav-cta">Get in Touch</a>
+  <a href="#" class="mnav-cta">Get in Touch</a>
 </nav>
 
 <!-- ===== HERO ===== -->
@@ -715,56 +676,41 @@
       <div class="brand">
         <div class="footer-brand-logo"><img src="images/logo.png" alt="WITHX Defence"></div>
       </div>
-      <p>Developing intelligent aerial, land and maritime technologies for surveillance, monitoring and autonomous mission operations.</p>
+      <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
+      <div class="foot-contact">
+
+      </div>
     </div>
 
     <div class="foot-col">
       <h4>Navigate</h4>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="technologies.html">Technology</a>
-      <a href="contact.html">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Technology</a>
+      <a href="#">System</a>
+      <a href="#">Contact</a>
     </div>
 
     <div class="foot-col">
-      <h4>Our Solutions</h4>
-      <a href="drone-recovery-bag.html">Drone Recovery Bag</a>
-      <a href="land-monitoring-system.html">Autonomous Monitoring System</a>
-      <a href="drone-surveillance-system.html">Drone Surveillance System</a>
+      <h4>Systems</h4>
+      <a href="#">Drone Surveillance System</a>
+      <a href="#">Drone Airbag Recovery System</a>
     </div>
 
-    <div class="foot-col foot-contact">
-      <h4>Connect With Us</h4>
-      <a href="https://maps.google.com/?q=MIT+Academy+of+Engineering+Alandi+Pune" target="_blank">
-        <i class="fas fa-location-dot location"></i> EDF, MITAoE Campus, Alandi, Pune
-      </a>
-      <a href="https://wa.me/917666936323" target="_blank">
-        <i class="fab fa-whatsapp whatsapp"></i> WhatsApp
-      </a>
-      <a href="tel:+917666936323">
-        <i class="fas fa-phone phone"></i> +91 7666936323
-      </a>
-      <a href="mailto:withx.innovations@gmail.com">
-        <i class="fas fa-envelope email"></i> withx.innovations@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/company/withx-innovations/" target="_blank">
-        <i class="fab fa-linkedin linkedin"></i> LinkedIn
-      </a>
-      <a href="https://www.instagram.com/withx.in" target="_blank">
-        <i class="fab fa-instagram instagram"></i> Instagram
-      </a>
-      <a href="https://youtube.com/@withxinnovation" target="_blank">
-        <i class="fab fa-youtube youtube"></i> YouTube
-      </a>
+    <div class="foot-col">
+      <h4>Classified Info</h4>
+      <a href="#">Compliance</a>
+      <a href="#">Export Controls</a>
+      <a href="#">Supplier Portal</a>
     </div>
   </div>
 
   <div class="foot-bottom">
-    <div>© 2026 WITHX Innovations Private Limited. All Rights Reserved.</div>
+    <div>© 2026 WITHX DEFENCE CORP. ALL RIGHTS RESERVED.</div>
     <div>
-      <a href="#">Classified Handling Notice</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Engagement</a>
+      <a href="#">CLASSIFIED HANDLING NOTICE</a>
+      <a href="#">PRIVACY POLICY</a>
+      <a href="#">TERMS OF ENGAGEMENT</a>
     </div>
   </div>
 </footer>
@@ -820,13 +766,12 @@
     });
   });
 
-  /* MOBILE NAV ACCORDIONS (Sea / Land / Air) */
-  document.querySelectorAll('.mnav-systems-toggle').forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const sub = document.getElementById(toggle.dataset.target);
-      sub.classList.toggle('show');
-      toggle.classList.toggle('open');
-    });
+  /* Systems accordion inside mobile drawer */
+  const mnavSystemsToggle = document.getElementById('mnavSystemsToggle');
+  const mnavSub = document.getElementById('mnavSub');
+  mnavSystemsToggle.addEventListener('click', () => {
+    mnavSub.classList.toggle('show');
+    mnavSystemsToggle.classList.toggle('open');
   });
 
   /* DRONE CURSOR (desktop only) */
