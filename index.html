@@ -10,13 +10,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
   :root{
-    --bg:#0a0a0b;
-    --panel:#101113;
-    --ink:#f2f1ec;
-    --muted:#9a988f;
-    --line:rgba(242,241,236,0.14);
-    --accent:#c7a35a;
-    --overlay:rgba(6,7,8,0.62);
+    --bg:#FFFFFF;
+    --panel:#F8FAFC;
+    --ink:#111827;
+    --muted:#4B5563;
+    --line:#E5E7EB;
+    --accent:#8A6D1E;
+    --overlay:rgba(17,24,39,0.55);
+    --card-shadow:0 8px 30px rgba(0,0,0,0.08);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html,body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;}
@@ -37,7 +38,8 @@
     display:flex; align-items:center; justify-content:space-between; gap:24px;
     padding:22px clamp(20px,5vw,64px);
     font-family:'Space Grotesk',sans-serif; font-weight:600;
-    background:linear-gradient(180deg, rgba(6,7,8,0.6) 0%, rgba(6,7,8,0) 100%);
+    background:rgba(255,255,255,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); box-shadow:0 2px 12px rgba(17,24,39,0.05);
   }
   .brand{display:flex; align-items:center; gap:14px;}
   .brand-logo{height:56px; width:auto; flex-shrink:0;}
@@ -59,15 +61,16 @@
   .mega-item > a{font-size:12px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85;}
   .mega-item:hover > a{opacity:1;}
   .mega-menu{
-    position:fixed; top:96px; left:0; width:100%; background:#0a0a0b; color:var(--ink);
+    position:fixed; top:96px; left:0; width:100%; background:#FFFFFF; color:var(--ink);
     padding:50px clamp(20px,5vw,64px); display:grid; grid-template-columns:1.2fr 1fr; gap:80px;
     opacity:0; visibility:hidden; transform:translateY(-14px);
     transition:opacity .3s ease, transform .3s ease, visibility .3s ease;
     z-index:60; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    box-shadow:0 20px 45px rgba(17,24,39,0.10);
   }
   .mega-item:hover .mega-menu, .mega-item.active .mega-menu{opacity:1; visibility:visible; transform:translateY(0);}
   .mega-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:20px; text-transform:uppercase;}
-  .mega-col p{font-size:16px; line-height:1.6; max-width:420px; color:#d8d7d0;}
+  .mega-col p{font-size:16px; line-height:1.6; max-width:420px; color:var(--muted);}
   .product-toggle{background:transparent; border:none; color:var(--ink); font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; cursor:pointer; padding:0; transition:all .3s ease;}
   .product-toggle:hover, .product-toggle.active{color:var(--accent); transform:translateX(6px);}
   .product-list{display:none; margin-top:12px; padding-left:20px; border-left:1px solid var(--line);}
@@ -81,7 +84,7 @@
 
   /* ---------- MOBILE NAV DRAWER ---------- */
   .mobile-nav{
-    position:fixed; inset:0; z-index:95; background:#0a0a0b;
+    position:fixed; inset:0; z-index:95; background:#FFFFFF;
     display:flex; flex-direction:column; justify-content:center;
     padding:110px clamp(24px,8vw,64px) 60px;
     transform:translateX(100%);
@@ -121,7 +124,7 @@
   .tech-row .tech-num{font-size:12px; letter-spacing:2px; color:var(--muted); min-width:38px; padding-top:4px;}
   .tech-row h3{font-size:19px; text-transform:uppercase; font-weight:700; margin-bottom:8px;}
   .tech-row p{font-size:14px; line-height:1.65; color:var(--muted); max-width:420px;}
-  .tech-visual{position:relative; aspect-ratio:1/1; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 50% 45%, rgba(199,163,90,0.10) 0%, transparent 60%);}
+  .tech-visual{position:relative; aspect-ratio:1/1; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 50% 45%, rgba(138,109,30,0.08) 0%, transparent 60%); box-shadow:var(--card-shadow);}
   .tech-visual svg{width:70%; height:70%;}
   @media (max-width:900px){ .tech-wrap{grid-template-columns:1fr;} .tech-visual{max-width:320px; margin:0 auto;} }
 
@@ -138,14 +141,14 @@
   .section-tag-wrapper .eyebrow{margin-bottom:0; cursor:pointer;}
   .systems-popup{
     position:absolute; top:30px; left:0; width:300px; max-width:calc(100vw - 40px); padding:20px;
-    background:#111214; color:var(--ink); border:1px solid var(--line); border-radius:4px;
-    box-shadow:0 20px 45px rgba(0,0,0,.45);
+    background:#FFFFFF; color:var(--ink); border:1px solid var(--line); border-radius:4px;
+    box-shadow:0 20px 45px rgba(17,24,39,.14);
     opacity:0; visibility:hidden; transform:translateY(10px); transition:.25s ease;
     pointer-events:none; z-index:80;
   }
   .systems-popup.show{opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto;}
   .systems-popup h4{font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; color:var(--muted);}
-  .systems-popup p{font-size:14px; line-height:1.6; color:#d8d7d0;}
+  .systems-popup p{font-size:14px; line-height:1.6; color:var(--muted);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -193,10 +196,10 @@
   .hero-copy{max-width:440px; font-size:16px; line-height:1.75; color:var(--muted);}
   .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{padding:16px 30px; font-size:13px; letter-spacing:2px; border:1px solid var(--ink); transition:all .25s ease; white-space:nowrap; display:inline-block;}
-  .btn.primary{background:var(--ink); color:var(--bg);}
-  .btn.primary:hover{background:var(--accent); border-color:var(--accent);}
+  .btn.primary{background:var(--ink); color:#FFFFFF;}
+  .btn.primary:hover{background:var(--accent); border-color:var(--accent); color:#FFFFFF;}
   .btn.ghost{background:transparent; color:var(--ink);}
-  .btn.ghost:hover{background:rgba(242,241,236,0.08);}
+  .btn.ghost:hover{background:rgba(17,24,39,0.05);}
 
   /* ---------- TICKER ---------- */
   .ticker{
@@ -256,7 +259,7 @@
     min-height:340px; display:flex; flex-direction:column; justify-content:space-between;
     transition:background .3s ease;
   }
-  .domain:hover{background:rgba(242,241,236,0.03);}
+  .domain:hover{background:rgba(17,24,39,0.02);}
   .domain:last-child{border-right:none;}
   .domain-tag{font-size:11px; letter-spacing:2px; color:var(--muted); display:flex; justify-content:space-between;}
   .product-name{font-size:12px; letter-spacing:1px; color:var(--accent); margin-bottom:12px; text-transform:uppercase;}
@@ -279,11 +282,11 @@
 
   /* ---------- SITUATION REPORT ---------- */
   .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:10px;}
-  .news-card{position:relative; height:460px; overflow:hidden; background:linear-gradient(155deg,#17181b 0%,#0a0a0b 65%);}
+  .news-card{position:relative; height:460px; overflow:hidden; background:linear-gradient(155deg,#F8FAFC 0%,#EEF1F5 65%); border:1px solid var(--line); box-shadow:var(--card-shadow);}
   .news-card .card-art{position:absolute; inset:0; opacity:.7; transition:opacity .35s ease, transform .5s ease;}
   .news-card .card-art svg{width:100%; height:100%;}
   .news-card:hover .card-art{opacity:1; transform:scale(1.04);}
-  .news-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,10,0.1) 0%, rgba(6,7,8,0.95) 78%); display:flex; flex-direction:column; justify-content:flex-end; padding:30px;}
+  .news-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.94) 68%); display:flex; flex-direction:column; justify-content:flex-end; padding:30px;}
   .news-meta{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:14px;}
   .news-card h3{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; line-height:1.35; text-transform:uppercase; margin-bottom:12px;}
   .news-card p{font-size:13px; line-height:1.6; color:var(--muted); margin-bottom:16px;}
@@ -307,7 +310,7 @@
   .foot-brand p{font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:26px;}
   .foot-contact div{font-size:13px; color:var(--muted); line-height:1.9;}
   .foot-contact{display:flex; flex-direction:column; gap:16px;}
-  .foot-contact a{display:flex; align-items:center; gap:12px; font-size:14px; color:#d8d7d0; transition:all .3s ease;}
+  .foot-contact a{display:flex; align-items:center; gap:12px; font-size:14px; color:var(--muted); transition:all .3s ease;}
   .foot-contact a:hover{color:var(--ink); transform:translateX(6px);}
   .foot-contact i{width:20px; font-size:16px; text-align:center;}
   .foot-contact .whatsapp{color:#25D366;}
@@ -335,11 +338,12 @@
   /* ---------- COOKIE BANNER ---------- */
   .cookie-banner{
     position:fixed; left:20px; right:20px; bottom:20px; z-index:100;
-    max-width:520px; margin:0 auto; background:#111214; border:1px solid var(--line);
+    max-width:520px; margin:0 auto; background:#FFFFFF; border:1px solid var(--line);
     padding:26px 26px 22px; transform:translateY(140%); transition:transform .5s ease .4s;
+    box-shadow:var(--card-shadow);
   }
   .cookie-banner.show{transform:translateY(0);}
-  .cookie-banner p{font-size:14px; line-height:1.7; color:#d8d7d0; margin-bottom:18px;}
+  .cookie-banner p{font-size:14px; line-height:1.7; color:var(--muted); margin-bottom:18px;}
   .cookie-banner a{text-decoration:underline;}
   .cookie-actions{display:flex; flex-direction:column; gap:10px;}
   .cookie-actions button{font-family:inherit; font-size:12px; letter-spacing:2px; padding:14px; border:1px solid var(--ink); cursor:pointer; background:transparent; color:var(--ink);}
@@ -351,7 +355,7 @@
 
 <header>
   <div class="brand">
-    <div class="brand-logo"><img src="#" alt="WITHX"></div>
+    <div class="brand-logo"><img src="index.html" alt="WITHX"></div>
   </div>
 
   <div class="nav-links">
@@ -407,9 +411,10 @@
  
 
   <div class="wrap hero-inner">
+    
     <h1 class="headline">
       EDGE OF THE
-      <span class="accent">unmanned</span>
+      unmanned
       BATTLESPACE
     </h1>
 
@@ -490,7 +495,7 @@
           <span class="chip">No Standby Power</span>
           <span class="chip">Lightweight</span>
         </div>
-        <div class="status-tag"><span class="dot-status"></span> Research &amp; Prototype</div>
+        <div class="status-tag"><span class="dot-status"></span> Research Prototype</div>
       </div>
       <a href="Drone recovery bag .html" class="learn">LEARN MORE →</a>
     </div>
@@ -526,10 +531,10 @@
 
     <div class="tech-visual">
       <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="150" cy="150" r="130" fill="none" stroke="#f2f1ec" stroke-opacity="0.15"/>
-        <circle cx="150" cy="150" r="90" fill="none" stroke="#f2f1ec" stroke-opacity="0.15"/>
-        <circle cx="150" cy="150" r="50" fill="none" stroke="#c7a35a" stroke-opacity="0.6"/>
-        <path d="M40 160 L150 148 L180 100 L192 100 L182 148 L250 143 L262 135 L272 138 L260 150 L245 156 L184 162 L165 198 L148 198 L162 164 L40 172 Z" fill="#f2f1ec" fill-opacity="0.9"/>
+        <circle cx="150" cy="150" r="130" fill="none" stroke="#111827" stroke-opacity="0.14"/>
+        <circle cx="150" cy="150" r="90" fill="none" stroke="#111827" stroke-opacity="0.14"/>
+        <circle cx="150" cy="150" r="50" fill="none" stroke="#8A6D1E" stroke-opacity="0.7"/>
+        <path d="M40 160 L150 148 L180 100 L192 100 L182 148 L250 143 L262 135 L272 138 L260 150 L245 156 L184 162 L165 198 L148 198 L162 164 L40 172 Z" fill="#111827" fill-opacity="0.85"/>
       </svg>
     </div>
   </div>
@@ -578,11 +583,7 @@
   <div class="news-grid">
     <div class="news-card">
       <div class="card-art">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="200" cy="130" r="140" fill="none" stroke="#f2f1ec" stroke-opacity="0.18"/>
-          <circle cx="200" cy="130" r="90" fill="none" stroke="#f2f1ec" stroke-opacity="0.18"/>
-          <path d="M60 150 L200 138 L235 90 L248 90 L236 138 L300 133 L316 124 L326 127 L314 138 L298 145 L238 150 L218 188 L200 188 L214 152 L60 163 Z" fill="#f2f1ec" fill-opacity="0.85"/>
-        </svg>
+        <img src="images/WITHX Delivers 40th Sentinel.png" alt="WITHX Sentinel MK-IV">
       </div>
       <div class="news-overlay">
         <div class="news-meta">12 JAN 2026 / PROGRAM</div>
@@ -593,25 +594,7 @@
     </div>
     <div class="news-card">
       <div class="card-art">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#f2f1ec" stroke-opacity="0.35" stroke-width="1">
-            <line x1="90" y1="90" x2="200" y2="150"/>
-            <line x1="200" y1="150" x2="310" y2="90"/>
-            <line x1="200" y1="150" x2="200" y2="230"/>
-            <line x1="200" y1="230" x2="120" y2="270"/>
-            <line x1="200" y1="230" x2="280" y2="270"/>
-            <line x1="90" y1="90" x2="90" y2="180"/>
-            <line x1="310" y1="90" x2="310" y2="180"/>
-          </g>
-          <circle cx="200" cy="150" r="14" fill="#f2f1ec"/>
-          <circle cx="90" cy="90" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
-          <circle cx="310" cy="90" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
-          <circle cx="90" cy="180" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
-          <circle cx="310" cy="180" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
-          <circle cx="120" cy="270" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
-          <circle cx="280" cy="270" r="8" fill="#f2f1ec" fill-opacity="0.7"/>
-          <circle cx="200" cy="230" r="10" fill="#f2f1ec" fill-opacity="0.85"/>
-        </svg>
+        <img src="images/AEGIS C2 Achieves NATO STANAG.png" alt="AEGIS C2 Achieves NATO STANAG 4586 Level 5 Interoperability">
       </div>
       <div class="news-overlay">
         <div class="news-meta">08 JAN 2026 / TECHNOLOGY</div>
@@ -622,13 +605,7 @@
     </div>
     <div class="news-card">
       <div class="card-art">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="200" x2="400" y2="200" stroke="#f2f1ec" stroke-opacity="0.18"/>
-          <line x1="0" y1="220" x2="400" y2="220" stroke="#f2f1ec" stroke-opacity="0.12"/>
-          <path d="M110 200 L120 175 L280 175 L295 200 Z" fill="#f2f1ec" fill-opacity="0.85"/>
-          <rect x="150" y="150" width="60" height="28" fill="#f2f1ec" fill-opacity="0.85"/>
-          <line x1="180" y1="150" x2="180" y2="120" stroke="#f2f1ec" stroke-width="2" stroke-opacity="0.85"/>
-        </svg>
+        <img src="images/Marlin USV Completes 90-Day Ocean Patrol.png" alt="Marlin USV Completes 90-Day Autonomous Ocean Patrol">
       </div>
       <div class="news-overlay">
         <div class="news-meta">03 JAN 2026 / MARITIME</div>
