@@ -3,88 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WITHX Defence | Advanced Technologies</title>
+<title>Technology — WITHX Defence | Engineering Intelligence</title>
+<meta name="description" content="WITHX Defence's technology stack — AI, computer vision, embedded systems, robotics, and autonomous intelligence powering next-generation unmanned platforms.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
   :root{
-    --bg:#0a0a0b;
-    --panel:#101113;
-    --ink:#f2f1ec;
-    --muted:#9a988f;
-    --line:rgba(242,241,236,0.14);
-    --accent:#c7a35a;
-    --overlay:rgba(6,7,8,0.62);
+    --bg:#FFFFFF;
+    --panel:#F8FAFC;
+    --ink:#111827;
+    --muted:#4B5563;
+    --line:#E5E7EB;
+    --accent:#8A6D1E;
+    --overlay:rgba(17,24,39,0.55);
+    --card-shadow:0 8px 30px rgba(0,0,0,0.08);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;}
-  a{color:inherit; text-decoration:none;}
-  img{display:block; width:100%; height:100%; object-fit:cover;}
-  .wrap{padding-left:clamp(20px,5vw,64px); padding-right:clamp(20px,5vw,64px);}
+  html,body{background:var(--bg);color:var(--ink);font-family:"Times New Roman",Times,serif;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;width:100%;height:100%;object-fit:cover;}
+  .wrap{padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px);}
 
   .eyebrow{
-    display:flex; align-items:center; gap:14px;
-    font-size:11px; letter-spacing:3px; color:var(--muted); text-transform:uppercase;
+    display:flex;align-items:center;gap:14px;
+    font-size:11px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;
     margin-bottom:26px;
   }
-  .eyebrow .rule{width:34px; height:1px; background:var(--muted); display:inline-block;}
+  .eyebrow .rule{width:34px;height:1px;background:var(--muted);display:inline-block;}
 
   /* ---------- NAV ---------- */
   header{
-    position:fixed; top:0; left:0; width:100%; z-index:70;
-    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    position:fixed;top:0;left:0;width:100%;z-index:70;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
     padding:22px clamp(20px,5vw,64px);
-    font-family:'Space Grotesk',sans-serif; font-weight:600;
-    background:linear-gradient(180deg, rgba(6,7,8,0.6) 0%, rgba(6,7,8,0) 100%);
+    font-family:"Times New Roman",Times,serif;font-weight:600;
+    background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(17,24,39,0.05);
   }
-  header.scrolled{background:var(--bg); border-bottom:1px solid var(--line);}
-  .brand{display:flex; align-items:center; gap:14px;}
-  .brand-logo{height:56px; width:auto; flex-shrink:0;}
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-logo{height:56px;width:auto;flex-shrink:0;}
   .brand-logo img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;opacity:1;visibility:visible;}
-  .footer-brand-logo{height:60px; width:auto; flex-shrink:0;}
+  .footer-brand-logo{height:60px;width:auto;flex-shrink:0;}
   .footer-brand-logo img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;opacity:1;visibility:visible;}
-  @media (max-width:480px){ .brand-logo{height:42px;} }
-  .menu-btn{display:flex; flex-direction:column; gap:6px; cursor:pointer; padding:8px; z-index:110;}
-  .menu-btn span{width:26px; height:1.5px; background:var(--ink); display:block; transition:transform .3s ease, opacity .3s ease;}
+  @media (max-width:480px){.brand-logo{height:42px;}}
+  .menu-btn{display:flex;flex-direction:column;gap:6px;cursor:pointer;padding:8px;z-index:110;}
+  .menu-btn span{width:26px;height:1.5px;background:var(--ink);display:block;transition:transform .3s ease,opacity .3s ease;}
   .menu-btn span:last-child{width:16px;}
-  .menu-btn.open span:first-child{transform:translateY(3.5px) rotate(45deg); width:24px;}
-  .menu-btn.open span:last-child{transform:translateY(-3.5px) rotate(-45deg); width:24px;}
+  .menu-btn.open span:first-child{transform:translateY(3.5px) rotate(45deg);width:24px;}
+  .menu-btn.open span:last-child{transform:translateY(-3.5px) rotate(-45deg);width:24px;}
 
   /* ---------- NAV LINKS + MEGA MENU (desktop) ---------- */
-  .nav-links{display:flex; align-items:center; gap:36px;}
-  .nav-link{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); opacity:.85; transition:opacity .2s;}
-  .nav-link.current{opacity:1; color:var(--accent);}
+  .nav-links{display:flex;align-items:center;gap:36px;}
+  .nav-link{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);opacity:.85;transition:opacity .2s;}
   .nav-link:hover{opacity:1;}
+  .nav-link.active{opacity:1;border-bottom:1px solid var(--ink);padding-bottom:2px;}
   .mega-item{position:relative;}
-  .mega-item > a{font-size:12px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85;}
-  .mega-item:hover > a{opacity:1;}
+  .mega-item>a{font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;color:var(--ink);opacity:.85;}
+  .mega-item:hover>a{opacity:1;}
   .mega-menu{
-    position:fixed; top:96px; left:0; width:100%; background:#0a0a0b; color:var(--ink);
-    padding:50px clamp(20px,5vw,64px); display:grid; grid-template-columns:1.2fr 1fr; gap:80px;
-    opacity:0; visibility:hidden; transform:translateY(-14px);
-    transition:opacity .3s ease, transform .3s ease, visibility .3s ease;
-    z-index:60; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    position:fixed;top:96px;left:0;width:100%;background:#FFFFFF;color:var(--ink);
+    padding:50px clamp(20px,5vw,64px);display:grid;grid-template-columns:1.2fr 1fr;gap:80px;
+    opacity:0;visibility:hidden;transform:translateY(-14px);
+    transition:opacity .3s ease,transform .3s ease,visibility .3s ease;
+    z-index:60;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    box-shadow:0 20px 45px rgba(17,24,39,0.10);
   }
-  .mega-item:hover .mega-menu, .mega-item.active .mega-menu{opacity:1; visibility:visible; transform:translateY(0);}
-  .mega-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:20px; text-transform:uppercase;}
-  .mega-col p{font-size:16px; line-height:1.6; max-width:420px; color:#d8d7d0;}
-  .product-toggle{background:transparent; border:none; color:var(--ink); font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; cursor:pointer; padding:0; transition:all .3s ease;}
-  .product-toggle:hover, .product-toggle.active{color:var(--accent); transform:translateX(6px);}
-  .product-list{display:none; margin-top:12px; padding-left:20px; border-left:1px solid var(--line);}
+  .mega-item:hover .mega-menu,.mega-item.active .mega-menu{opacity:1;visibility:visible;transform:translateY(0);}
+  .mega-col h4{font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:20px;text-transform:uppercase;}
+  .mega-col p{font-size:16px;line-height:1.6;max-width:420px;color:var(--muted);}
+  .product-toggle{background:transparent;border:none;color:var(--ink);font-family:"Times New Roman",Times,serif;font-size:16px;font-weight:600;cursor:pointer;padding:0;transition:all .3s ease;}
+  .product-toggle:hover,.product-toggle.active{color:var(--accent);transform:translateX(6px);}
+  .product-list{display:none;margin-top:12px;padding-left:20px;border-left:1px solid var(--line);}
   .product-list.show{display:block;}
-  .product-list a{display:block; font-size:14px; margin-bottom:10px; color:var(--muted); transition:all .3s ease;}
-  .product-list a:hover{color:var(--ink); transform:translateX(6px);}
-  .nav-touch{padding:11px 24px; font-size:11px; letter-spacing:2px; border:1px solid var(--ink); flex-shrink:0;}
+  .product-list a{display:block;font-size:14px;margin-bottom:10px;color:var(--muted);transition:all .3s ease;}
+  .product-list a:hover{color:var(--ink);transform:translateX(6px);}
+  .nav-touch{padding:11px 24px;font-size:11px;letter-spacing:2px;border:1px solid var(--ink);flex-shrink:0;}
   .nav-touch a{text-decoration:none;}
-  @media (max-width:1000px){ .nav-links, .nav-touch{display:none;} }
-  @media (min-width:1001px){ .menu-btn{display:none;} }
+  @media (max-width:1000px){.nav-links,.nav-touch{display:none;}}
+  @media (min-width:1001px){.menu-btn{display:none;}}
 
   /* ---------- MOBILE NAV DRAWER ---------- */
   .mobile-nav{
-    position:fixed; inset:0; z-index:95; background:#0a0a0b;
-    display:flex; flex-direction:column; justify-content:center;
+    position:fixed;inset:0;z-index:95;background:#FFFFFF;
+    display:flex;flex-direction:column;justify-content:center;
     padding:110px clamp(24px,8vw,64px) 60px;
     transform:translateX(100%);
     transition:transform .45s cubic-bezier(.16,1,.3,1);
@@ -92,255 +95,287 @@
   }
   .mobile-nav.open{transform:translateX(0);}
   .mobile-nav-links a{
-    display:block; font-family:'Space Grotesk',sans-serif; font-weight:600;
-    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
-    padding:16px 0; border-bottom:1px solid var(--line); color:var(--ink);
+    display:block;font-family:"Times New Roman",Times,serif;font-weight:600;
+    font-size:clamp(26px,8vw,38px);text-transform:uppercase;letter-spacing:0.5px;
+    padding:16px 0;border-bottom:1px solid var(--line);color:var(--ink);
   }
+  .mobile-nav-links a.active{color:var(--accent);}
   .mnav-systems{border-bottom:1px solid var(--line);}
   .mnav-systems-toggle{
-    display:flex; align-items:center; justify-content:space-between;
-    font-family:'Space Grotesk',sans-serif; font-weight:600; width:100%;
-    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
-    padding:16px 0; color:var(--ink); background:none; border:none; cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;
+    font-family:"Times New Roman",Times,serif;font-weight:600;width:100%;
+    font-size:clamp(26px,8vw,38px);text-transform:uppercase;letter-spacing:0.5px;
+    padding:16px 0;color:var(--ink);background:none;border:none;cursor:pointer;
   }
-  .mnav-systems-toggle i{font-size:16px; color:var(--muted); transition:transform .3s ease;}
+  .mnav-systems-toggle i{font-size:16px;color:var(--muted);transition:transform .3s ease;}
   .mnav-systems-toggle.open i{transform:rotate(180deg);}
-  .mnav-sub{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .mnav-sub{max-height:0;overflow:hidden;transition:max-height .35s ease;}
   .mnav-sub.show{max-height:220px;}
   .mnav-sub a{
-    display:block; font-size:14px; letter-spacing:1px; color:var(--muted);
-    padding:12px 0 12px 4px; border-top:1px solid var(--line);
+    display:block;font-size:14px;letter-spacing:1px;color:var(--muted);
+    padding:12px 0 12px 4px;border-top:1px solid var(--line);
   }
-  .mnav-cta{margin-top:32px; display:inline-block; padding:16px 30px; border:1px solid var(--ink); font-size:12px; letter-spacing:2px; color:var(--ink);}
-  @media (min-width:1001px){ .mobile-nav{display:none;} }
-
+  .mnav-cta{margin-top:32px;display:inline-block;padding:16px 30px;border:1px solid var(--ink);font-size:12px;letter-spacing:2px;color:var(--ink);}
+  @media (min-width:1001px){.mobile-nav{display:none;}}
   body.nav-open{overflow:hidden;}
 
   /* ---------- DRONE CURSOR ---------- */
   #drone-cursor{
-    position:fixed; top:-25px; left:-25px; width:50px; height:50px;
-    background-size:contain; background-repeat:no-repeat; background-position:center;
-    pointer-events:none; z-index:9999; transition:background-image .2s ease-in-out; will-change:transform, background-image;
+    position:fixed;top:-25px;left:-25px;width:50px;height:50px;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
+    pointer-events:none;z-index:9999;transition:background-image .2s ease-in-out;will-change:transform,background-image;
   }
-  @media (max-width:900px){ #drone-cursor{display:none;} }
-
-  /* ---------- REVEAL ---------- */
-  .reveal, .reveal-left, .reveal-right{opacity:0; transition:opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1);}
-  .reveal{transform:translateY(26px);}
-  .reveal-left{transform:translateX(-30px);}
-  .reveal-right{transform:translateX(30px);}
-  .reveal.visible, .reveal-left.visible, .reveal-right.visible{opacity:1; transform:none;}
+  @media (max-width:900px){#drone-cursor{display:none;}}
 
   /* ---------- HERO ---------- */
   .hero{
-    position:relative; min-height:88vh; width:100%;
-    display:flex; flex-direction:column; justify-content:flex-end;
-    padding-bottom:60px; overflow:hidden;
+    position:relative;min-height:85vh;width:100%;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding-bottom:60px;overflow:hidden;
   }
-  .hero-bg{
-    position:absolute; inset:0; z-index:0;
-    background-image:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url("images/tech-hero.jpg");
-    background-size:cover; background-position:center; background-repeat:no-repeat;
+  .hero-inner{padding-top:180px;width:100%;}
+  .coords{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-bottom:28px;font-size:11px;letter-spacing:3px;color:var(--muted);
+    border-bottom:1px solid var(--line);margin-bottom:36px;
   }
-  .hero-bg video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-1;}
-  .hero-inner{padding-top:180px; width:100%; position:relative; z-index:2;}
-
+  .coords .rule{width:34px;height:1px;background:var(--muted);display:inline-block;margin-right:14px;vertical-align:middle;}
+  .coords-right{text-align:right;color:var(--ink);}
   h1.headline{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:400; text-transform:uppercase; line-height:0.96; letter-spacing:-0.5px;
-    font-size:clamp(38px, 8.4vw, 100px); max-width:1050px;
+    font-weight:400;text-transform:uppercase;line-height:0.96;letter-spacing:-0.5px;
+    font-size:clamp(38px,8.4vw,104px);max-width:1050px;
   }
-  h1.headline .accent{font-style:italic; font-weight:500; text-transform:none; display:block;}
-
-  .hero-text{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-top:38px; flex-wrap:wrap;}
-  .hero-copy{max-width:440px; font-size:16px; line-height:1.75; color:var(--muted);}
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{padding:16px 30px; font-size:13px; letter-spacing:2px; border:1px solid var(--ink); transition:all .25s ease; white-space:nowrap; display:inline-block; font-family:'Inter',sans-serif;}
-  .btn.primary{background:var(--ink); color:var(--bg);}
-  .btn.primary:hover{background:var(--accent); border-color:var(--accent);}
-  .btn.ghost{background:transparent; color:var(--ink);}
-  .btn.ghost:hover{background:rgba(242,241,236,0.08);}
+  h1.headline .accent{font-style:italic;font-weight:500;text-transform:none;display:block;}
+  .hero-text{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:38px;flex-wrap:wrap;}
+  .hero-copy{max-width:440px;font-size:16px;line-height:1.75;color:var(--muted);}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{padding:16px 30px;font-size:13px;letter-spacing:2px;border:1px solid var(--ink);transition:all .25s ease;white-space:nowrap;display:inline-block;}
+  .btn.primary{background:var(--ink);color:#FFFFFF;}
+  .btn.primary:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF;}
+  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.ghost:hover{background:rgba(17,24,39,0.05);}
 
   /* ---------- TICKER ---------- */
   .ticker{
-    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
     padding:18px clamp(20px,5vw,64px);
-    display:flex; gap:40px; align-items:center; flex-wrap:wrap;
-    font-size:12px; letter-spacing:2px; color:var(--muted);
+    display:flex;gap:40px;align-items:center;flex-wrap:wrap;
+    font-size:12px;letter-spacing:2px;color:var(--muted);
   }
   .ticker span.dot{color:var(--accent);}
 
+  /* ---------- SECTIONS ---------- */
   section{padding:120px 0 0;}
-
-  /* ---------- CAP HEAD / SECTION TITLES ---------- */
-  .cap-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px; margin-bottom:56px;}
-  .cap-head h2{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(30px,4.4vw,52px); line-height:1.1; text-transform:uppercase;}
+  .link-arrow{display:inline-block;margin-top:28px;font-size:13px;letter-spacing:2px;border-bottom:1px solid var(--ink);padding-bottom:4px;}
+  .cap-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:56px;}
+  .cap-head h2{font-family:"Times New Roman",Times,serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.1;text-transform:uppercase;}
   .cap-head h2 .fade{color:var(--muted);}
-  .section-copy{font-size:16px; line-height:1.8; color:var(--muted); max-width:560px; margin-top:-30px; margin-bottom:56px;}
-  .section-copy.center{margin-left:auto; margin-right:auto; text-align:center;}
-  .cap-head.center{flex-direction:column; align-items:center; text-align:center;}
+  .doctrine-copy{font-size:16px;line-height:1.8;color:var(--muted);margin-top:26px;max-width:480px;}
 
-  /* ---------- CAPABILITY / DOMAIN GRID ---------- */
-  .domains{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line);}
-  .domains-three{grid-template-columns:repeat(3,1fr);}
+  /* ---------- APPROACH ---------- */
+  .approach-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start;}
+  .approach-wrap h2{font-family:"Times New Roman",Times,serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.12;text-transform:uppercase;}
+  .approach-wrap h2 .fade{color:var(--muted);}
+  .approach-copy{font-size:16px;line-height:1.8;color:var(--muted);margin-top:26px;max-width:480px;}
+  .approach-pillars{margin-top:50px;border-top:1px solid var(--line);}
+  .approach-row{display:flex;gap:22px;padding:26px 4px;border-bottom:1px solid var(--line);}
+  .approach-row .approach-num{font-size:12px;letter-spacing:2px;color:var(--muted);min-width:38px;padding-top:4px;}
+  .approach-row h3{font-size:19px;text-transform:uppercase;font-weight:700;margin-bottom:8px;}
+  .approach-row p{font-size:14px;line-height:1.65;color:var(--muted);max-width:420px;}
+  .approach-visual{position:relative;aspect-ratio:1/1;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,rgba(138,109,30,0.08) 0%,transparent 60%);box-shadow:var(--card-shadow);}
+  .approach-visual svg{width:70%;height:70%;}
+  @media (max-width:900px){.approach-wrap{grid-template-columns:1fr;}.approach-visual{max-width:320px;margin:0 auto;}}
+
+  /* ---------- CORE TECHNOLOGIES GRID ---------- */
+  .domains{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);}
   .domain{
-    padding:44px 30px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
-    min-height:320px; display:flex; flex-direction:column; justify-content:space-between;
+    padding:44px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    min-height:280px;display:flex;flex-direction:column;justify-content:space-between;
     transition:background .3s ease;
   }
-  .domain:hover{background:rgba(242,241,236,0.03);}
-  .domain:last-child{border-right:none;}
-  .domain-tag{font-size:11px; letter-spacing:2px; color:var(--muted); display:flex; justify-content:space-between;}
-  .domain h3{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; margin:26px 0 14px; text-transform:uppercase;}
-  .domain p{font-size:14px; line-height:1.7; color:var(--muted);}
-  .domain .learn{margin-top:24px; font-size:12px; letter-spacing:2px; color:var(--accent);}
-  @media (max-width:900px){ .domains{grid-template-columns:1fr 1fr;} .domains-three{grid-template-columns:1fr 1fr;} }
-  @media (max-width:560px){ .domains{grid-template-columns:1fr;} .domain{border-right:none;} }
+  .domain:hover{background:rgba(17,24,39,0.02);}
+  .domain:nth-child(4n){border-right:none;}
+  .domain-tag{font-size:11px;letter-spacing:2px;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:24px;}
+  .domain h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;margin:0 0 14px;text-transform:uppercase;}
+  .domain p{font-size:13px;line-height:1.7;color:var(--muted);}
+  .domain .domain-icon{font-size:22px;color:var(--accent);margin-bottom:14px;}
+  @media (max-width:1100px){.domains{grid-template-columns:repeat(3,1fr);}.domain:nth-child(4n){border-right:1px solid var(--line);}.domain:nth-child(3n){border-right:none;}}
+  @media (max-width:760px){.domains{grid-template-columns:repeat(2,1fr);}.domain:nth-child(3n){border-right:1px solid var(--line);}.domain:nth-child(2n){border-right:none;}}
+  @media (max-width:500px){.domains{grid-template-columns:1fr;}.domain{border-right:none;}}
 
-  /* ---------- TECH SPLIT (list + visual) ---------- */
-  .tech-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
-  .tech-list{border-top:1px solid var(--line);}
-  .tech-row{display:flex; gap:22px; padding:26px 4px; border-bottom:1px solid var(--line); cursor:default;}
-  .tech-row .tech-num{font-size:12px; letter-spacing:2px; color:var(--muted); min-width:38px; padding-top:4px;}
-  .tech-row h3{font-family:'Space Grotesk',sans-serif; font-size:18px; text-transform:uppercase; font-weight:700; margin-bottom:8px;}
-  .tech-row p{font-size:14px; line-height:1.65; color:var(--muted); max-width:420px;}
-  .tech-visual{position:relative; aspect-ratio:1/1; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 50% 45%, rgba(199,163,90,0.10) 0%, transparent 60%);}
-  .tech-visual svg{width:70%; height:70%;}
-  @media (max-width:900px){ .tech-wrap{grid-template-columns:1fr;} .tech-visual{max-width:320px; margin:0 auto;} }
+  /* ---------- R&D ---------- */
+  .rd-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .rd-text h2{font-family:"Times New Roman",Times,serif;font-weight:700;font-size:clamp(30px,4.4vw,52px);line-height:1.12;text-transform:uppercase;}
+  .rd-text h2 .fade{color:var(--muted);}
+  .rd-text p{font-size:16px;line-height:1.8;color:var(--muted);margin-top:26px;}
+  .rd-cards{display:flex;flex-direction:column;gap:0;}
+  .rd-card{padding:32px 0;border-bottom:1px solid var(--line);}
+  .rd-card:first-child{border-top:1px solid var(--line);}
+  .rd-card-num{font-size:11px;letter-spacing:3px;color:var(--muted);margin-bottom:12px;}
+  .rd-card h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;margin-bottom:10px;}
+  .rd-card p{font-size:14px;line-height:1.65;color:var(--muted);}
+  @media (max-width:900px){.rd-wrap{grid-template-columns:1fr;gap:40px;}}
 
-  /* ---------- PROGRESS METRICS ---------- */
-  .metrics-row{margin-top:70px; display:grid; grid-template-columns:repeat(3,1fr); gap:50px; border-top:1px solid var(--line); padding-top:50px;}
-  .metric-item .metric-label{display:flex; justify-content:space-between; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:12px;}
-  .metric-item .metric-label span:last-child{color:var(--accent); font-family:'Space Grotesk',sans-serif; font-weight:700;}
-  .metric-track{height:2px; background:var(--line); overflow:hidden;}
-  .metric-fill{height:100%; background:var(--accent); width:0%; transition:width 1.4s cubic-bezier(.16,1,.3,1);}
-  @media (max-width:768px){ .metrics-row{grid-template-columns:1fr; gap:34px;} }
-
-  /* ---------- MISSION IMPACT / STAT COUNTERS ---------- */
-  .mission-grid{margin-top:0; border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr);}
-  .mission-grid-three{grid-template-columns:repeat(3,1fr);}
-  .mission-card{padding:46px clamp(16px,3vw,36px); border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .mission-card:last-child{border-right:none;}
-  .mission-num{display:flex; align-items:baseline; gap:4px;}
-  .mission-num .counter{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(32px,4vw,48px); letter-spacing:-1px;}
-  .mission-num .suffix{font-size:20px; color:var(--muted);}
-  .mission-card h4{font-size:14px; text-transform:uppercase; letter-spacing:1px; margin:14px 0 8px;}
-  .mission-card p{font-size:13px; line-height:1.6; color:var(--muted);}
-  @media (max-width:768px){ .mission-grid, .mission-grid-three{grid-template-columns:repeat(2,1fr);} .mission-card:nth-child(2){border-right:none;} }
-
-  /* ---------- DEMO / VIDEO SHOWCASE ---------- */
-  .demo-section{position:relative; min-height:70vh; display:flex; align-items:center; justify-content:center; overflow:hidden; margin-top:0;}
-  .demo-video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
-  .demo-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,7,8,0.55) 0%, rgba(6,7,8,0.85) 100%); z-index:1;}
-  .demo-content{position:relative; z-index:2; text-align:center; padding:0 20px;}
-  .demo-label{font-size:11px; letter-spacing:3px; color:var(--accent); text-transform:uppercase; margin-bottom:24px;}
-  .demo-content h2{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(30px,5.4vw,58px); text-transform:uppercase; line-height:1.08; margin-bottom:40px;}
-  .demo-content h2 .fade{color:var(--muted);}
-
-  /* ---------- SITUATION / R&D CARDS ---------- */
-  .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:10px;}
-  .news-card{position:relative; height:440px; overflow:hidden; background:linear-gradient(155deg,#17181b 0%,#0a0a0b 65%);}
-  .news-card .card-art{position:absolute; inset:0; opacity:.55; transition:opacity .35s ease, transform .5s ease;}
-  .news-card:hover .card-art{opacity:.8; transform:scale(1.04);}
-  .news-overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,10,0.05) 0%, rgba(6,7,8,0.96) 74%); display:flex; flex-direction:column; justify-content:flex-end; padding:30px;}
-  .news-meta{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:14px;}
-  .news-card h3{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; line-height:1.35; text-transform:uppercase; margin-bottom:12px;}
-  .news-card p{font-size:13px; line-height:1.6; color:var(--muted);}
-  @media (max-width:900px){ .news-grid{grid-template-columns:1fr;} }
-
-  /* ---------- ROADMAP TIMELINE ---------- */
-  .future-timeline{position:relative; margin-top:20px;}
-  .future-timeline::before{content:''; position:absolute; left:50%; top:0; bottom:0; width:1px; background:var(--line);}
-  .future-item{display:grid; grid-template-columns:1fr 60px 1fr; align-items:start; margin-bottom:0;}
-  .fi-spacer{}
-  .fi-node{position:relative; display:flex; justify-content:center; padding-top:44px;}
-  .fi-node::after{content:''; width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--bg);}
-  .fi-card{border-top:1px solid var(--line); padding:40px 10px;}
-  .future-item:nth-child(1) .fi-card, .future-item:nth-child(3) .fi-card{text-align:right; padding-right:36px;}
-  .future-item:nth-child(2) .fi-card, .future-item:nth-child(4) .fi-card{padding-left:36px;}
-  .fi-year{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; color:var(--accent); margin-bottom:10px;}
-  .fi-title{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; text-transform:uppercase; margin-bottom:12px;}
-  .fi-desc{font-size:14px; line-height:1.7; color:var(--muted); max-width:380px;}
-  .future-item:nth-child(1) .fi-desc, .future-item:nth-child(3) .fi-desc{margin-left:auto;}
-  @media (max-width:800px){
-    .future-timeline::before{left:14px;}
-    .future-item{grid-template-columns:30px 1fr; }
-    .fi-node{padding-top:40px; justify-content:flex-start;}
-    .future-item:nth-child(2) .fi-spacer, .future-item:nth-child(4) .fi-spacer{display:none;}
-    .future-item .fi-card, .future-item:nth-child(1) .fi-card, .future-item:nth-child(3) .fi-card, .future-item:nth-child(2) .fi-card, .future-item:nth-child(4) .fi-card{text-align:left; padding-left:26px; padding-right:10px;}
-    .future-item:nth-child(1) .fi-desc, .future-item:nth-child(3) .fi-desc{margin-left:0;}
-    .future-item > .fi-node:first-child{order:1;}
+  /* ---------- DEVELOPMENT PROCESS (TIMELINE) ---------- */
+  .timeline{border-top:1px solid var(--line);margin-top:56px;}
+  .timeline-row{
+    display:grid;grid-template-columns:80px 1px 1fr;gap:0;
+    align-items:stretch;position:relative;
   }
+  .tl-step-num{
+    padding:36px 0;display:flex;align-items:flex-start;justify-content:flex-start;
+    font-size:11px;letter-spacing:3px;color:var(--muted);
+  }
+  .tl-connector{
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .tl-connector .tl-dot{
+    width:10px;height:10px;border-radius:50%;background:var(--ink);flex-shrink:0;
+    margin-top:40px;z-index:1;
+  }
+  .tl-connector .tl-line{width:1px;flex:1;background:var(--line);}
+  .timeline-row:last-child .tl-connector .tl-line{display:none;}
+  .tl-content{
+    padding:30px 0 30px 44px;border-bottom:1px solid var(--line);
+  }
+  .timeline-row:last-child .tl-content{border-bottom:none;}
+  .tl-label{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;}
+  .tl-content h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin-bottom:10px;}
+  .tl-content p{font-size:14px;line-height:1.65;color:var(--muted);max-width:560px;}
+  @media (max-width:700px){
+    .timeline-row{grid-template-columns:50px 1px 1fr;}
+    .tl-content{padding-left:24px;}
+  }
+
+  /* ---------- INDUSTRIES ---------- */
+  .industries-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);}
+  .industry-cell{
+    padding:40px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    display:flex;flex-direction:column;gap:14px;
+    transition:background .3s ease;
+  }
+  .industry-cell:hover{background:rgba(17,24,39,0.02);}
+  .industry-cell:nth-child(3n){border-right:none;}
+  .industry-icon{font-size:20px;color:var(--accent);}
+  .industry-cell h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:1px;}
+  .industry-cell p{font-size:13px;line-height:1.65;color:var(--muted);}
+  @media (max-width:760px){.industries-grid{grid-template-columns:repeat(2,1fr);}.industry-cell:nth-child(3n){border-right:1px solid var(--line);}.industry-cell:nth-child(2n){border-right:none;}}
+  @media (max-width:500px){.industries-grid{grid-template-columns:1fr;}.industry-cell{border-right:none;}}
+
+  /* ---------- WHY CHOOSE ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);}
+  .why-card{
+    padding:44px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    transition:background .3s ease;
+  }
+  .why-card:hover{background:rgba(17,24,39,0.02);}
+  .why-card:nth-child(4n){border-right:none;}
+  .why-card-num{font-size:11px;letter-spacing:3px;color:var(--muted);margin-bottom:22px;}
+  .why-card h4{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;margin-bottom:12px;}
+  .why-card p{font-size:13px;line-height:1.65;color:var(--muted);}
+  @media (max-width:1000px){.why-grid{grid-template-columns:repeat(2,1fr);}.why-card:nth-child(4n){border-right:1px solid var(--line);}.why-card:nth-child(2n){border-right:none;}}
+  @media (max-width:500px){.why-grid{grid-template-columns:1fr;}.why-card{border-right:none;}}
+
+  /* ---------- STATISTICS ---------- */
+  .stats-grid{
+    margin-top:0;border-top:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(5,1fr);
+  }
+  .stat{padding:46px clamp(16px,3vw,36px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:"Times New Roman",Times,serif;font-weight:700;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;}
+  .stat .label{margin-top:10px;font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+  @media (max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}.stat:nth-child(2){border-right:none;}}
+  @media (max-width:500px){.stats-grid{grid-template-columns:1fr;}.stat{border-right:none;}}
 
   /* ---------- CTA ---------- */
   .cta{
-    margin-top:130px; padding:110px clamp(20px,5vw,64px);
-    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    margin-top:130px;padding:110px clamp(20px,5vw,64px);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
     text-align:center;
   }
-  .cta h2{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(34px,6vw,64px); text-transform:uppercase; line-height:1.08;}
+  .cta h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,6vw,64px);text-transform:uppercase;line-height:1.08;}
   .cta h2 .fade{color:var(--muted);}
-  .cta .hero-actions{justify-content:center; margin-top:40px;}
+  .cta .hero-actions{justify-content:center;margin-top:40px;}
 
   /* ---------- FOOTER ---------- */
   footer{padding:90px clamp(20px,5vw,64px) 40px;}
-  .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid var(--line);}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line);}
   .foot-brand .brand{margin-bottom:22px;}
-  .foot-brand p{font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:26px;}
-  .foot-contact div{font-size:13px; color:var(--muted); line-height:1.9;}
-  .foot-contact{display:flex; flex-direction:column; gap:16px;}
-  .foot-contact a{display:flex; align-items:center; gap:12px; font-size:14px; color:#d8d7d0; transition:all .3s ease;}
-  .foot-contact a:hover{color:var(--ink); transform:translateX(6px);}
-  .foot-contact i{width:20px; font-size:16px; text-align:center;}
-  .foot-contact .whatsapp{color:#25D366;}
-  .foot-contact .linkedin{color:#4a90e2;}
-  .foot-contact .instagram{color:#e07a9e;}
-  .foot-contact .youtube{color:#e05c5c;}
-  .foot-contact .phone{color:var(--accent);}
-  .foot-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:22px; text-transform:uppercase;}
-  .foot-col a{display:block; font-size:14px; margin-bottom:14px; color:var(--ink);}
+  .foot-brand p{font-size:14px;line-height:1.7;color:var(--muted);max-width:340px;margin-bottom:26px;}
+  .foot-contact div{font-size:13px;color:var(--muted);line-height:1.9;}
+  .foot-contact{display:flex;flex-direction:column;gap:16px;}
+  .foot-contact a{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted);transition:all .3s ease;}
+  .foot-contact a:hover{color:var(--ink);transform:translateX(6px);}
+  .foot-contact i{width:20px;font-size:16px;text-align:center;}
+  .foot-col h4{font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:22px;text-transform:uppercase;}
+  .foot-col a{display:block;font-size:14px;margin-bottom:14px;color:var(--ink);}
   .foot-col a:hover{color:var(--accent);}
-  .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:34px; font-size:11px; letter-spacing:1.5px; color:var(--muted);}
-  .foot-bottom a{margin-left:24px; color:var(--muted);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:34px;font-size:11px;letter-spacing:1.5px;color:var(--muted);}
+  .foot-bottom a{margin-left:24px;color:var(--muted);}
   .foot-bottom a:hover{color:var(--ink);}
-  @media (max-width:900px){ .foot-top{grid-template-columns:1fr 1fr; row-gap:50px;} }
-  @media (max-width:560px){ .foot-top{grid-template-columns:1fr;} .foot-bottom{flex-direction:column; align-items:flex-start;} .foot-bottom a{margin-left:0; margin-right:20px;} }
+  @media (max-width:900px){.foot-top{grid-template-columns:1fr 1fr;row-gap:50px;}}
+  @media (max-width:560px){.foot-top{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;align-items:flex-start;}.foot-bottom a{margin-left:0;margin-right:20px;}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    section{padding-top:80px;}
+    .hero-inner{padding-top:130px;}
+    .coords{flex-direction:column;align-items:flex-start;gap:10px;padding-bottom:20px;margin-bottom:26px;}
+    .coords-right{text-align:left;}
+    .hero-text{flex-direction:column;align-items:flex-start;gap:26px;}
+    .hero-copy{max-width:100%;}
+    .btn{padding:14px 24px;font-size:12px;}
+    .cap-head{align-items:flex-start;flex-direction:column;}
+  }
   @media (max-width:480px){
     header{padding:18px 20px;}
     h1.headline{font-size:clamp(34px,11vw,52px);}
     .cta{padding:70px 20px;}
-    .news-card{height:360px;}
   }
 
   /* ---------- COOKIE BANNER ---------- */
   .cookie-banner{
-    position:fixed; left:20px; right:20px; bottom:20px; z-index:100;
-    max-width:520px; margin:0 auto; background:#111214; border:1px solid var(--line);
-    padding:26px 26px 22px; transform:translateY(140%); transition:transform .5s ease .4s;
+    position:fixed;left:20px;right:20px;bottom:20px;z-index:100;
+    max-width:520px;margin:0 auto;background:#FFFFFF;border:1px solid var(--line);
+    padding:26px 26px 22px;transform:translateY(140%);transition:transform .5s ease .4s;
+    box-shadow:var(--card-shadow);
   }
   .cookie-banner.show{transform:translateY(0);}
-  .cookie-banner p{font-size:14px; line-height:1.7; color:#d8d7d0; margin-bottom:18px;}
-  .cookie-banner a{text-decoration:underline;}
-  .cookie-actions{display:flex; flex-direction:column; gap:10px;}
-  .cookie-actions button{font-family:inherit; font-size:12px; letter-spacing:2px; padding:14px; border:1px solid var(--ink); cursor:pointer; background:transparent; color:var(--ink);}
-  .cookie-actions button.accept{background:var(--ink); color:var(--bg);}
-  .cookie-actions button.manage{border-color:transparent; color:var(--muted); padding:6px;}
+  .cookie-banner p{font-size:14px;line-height:1.7;color:var(--muted);margin-bottom:18px;}
+  .cookie-actions{display:flex;flex-direction:column;gap:10px;}
+  .cookie-actions button{font-family:inherit;font-size:12px;letter-spacing:2px;padding:14px;border:1px solid var(--ink);cursor:pointer;background:transparent;color:var(--ink);}
+  .cookie-actions button.accept{background:var(--ink);color:var(--bg);}
+  .cookie-actions button.manage{border-color:transparent;color:var(--muted);padding:6px;}
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease,transform 0.9s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- CHIP / STATUS ---------- */
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0;}
+  .chip{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:6px 12px;}
+  .status-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-top:6px;}
+  .dot-status{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;}
 </style>
 </head>
 <body>
 
-<header id="header">
+<!-- ===== HEADER ===== -->
+<header>
   <div class="brand">
-    <div class="brand-logo"><img src="images/logo.png" alt="WITHX"></div>
+    <div class="brand-logo">
+      <img src="" alt="WITHX Defence">
+    </div>
   </div>
 
   <div class="nav-links">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="technologies.html" class="nav-link current">Technology</a>
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="technology.html" class="nav-link active">Technology</a></li>
 
     <div class="mega-item">
-      <a>Systems</a>
+      <li><a class="nav-link">System</a></li>
       <div class="mega-menu">
         <div class="mega-col">
           <h4>What We Build</h4>
@@ -349,12 +384,15 @@
         <div class="mega-col">
           <h4>Products</h4>
           <button class="product-toggle" type="button">+ Our Systems</button>
-          <div class="product-list"><a href="drone-surveillance-system.html">Drone Surveillance System</a><a href="drone-recovery-bag.html">Drone Airbag Recovery System</a></div>
+          <div class="product-list">
+            <a href="Drone Survillence system .html">Drone Surveillance System</a>
+            <a href="Drone recovery bag .html">Drone Airbag Recovery System</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <a href="contact.html" class="nav-link">Contact</a>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
   </div>
 
   <div class="nav-touch"><a href="contact.html">Get in Touch</a></div>
@@ -364,14 +402,14 @@
 <!-- ===== MOBILE NAV DRAWER ===== -->
 <nav class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="technologies.html">Technology</a>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="technology.html" class="active">Technology</a></li>
     <div class="mnav-systems">
       <button class="mnav-systems-toggle" id="mnavSystemsToggle" type="button">Systems <i class="fa-solid fa-chevron-down"></i></button>
       <div class="mnav-sub" id="mnavSub">
-        <a href="drone-surveillance-system.html">Drone Surveillance System</a>
-        <a href="drone-recovery-bag.html">Drone Airbag Recovery System</a>
+        <a href="Drone Survillence system .html">Drone Surveillance System</a>
+        <a href="Drone recovery bag .html">Drone Airbag Recovery System</a>
       </div>
     </div>
     <a href="contact.html">Contact</a>
@@ -381,281 +419,430 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" style="padding-top:0;">
-  <div class="hero-bg">
-    <video autoplay muted loop playsinline>
-      <source src="drone.mp4" type="video/mp4">
-    </video>
-  </div>
-
   <div class="wrap hero-inner">
+    <div class="coords">
+      <div><span class="rule"></span>WITHX DEFENCE / TECHNOLOGY</div>
+      <div class="coords-right">ENGINEERING INTELLIGENCE</div>
+    </div>
+
     <h1 class="headline">
-      NEXT GENERATION
-      <span class="accent">autonomy</span>
-      AT THE EDGE
+      THE MIND BEHIND
+      <span class="accent">every mission.</span>
     </h1>
 
     <div class="hero-text">
-      <p class="hero-copy">Sovereign autonomous defence systems engineered at the edge of artificial intelligence, precision hardware, and mission reliability.</p>
+      <p class="hero-copy">WITHX Defence engineers the intelligence that powers autonomous platforms — from real-time AI tracking and computer vision to embedded systems and multi-domain command architectures.</p>
       <div class="hero-actions">
-        <a href="#overview" class="btn primary">Explore Technology</a>
-        <a href="#ai-tracking" class="btn ghost">Our Systems</a>
+        <a href="#core-technologies" class="btn primary">Explore Technologies</a>
+        <a href="contact.html" class="btn ghost">Request a Technical Brief</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- TICKER -->
 <div class="ticker">
-  <span><span class="dot">●</span>&nbsp; SUB-100MS THREAT RESPONSE</span>
-  <span><span class="dot">●</span>&nbsp; 98% OBJECT DETECTION ACCURACY</span>
-  <span><span class="dot">●</span>&nbsp; EDGE INTELLIGENCE, NO CLOUD SYNC</span>
+  <span><span class="dot">●</span> AI-DRIVEN AUTONOMY</span>
+  <span><span class="dot">●</span> REAL-TIME COMPUTER VISION</span>
+  <span><span class="dot">●</span> MULTI-DOMAIN INTEGRATION</span>
+  <span><span class="dot">●</span> FIELD-READY ENGINEERING</span>
 </div>
 
-<!-- ===== OVERVIEW / CORE TECHNOLOGY SYSTEMS ===== -->
-<section class="wrap" id="overview">
-  <div class="eyebrow"><span class="rule"></span>01 / CAPABILITIES<span class="rule"></span></div>
+<!-- ===== OUR TECHNOLOGY APPROACH ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span>OUR TECHNOLOGY</div>
+  <div class="approach-wrap">
+    <div>
+      <h2>SYSTEMS THAT SEE.<br><span class="fade">THINK. ACT.</span></h2>
+      <p class="approach-copy">Our technology philosophy is rooted in operational necessity. Every algorithm, every chip, every line of firmware is designed to reduce cognitive load on the operator and expand the decision envelope in contested environments.</p>
+      <a href="contact.html" class="link-arrow">DISCUSS A REQUIREMENT →</a>
+    </div>
+    <div class="approach-pillars">
+      <div class="approach-row reveal">
+        <div class="approach-num">01</div>
+        <div>
+          <h3>Intelligence First</h3>
+          <p>Every system is architected around on-board AI inference — enabling autonomous operation without dependence on persistent connectivity.</p>
+        </div>
+      </div>
+      <div class="approach-row reveal">
+        <div class="approach-num">02</div>
+        <div>
+          <h3>Field-Hardened Design</h3>
+          <p>Technology proven under operational conditions — not laboratory benchmarks. Engineered for reliability in degraded, contested, and austere environments.</p>
+        </div>
+      </div>
+      <div class="approach-row reveal">
+        <div class="approach-num">03</div>
+        <div>
+          <h3>Modular Architecture</h3>
+          <p>Open, interoperable subsystems designed for rapid integration across platforms and command frameworks including STANAG 4586.</p>
+        </div>
+      </div>
+      <div class="approach-row reveal">
+        <div class="approach-num">04</div>
+        <div>
+          <h3>Continuous Improvement</h3>
+          <p>Feedback loops from real-world deployments feed directly into firmware and algorithm updates — the system becomes more effective with every mission.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORE TECHNOLOGIES ===== -->
+<section class="wrap" id="core-technologies">
+  <div class="eyebrow"><span class="rule"></span>CORE TECHNOLOGIES</div>
   <div class="cap-head">
-    <h2>CORE TECHNOLOGY<br><span class="fade">SYSTEMS.</span></h2>
+    <h2>ELEVEN DISCIPLINES.<br><span class="fade">ONE MISSION STACK.</span></h2>
   </div>
-  <p class="section-copy" style="margin-top:-40px;">Four pillars of autonomous defence intelligence, engineered for precision in the most demanding operational environments.</p>
 
-  <div class="domains reveal">
-    <div class="domain">
-      <div class="domain-tag"><span>SYSTEM 01/04</span><span>TRACKING</span></div>
+  <div class="domains">
+    <div class="domain reveal">
       <div>
-        <h3>AI Tracking</h3>
-        <p>Autonomous multi-target tracking with real-time motion prediction and sub-100ms threat response latency.</p>
+        <div class="domain-tag"><span>01 / 11</span><span>AI</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Artificial Intelligence</h3>
+        <p>On-board neural inference engines powering autonomous target detection, classification, and decision support at the tactical edge — no cloud dependency required.</p>
       </div>
-      <a href="#ai-tracking" class="learn">LEARN MORE →</a>
+      <div class="status-tag"><span class="dot-status"></span>Active R&amp;D</div>
     </div>
-    <div class="domain">
-      <div class="domain-tag"><span>SYSTEM 02/04</span><span>VISION</span></div>
+    <div class="domain reveal">
       <div>
-        <h3>Computer Vision</h3>
-        <p>Deep-learning inference across thermal, optical, and radar modalities with 98% object detection accuracy.</p>
+        <div class="domain-tag"><span>02 / 11</span><span>IOT</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <h3>Internet of Things</h3>
+        <p>Distributed sensor networks and real-time data pipelines connecting unmanned platforms, ground stations, and command nodes into a single operational picture.</p>
       </div>
-      <a href="#computer-vision" class="learn">LEARN MORE →</a>
+      <div class="status-tag"><span class="dot-status"></span>Integrated</div>
     </div>
-    <div class="domain">
-      <div class="domain-tag"><span>SYSTEM 03/04</span><span>SWARM</span></div>
+    <div class="domain reveal">
       <div>
-        <h3>Swarm Intelligence</h3>
-        <p>Distributed multi-agent coordination enabling synchronized autonomous missions across contested airspace.</p>
+        <div class="domain-tag"><span>03 / 11</span><span>EMBEDDED</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>Embedded Systems</h3>
+        <p>Custom firmware and real-time operating systems purpose-built for low-latency, high-reliability control of unmanned aerial and surface platforms.</p>
       </div>
-      <a href="#features" class="learn">LEARN MORE →</a>
+      <div class="status-tag"><span class="dot-status"></span>Production Ready</div>
     </div>
-    <div class="domain">
-      <div class="domain-tag"><span>SYSTEM 04/04</span><span>RECOVERY</span></div>
+    <div class="domain reveal">
       <div>
-        <h3>Airbag Recovery</h3>
-        <p>Rapid-deployment airbag system enabling controlled asset recovery from catastrophic failure scenarios.</p>
+        <div class="domain-tag"><span>04 / 11</span><span>ROBOTICS</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-robot"></i></div>
+        <h3>Robotics</h3>
+        <p>Autonomous navigation, obstacle avoidance, and payload management systems enabling precise, repeatable mission execution without operator intervention.</p>
       </div>
-      <a href="drone-recovery-bag.html" class="learn">LEARN MORE →</a>
+      <div class="status-tag"><span class="dot-status"></span>Active R&amp;D</div>
     </div>
-  </div>
-</section>
-
-<!-- ===== AI TRACKING SYSTEM ===== -->
-<section class="wrap" id="ai-tracking">
-  <div class="eyebrow"><span class="rule"></span>02 / AI TRACKING SYSTEM<span class="rule"></span></div>
-  <div class="cap-head">
-    <h2>PERSISTENT TARGET<br><span class="fade">ACQUISITION.</span></h2>
-  </div>
-  <p class="section-copy" style="margin-top:-40px;">Persistent autonomous target acquisition driven by a proprietary neural prediction engine, operating at the edge in GPS-denied environments.</p>
-
-  <div class="tech-wrap">
-    <div class="tech-list reveal-left">
-      <div class="tech-row">
-        <div class="tech-num">01</div>
-        <div><h3>Autonomous Target Following</h3><p>The system locks and follows designated targets without operator input, adjusting flight path in real time.</p></div>
-      </div>
-      <div class="tech-row">
-        <div class="tech-num">02</div>
-        <div><h3>Motion Prediction &amp; Trajectory Modelling</h3><p>Neural forecasting anticipates target movement, maintaining lock through occlusion and erratic manoeuvres.</p></div>
-      </div>
-      <div class="tech-row">
-        <div class="tech-num">03</div>
-        <div><h3>Multi-Class Threat Detection</h3><p>Simultaneous classification of personnel, vehicles, and aerial objects across mixed operational terrain.</p></div>
-      </div>
-      <div class="tech-row">
-        <div class="tech-num">04</div>
-        <div><h3>GPS Synchronization &amp; Dead Reckoning</h3><p>Inertial dead-reckoning preserves tracking accuracy through GPS-denied and jammed corridors.</p></div>
-      </div>
-    </div>
-
-    <div class="tech-visual reveal-right">
-      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="150" cy="150" r="130" fill="none" stroke="#f2f1ec" stroke-opacity="0.15"/>
-        <circle cx="150" cy="150" r="90" fill="none" stroke="#f2f1ec" stroke-opacity="0.15"/>
-        <circle cx="150" cy="150" r="50" fill="none" stroke="#c7a35a" stroke-opacity="0.6"/>
-        <path d="M40 160 L150 148 L180 100 L192 100 L182 148 L250 143 L262 135 L272 138 L260 150 L245 156 L184 162 L165 198 L148 198 L162 164 L40 172 Z" fill="#f2f1ec" fill-opacity="0.9"/>
-      </svg>
-    </div>
-  </div>
-
-  <div class="metrics-row reveal">
-    <div class="metric-item">
-      <div class="metric-label"><span>TARGET ACCURACY</span><span>99%</span></div>
-      <div class="metric-track"><div class="metric-fill" data-width="99"></div></div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-label"><span>THREAT DETECTION</span><span>95%</span></div>
-      <div class="metric-track"><div class="metric-fill" data-width="95"></div></div>
-    </div>
-    <div class="metric-item">
-      <div class="metric-label"><span>RESPONSE TIME</span><span>97%</span></div>
-      <div class="metric-track"><div class="metric-fill" data-width="97"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== COMPUTER VISION ===== -->
-<section class="wrap" id="computer-vision">
-  <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>03 / COMPUTER VISION<span class="rule"></span></div>
-  <div class="cap-head center">
-    <h2>MULTI-MODAL<br><span class="fade">SENSOR FUSION.</span></h2>
-  </div>
-  <p class="section-copy center" style="margin-top:-40px;">Multi-modal sensor fusion powering battlefield awareness at machine speed, far beyond human perception limits.</p>
-
-  <div class="mission-grid mission-grid-three reveal">
-    <div class="mission-card">
-      <div class="mission-num"><span class="counter" data-target="98">0</span><span class="suffix">%</span></div>
-      <h4>Object Detection Rate</h4>
-      <p>Consistent detection across thermal, optical, and radar feeds in cluttered environments.</p>
-    </div>
-    <div class="mission-card">
-      <div class="mission-num"><span class="counter" data-target="96">0</span><span class="suffix">%</span></div>
-      <h4>Thermal Analysis Accuracy</h4>
-      <p>Uncooled LWIR imaging resolves heat signatures through smoke, fog, and total darkness.</p>
-    </div>
-    <div class="mission-card">
-      <div class="mission-num"><span class="counter" data-target="99">0</span><span class="suffix">%</span></div>
-      <h4>Recognition Accuracy</h4>
-      <p>Deep-learning classification distinguishes friend, foe, and civilian signatures reliably.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== INTEGRATED SENSOR ARCHITECTURE ===== -->
-<section class="wrap" id="features">
-  <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>04 / SUBSYSTEMS<span class="rule"></span></div>
-  <div class="cap-head center">
-    <h2>INTEGRATED SENSOR<br><span class="fade">ARCHITECTURE.</span></h2>
-  </div>
-
-  <div class="domains domains-three reveal">
-    <div class="domain">
-      <div class="domain-tag"><span>SUBSYSTEM 01/03</span><span>THERMAL</span></div>
+    <div class="domain reveal">
       <div>
-        <h3>Thermal Camera</h3>
-        <p>640×512 uncooled LWIR sensor delivering 30fps imagery in zero-light, smoke, and adverse weather conditions.</p>
+        <div class="domain-tag"><span>05 / 11</span><span>AUTOMATION</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>Automation</h3>
+        <p>Intelligent mission workflow automation — from pre-flight checks and route planning to post-mission data processing and after-action reporting.</p>
       </div>
+      <div class="status-tag"><span class="dot-status"></span>Integrated</div>
     </div>
-    <div class="domain">
-      <div class="domain-tag"><span>SUBSYSTEM 02/03</span><span>NIGHT VISION</span></div>
+    <div class="domain reveal">
       <div>
-        <h3>Night Vision</h3>
-        <p>Gen-IV image intensification with 12-bit digital output — detects heat signatures at 800m in total darkness.</p>
+        <div class="domain-tag"><span>06 / 11</span><span>CLOUD</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-cloud"></i></div>
+        <h3>Cloud Computing</h3>
+        <p>Sovereign, air-gapped cloud infrastructure for mission data storage, fleet management, and long-range analytics — deployable on-premise or in hardened facilities.</p>
       </div>
+      <div class="status-tag"><span class="dot-status"></span>Architecture Defined</div>
     </div>
-    <div class="domain">
-      <div class="domain-tag"><span>SUBSYSTEM 03/03</span><span>NAVIGATION</span></div>
+    <div class="domain reveal">
       <div>
-        <h3>GPS Navigation</h3>
-        <p>Dual-band L1/L5 GNSS with inertial dead-reckoning maintains 10cm accuracy in signal-denied corridors.</p>
+        <div class="domain-tag"><span>07 / 11</span><span>ANALYTICS</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Data Analytics</h3>
+        <p>Structured intelligence extraction from ISR data streams — pattern recognition, anomaly detection, and trend analysis supporting command decision cycles.</p>
       </div>
+      <div class="status-tag"><span class="dot-status"></span>Active R&amp;D</div>
     </div>
-  </div>
-</section>
-
-<!-- ===== VIDEO SHOWCASE ===== -->
-<section class="demo-section" id="video-showcase" style="padding:0; margin-top:120px;">
-  <video class="demo-video" autoplay muted loop playsinline>
-    <source src="seevideo.mp4" type="video/mp4">
-  </video>
-  <div class="demo-overlay"></div>
-  <div class="demo-content reveal">
-    <div class="demo-label">// Live Demonstration</div>
-    <h2>SEE THE <span class="fade">TECHNOLOGY</span><br>IN ACTION</h2>
-    <a href="#" class="btn primary">Watch Full Demo</a>
-  </div>
-</section>
-
-<!-- ===== ENGINEERING FRONTIERS (R&D) ===== -->
-<section class="wrap" id="rnd">
-  <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>05 / RESEARCH &amp; DEVELOPMENT<span class="rule"></span></div>
-  <div class="cap-head center">
-    <h2>ENGINEERING<br><span class="fade">FRONTIERS.</span></h2>
-  </div>
-  <p class="section-copy center" style="margin-top:-40px;">Three active research programmes pushing the boundaries of autonomous defence capability.</p>
-
-  <div class="news-grid reveal">
-    <div class="news-card">
-      <div class="card-art"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&q=80" alt="Machine Learning"></div>
-      <div class="news-overlay">
-        <div class="news-meta">PROGRAMME 01</div>
+    <div class="domain reveal">
+      <div>
+        <div class="domain-tag"><span>08 / 11</span><span>ML</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-atom"></i></div>
         <h3>Machine Learning</h3>
-        <p>Continual learning architectures that refine target classification from operational encounters without cloud sync — pure edge intelligence.</p>
+        <p>Adaptive learning models trained on mission-specific datasets — continuously improving target identification accuracy and threat classification confidence.</p>
       </div>
+      <div class="status-tag"><span class="dot-status"></span>Active R&amp;D</div>
     </div>
-    <div class="news-card">
-      <div class="card-art"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80" alt="Sensor Fusion"></div>
-      <div class="news-overlay">
-        <div class="news-meta">PROGRAMME 02</div>
-        <h3>Sensor Fusion</h3>
-        <p>Bayesian multi-sensor fusion pipelines merge radar, thermal, and optical streams into a unified 4D environment model in real time.</p>
+    <div class="domain reveal">
+      <div>
+        <div class="domain-tag"><span>09 / 11</span><span>CV</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-eye"></i></div>
+        <h3>Computer Vision</h3>
+        <p>Multi-spectral imaging pipelines capable of day and night object detection, tracking, and classification at operationally relevant ranges and speeds.</p>
       </div>
+      <div class="status-tag"><span class="dot-status"></span>Production Ready</div>
     </div>
-    <div class="news-card">
-      <div class="card-art"><img src="https://images.unsplash.com/photo-1561736778-92e52a7769ef?w=700&q=80" alt="Autonomous Systems"></div>
-      <div class="news-overlay">
-        <div class="news-meta">PROGRAMME 03</div>
-        <h3>Autonomous Systems</h3>
-        <p>Formal verification of autonomy stacks ensures provably safe behaviour boundaries even under adversarial environmental perturbations.</p>
+    <div class="domain reveal">
+      <div>
+        <div class="domain-tag"><span>10 / 11</span><span>DIGITAL TWIN</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-clone"></i></div>
+        <h3>Digital Twin</h3>
+        <p>High-fidelity virtual replicas of physical platforms enabling pre-deployment simulation, predictive maintenance, and mission rehearsal without hardware risk.</p>
+      </div>
+      <div class="status-tag"><span class="dot-status"></span>Research Phase</div>
+    </div>
+    <div class="domain reveal">
+      <div>
+        <div class="domain-tag"><span>11 / 11</span><span>SMART MFG</span></div>
+        <div class="domain-icon"><i class="fa-solid fa-industry"></i></div>
+        <h3>Smart Manufacturing</h3>
+        <p>Sensor-integrated production processes with real-time quality monitoring — ensuring hardware consistency and reducing defect rates across platform builds.</p>
+      </div>
+      <div class="status-tag"><span class="dot-status"></span>Implemented</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH & DEVELOPMENT ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span>RESEARCH &amp; DEVELOPMENT</div>
+  <div class="rd-wrap">
+    <div class="rd-text">
+      <h2>WHERE DOCTRINE MEETS<br><span class="fade">ENGINEERING.</span></h2>
+      <p>WITHX Defence's R&amp;D programme is structured around operational problem sets — not technology trends. We embed engineers with operational advisors to ensure every research programme solves a real problem in the field.</p>
+      <p style="margin-top:18px;">Our iterative prototype-to-field cycle compresses the traditional development timeline from years to months. Hardware is tested in realistic conditions early, and feedback loops are short.</p>
+      <a href="contact.html" class="link-arrow">PARTNER WITH OUR R&amp;D TEAM →</a>
+    </div>
+    <div class="rd-cards">
+      <div class="rd-card reveal">
+        <div class="rd-card-num">PHASE 01</div>
+        <h4>Operational Research</h4>
+        <p>Identifying genuine capability gaps through direct engagement with end-users and analysis of operational after-action reports across allied partner nations.</p>
+      </div>
+      <div class="rd-card reveal">
+        <div class="rd-card-num">PHASE 02</div>
+        <h4>Concept Engineering</h4>
+        <p>Rapid concept prototyping — building minimum viable hardware to validate the core technical approach before committing resources to full development cycles.</p>
+      </div>
+      <div class="rd-card reveal">
+        <div class="rd-card-num">PHASE 03</div>
+        <h4>Integration Testing</h4>
+        <p>Rigorous subsystem and full-system integration testing under representative conditions, including electronic warfare environments and communications-denied scenarios.</p>
+      </div>
+      <div class="rd-card reveal">
+        <div class="rd-card-num">PHASE 04</div>
+        <h4>Field Validation</h4>
+        <p>Live operational trials with partner units — ensuring performance against real mission requirements before any system transitions to production readiness.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FUTURE INNOVATIONS / ROADMAP ===== -->
-<section class="wrap" id="future">
-  <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>06 / ROADMAP<span class="rule"></span></div>
-  <div class="cap-head center">
-    <h2>FUTURE<br><span class="fade">INNOVATIONS.</span></h2>
+<!-- ===== DEVELOPMENT PROCESS ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span>DEVELOPMENT PROCESS</div>
+  <div class="cap-head">
+    <h2>FROM CONCEPT<br><span class="fade">TO FIELD.</span></h2>
   </div>
-  <p class="section-copy center" style="margin-top:-40px;">A strategic technology horizon built to redefine the frontier of autonomous defence.</p>
 
-  <div class="future-timeline">
-    <div class="future-item">
-      <div class="fi-card reveal-left">
-        <div class="fi-year">2026</div>
-        <div class="fi-title">AI Tracking V2</div>
-        <p class="fi-desc">Neural target prediction extended to simultaneous 64-target lock with predictive trajectory modelling over 10-second horizons.</p>
-      </div>
-      <div class="fi-node"></div><div class="fi-spacer"></div>
-    </div>
-    <div class="future-item">
-      <div class="fi-spacer"></div><div class="fi-node"></div>
-      <div class="fi-card reveal-right">
-        <div class="fi-year">2027</div>
-        <div class="fi-title">Swarm Communication</div>
-        <p class="fi-desc">Encrypted mesh networking enabling real-time swarm coordination across 5km dispersal with sub-10ms inter-unit latency.</p>
+  <div class="timeline">
+    <div class="timeline-row">
+      <div class="tl-step-num">01</div>
+      <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content reveal">
+        <div class="tl-label">Stage One</div>
+        <h3>Research</h3>
+        <p>Deep immersion in the operational problem space — reviewing doctrinal requirements, engaging end-users, and mapping the adversarial and technical landscape before any engineering begins.</p>
       </div>
     </div>
-    <div class="future-item">
-      <div class="fi-card reveal-left">
-        <div class="fi-year">2028</div>
-        <div class="fi-title">Autonomous Defence Platform</div>
-        <p class="fi-desc">Fully autonomous platform capable of independent theatre-level operations — mission planning to execution without human input.</p>
+    <div class="timeline-row">
+      <div class="tl-step-num">02</div>
+      <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content reveal">
+        <div class="tl-label">Stage Two</div>
+        <h3>Planning</h3>
+        <p>System architecture definition, requirements allocation, risk assessment, and programme scheduling. Every dependency is mapped before any component is specified.</p>
       </div>
-      <div class="fi-node"></div><div class="fi-spacer"></div>
     </div>
-    <div class="future-item">
-      <div class="fi-spacer"></div><div class="fi-node"></div>
-      <div class="fi-card reveal-right">
-        <div class="fi-year">2030</div>
-        <div class="fi-title">Complete Mission Intelligence</div>
-        <p class="fi-desc">Full-spectrum cognitive autonomy — strategic planning, real-time adaptation, and post-mission self-debriefing embedded at the unit level.</p>
+    <div class="timeline-row">
+      <div class="tl-step-num">03</div>
+      <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content reveal">
+        <div class="tl-label">Stage Three</div>
+        <h3>Design</h3>
+        <p>Hardware schematics, firmware architecture, and algorithm design — reviewed against operational requirements at every iteration with operational advisors embedded in the design process.</p>
       </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-step-num">04</div>
+      <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content reveal">
+        <div class="tl-label">Stage Four</div>
+        <h3>Development</h3>
+        <p>Agile hardware and software build cycles with continuous integration testing. Prototype builds are completed rapidly and exposed to real conditions as early as possible.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-step-num">05</div>
+      <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content reveal">
+        <div class="tl-label">Stage Five</div>
+        <h3>Testing</h3>
+        <p>Multi-phase testing programme covering unit, integration, and system-level qualification — including electronic warfare, communications-denied, and extreme environmental conditions.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-step-num">06</div>
+      <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content reveal">
+        <div class="tl-label">Stage Six</div>
+        <h3>Deployment</h3>
+        <p>Controlled initial operational release with embedded support. Operator training, technical documentation, and first-unit logistics are coordinated ahead of fielding.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="tl-step-num">07</div>
+      <div class="tl-connector"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-content reveal">
+        <div class="tl-label">Stage Seven</div>
+        <h3>Continuous Improvement</h3>
+        <p>Mission data and operator feedback feed directly into the next firmware and algorithm iteration. Systems grow more capable with every deployment cycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INDUSTRIES WE SERVE ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span>INDUSTRIES WE SERVE</div>
+  <div class="cap-head">
+    <h2>TECHNOLOGY BUILT FOR<br><span class="fade">EVERY DOMAIN.</span></h2>
+  </div>
+
+  <div class="industries-grid">
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h4>Defence &amp; Security</h4>
+      <p>Autonomous surveillance, border monitoring, force protection, and intelligence collection for military and security organisations operating in high-risk environments.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-industry"></i></div>
+      <h4>Manufacturing</h4>
+      <p>Facility inspection, inventory monitoring, and smart production line oversight — reducing downtime and improving throughput across industrial operations.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-microchip"></i></div>
+      <h4>Smart Industry</h4>
+      <p>Connected, sensor-driven industrial environments leveraging autonomous platforms for real-time monitoring, predictive maintenance, and process optimisation.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-seedling"></i></div>
+      <h4>Agriculture</h4>
+      <p>Precision crop monitoring, soil analysis, and irrigation management using multi-spectral aerial imaging — maximising yield while reducing resource consumption.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+      <h4>Healthcare</h4>
+      <p>Rapid medical supply delivery, emergency aerial response, and remote facility monitoring for healthcare organisations operating in complex or disaster-affected environments.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <h4>Education &amp; Research</h4>
+      <p>Platform access, data pipelines, and technical collaboration programmes for academic institutions advancing unmanned systems and autonomous intelligence research.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-car"></i></div>
+      <h4>Automotive</h4>
+      <p>Facility surveillance, autonomous logistics within manufacturing campuses, and R&amp;D platform access for automotive organisations developing next-generation mobility systems.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h4>Energy</h4>
+      <p>Infrastructure inspection for power lines, pipelines, and offshore installations — reducing human exposure to hazardous environments while improving inspection frequency.</p>
+    </div>
+    <div class="industry-cell reveal">
+      <div class="industry-icon"><i class="fa-solid fa-truck"></i></div>
+      <h4>Logistics</h4>
+      <p>Autonomous last-mile delivery, warehouse inventory management, and supply chain visibility solutions for logistics operators demanding precision and efficiency at scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE OUR TECHNOLOGY ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span>WHY CHOOSE OUR TECHNOLOGY</div>
+  <div class="cap-head">
+    <h2>ENGINEERED FOR<br><span class="fade">DEMANDING ENVIRONMENTS.</span></h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-card-num">01</div>
+      <h4>Scalable</h4>
+      <p>Architecture designed to scale from single-platform deployments to multi-domain fleet operations without requiring a fundamental redesign of command or data infrastructure.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">02</div>
+      <h4>Secure</h4>
+      <p>End-to-end encrypted communications, sovereign data handling, and hardware security modules — meeting the security requirements of allied defence and critical national infrastructure.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">03</div>
+      <h4>Cost Effective</h4>
+      <p>Focused engineering avoids unnecessary complexity. Every component earns its place — resulting in systems that are competitively priced without compromising operational performance.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">04</div>
+      <h4>Reliable</h4>
+      <p>Field-hardened through extensive testing under representative conditions. Failure modes are identified and resolved in the laboratory — not on the mission.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">05</div>
+      <h4>Future Ready</h4>
+      <p>Open architectures and modular software stacks allow rapid integration of emerging capabilities — ensuring platforms remain operationally relevant as the threat environment evolves.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">06</div>
+      <h4>Industry Standard</h4>
+      <p>Full compliance with NATO STANAG 4586 and allied interoperability frameworks — ensuring seamless integration into coalition command and control environments.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">07</div>
+      <h4>Fast Deployment</h4>
+      <p>Rapid integration pathways and pre-certified configuration profiles compress fielding timelines — from programme initiation to operational capability in months, not years.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">08</div>
+      <h4>Continuous Support</h4>
+      <p>Dedicated technical support, firmware update pipelines, and embedded logistics assistance throughout the operational life of every platform we deliver.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TECHNOLOGY STATISTICS ===== -->
+<section class="wrap">
+  <div class="eyebrow"><span class="rule"></span>TECHNOLOGY BY THE NUMBERS</div>
+  <div class="cap-head">
+    <h2>PERFORMANCE MEASURED.<br><span class="fade">DELIVERED.</span></h2>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="120">0</span>+</div>
+      <div class="label">Projects Delivered</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="11">0</span></div>
+      <div class="label">Core Technologies</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="8000">0</span>+</div>
+      <div class="label">Research Hours</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="40">0</span>+</div>
+      <div class="label">Partner Organisations</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="98">0</span>%</div>
+      <div class="label">Innovation Score</div>
     </div>
   </div>
 </section>
@@ -663,10 +850,11 @@
 <!-- ===== CTA ===== -->
 <section class="cta">
   <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>00 / ENGAGE<span class="rule"></span></div>
-  <h2>SOVEREIGN FORCE. <span class="fade">DELIVERED.</span></h2>
+  <h2>INTELLIGENCE FOR<br><span class="fade">YOUR MISSION.</span></h2>
+  <p style="color:var(--muted);font-size:16px;line-height:1.7;max-width:500px;margin:24px auto 0;">Talk to our engineering team about how WITHX Defence technology can solve your operational requirements.</p>
   <div class="hero-actions">
-    <a href="contact.html" class="btn primary">Schedule a Briefing</a>
-    <a href="contact.html" class="btn ghost">Join the Mission</a>
+    <a href="contact.html" class="btn primary">Request a Technical Brief</a>
+    <a href="about.html" class="btn ghost">About WITHX Defence</a>
   </div>
 </section>
 
@@ -675,11 +863,12 @@
   <div class="foot-top">
     <div class="foot-brand">
       <div class="brand">
-        <div class="footer-brand-logo"><img src="images/logo.png" alt="WITHX Defence"></div>
+        <div class="footer-brand-logo">
+          <img src="" alt="WITHX Defence">
+        </div>
       </div>
       <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
       <div class="foot-contact">
-
       </div>
     </div>
 
@@ -687,55 +876,75 @@
       <h4>Navigate</h4>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="technologies.html">Technology</a>
-      <a href="technologies.html#overview">System</a>
+      <a href="technology.html">Technology</a>
       <a href="contact.html">Contact</a>
     </div>
 
     <div class="foot-col">
       <h4>Systems</h4>
-      <a href="drone-surveillance-system.html">Drone Surveillance System</a>
-      <a href="drone-recovery-bag.html">Drone Airbag Recovery System</a>
+      <a href="Drone Survillence system .html">Drone Surveillance System</a>
+      <a href="Drone recovery bag .html">Drone Airbag Recovery System</a>
     </div>
 
     <div class="foot-col">
-      <h4>Classified Info</h4>
-      <a href="#">Compliance</a>
-      <a href="#">Export Controls</a>
-      <a href="#">Supplier Portal</a>
+      <h4>Contact</h4>
+      <a href="contact.html">Get in Touch</a>
+      <a href="contact.html">Request a Brief</a>
     </div>
   </div>
 
   <div class="foot-bottom">
     <div>© 2026 WITHX DEFENCE CORP. ALL RIGHTS RESERVED.</div>
-    <div>
-      <a href="#">CLASSIFIED HANDLING NOTICE</a>
-      <a href="#">PRIVACY POLICY</a>
-      <a href="#">TERMS OF ENGAGEMENT</a>
-    </div>
   </div>
 </footer>
 
+<!-- ===== COOKIE BANNER ===== -->
 <div class="cookie-banner" id="cookieBanner">
-  <p>We use cookies to enhance your development experience and keep your data secure. <a href="#">Privacy Policy</a> · <a href="#">Cookie Policy</a></p>
+  <p>We use cookies to improve your experience on this site. By continuing to browse, you agree to our use of cookies in accordance with our privacy policy.</p>
   <div class="cookie-actions">
-    <button class="accept" id="cookieAccept">OK</button>
-    <button class="manage">Manage preferences</button>
+    <button class="accept" id="cookieAccept">Accept All Cookies</button>
+    <button class="manage" id="cookieManage">Manage Preferences</button>
   </div>
 </div>
 
 <script>
-  /* COOKIE BANNER */
-  setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'), 600);
-  document.getElementById('cookieAccept').addEventListener('click', ()=>{
-    document.getElementById('cookieBanner').classList.remove('show');
-  });
+(function(){
+  /* ---- COUNTER ANIMATION ---- */
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(counter => counterObserver.observe(counter));
 
-  /* NAVBAR ON SCROLL */
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', ()=>{ header.classList.toggle('scrolled', window.scrollY > 60); });
+  function animateCounter(el){
+    const target = +el.dataset.target;
+    let count = 0;
+    const update = () => {
+      count++;
+      el.innerText = count.toLocaleString('en-US');
+      if(count < target) requestAnimationFrame(update);
+    };
+    update();
+  }
 
-  /* MEGA MENU PRODUCT TOGGLES (desktop) */
+  /* ---- REVEAL ANIMATION ---- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ---- MEGA MENU PRODUCT TOGGLE ---- */
   document.querySelectorAll('.product-toggle').forEach((btn) => {
     btn.addEventListener('click', function(e){
       e.preventDefault(); e.stopPropagation();
@@ -747,7 +956,7 @@
     });
   });
 
-  /* MOBILE NAV DRAWER */
+  /* ---- MOBILE NAV DRAWER ---- */
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
 
@@ -757,7 +966,7 @@
     document.body.classList.toggle('nav-open', isOpen);
   }
   menuBtn.addEventListener('click', toggleMobileNav);
-  menuBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggleMobileNav(); } });
+  menuBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleMobileNav(); } });
 
   document.querySelectorAll('#mobileNav .mobile-nav-links > a, #mobileNav .mnav-cta').forEach(link => {
     link.addEventListener('click', () => {
@@ -767,7 +976,6 @@
     });
   });
 
-  /* Systems accordion inside mobile drawer */
   const mnavSystemsToggle = document.getElementById('mnavSystemsToggle');
   const mnavSub = document.getElementById('mnavSub');
   mnavSystemsToggle.addEventListener('click', () => {
@@ -775,16 +983,33 @@
     mnavSystemsToggle.classList.toggle('open');
   });
 
-  /* DRONE CURSOR (desktop only) */
-  if (window.matchMedia('(min-width: 901px)').matches) {
+  /* ---- COOKIE BANNER ---- */
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const cookieManage = document.getElementById('cookieManage');
+
+  if(!localStorage.getItem('withx_cookies_accepted')){
+    setTimeout(() => cookieBanner.classList.add('show'), 1200);
+  }
+  cookieAccept.addEventListener('click', () => {
+    localStorage.setItem('withx_cookies_accepted', '1');
+    cookieBanner.classList.remove('show');
+  });
+  cookieManage.addEventListener('click', () => {
+    cookieBanner.classList.remove('show');
+  });
+
+  /* ---- DRONE CURSOR (desktop only) ---- */
+  if(window.matchMedia('(min-width: 901px)').matches){
     const cursor = document.createElement('div');
     cursor.id = 'drone-cursor';
     document.body.appendChild(cursor);
 
-    const droneImg = 'https://static.vecteezy.com/system/resources/thumbnails/049/514/995/small/drone-hovering-in-mid-air-above-a-landscape-during-daylight-cut-out-transparent-png.png';
-    cursor.style.backgroundImage = `url('${droneImg}')`;
+    const normalDrone = 'https://static.vecteezy.com/system/resources/thumbnails/049/514/995/small/drone-hovering-in-mid-air-above-a-landscape-during-daylight-cut-out-transparent-png.png';
+    cursor.style.backgroundImage = `url('${normalDrone}')`;
 
-    let mx = 0, my = 0, cx = 0, cy = 0;
+    let mx = 0, my = 0;
+    let cx = 0, cy = 0;
     const speed = 0.1;
 
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
@@ -796,43 +1021,15 @@
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
+
+    document.querySelectorAll('a, button, .domain, .industry-cell, .why-card, .approach-row, .tl-content').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.backgroundImage = `url('${normalDrone}')`; });
+      el.addEventListener('mouseleave', () => { cursor.style.backgroundImage = `url('${normalDrone}')`; });
+    });
   }
 
-  /* REVEAL ON SCROLL */
-  const ro = new IntersectionObserver(entries => entries.forEach(e => {
-    if(e.isIntersecting) e.target.classList.add('visible');
-  }), { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => ro.observe(el));
-
-  /* COUNTERS */
-  const co = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting && !e.target.dataset.done){
-        e.target.dataset.done = '1';
-        const target = parseInt(e.target.dataset.target), suffix = '';
-        let cur = 0; const step = Math.max(1, Math.ceil(target/60));
-        const t = setInterval(()=>{ cur = Math.min(cur+step, target); e.target.textContent = cur; if(cur >= target) clearInterval(t); }, 25);
-      }
-    });
-  }, { threshold:0.5 });
-  document.querySelectorAll('.counter').forEach(el => co.observe(el));
-
-  /* METRIC BARS */
-  const po = new IntersectionObserver(entries => entries.forEach(e => {
-    if(e.isIntersecting && !e.target.dataset.done){
-      e.target.dataset.done = '1';
-      setTimeout(()=>{ e.target.style.width = e.target.dataset.width + '%'; }, 200);
-    }
-  }), { threshold:0.5 });
-  document.querySelectorAll('.metric-fill').forEach(el => po.observe(el));
-
-  /* SMOOTH SCROLL */
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
-    });
-  });
+})();
 </script>
+
 </body>
 </html>
