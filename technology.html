@@ -122,6 +122,13 @@
 
   body.nav-open{overflow:hidden;}
 
+  /* ---------- CINEMATIC IMAGE BANNER ---------- */
+  .cine-banner{position:relative; width:100%; height:70vh; min-height:420px; max-height:640px; overflow:hidden;}
+  .cine-banner img{width:100%; height:100%; object-fit:cover; filter:grayscale(100%) contrast(1.08) brightness(0.95);}
+  .cine-banner::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.7) 100%);}
+  .cine-caption{position:absolute; left:clamp(20px,5vw,64px); bottom:28px; z-index:2; color:#fff; font-size:12px; letter-spacing:2px; text-transform:uppercase; font-family:"Times New Roman", Times, serif; max-width:90%;}
+  @media (max-width:600px){ .cine-banner{height:48vh; min-height:320px;} .cine-caption{font-size:10.5px; letter-spacing:1.5px;} }
+
   /* ---------- TECHNOLOGY ---------- */
   .tech-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
   .tech-list{border-top:1px solid var(--line);}
@@ -398,7 +405,7 @@
       <div class="mega-menu">
         <div class="mega-col">
           <h4>What We Build</h4>
-          <p>WITHX Defence engineers focused unmanned hardware — starting with aerial surveillance and drone survivability — solving real operational problems.</p>
+          <p>WITHX Defence engineers focused unmanned hardware, starting with aerial surveillance and drone survivability, to solve real operational problems.</p>
         </div>
         <div class="mega-col">
           <h4>Products</h4>
@@ -442,7 +449,7 @@
     </h1>
 
     <div class="hero-text">
-      <p class="hero-copy">From AI-driven tracking to field-proven recovery systems, WITHX Defence engineers the technology stack that keeps unmanned platforms flying, seeing, and surviving — built problem-first, tested in the field.</p>
+      <p class="hero-copy">From AI-driven tracking to recovery systems proven in the field, WITHX Defence engineers the technology stack that keeps unmanned platforms flying, seeing, and surviving. Built problem-first. Tested in the field.</p>
       <div class="hero-actions">
         <a href="contact.html" class="btn primary">Request a Tech Briefing</a>
         <a href="about.html" class="btn ghost">Our Story</a>
@@ -463,7 +470,7 @@
   <div class="doctrine">
     <h2>WE ENGINEER TECHNOLOGY THAT PERFORMS WHEN <span class="fade">EVERYTHING ELSE FAILS.</span></h2>
     <div>
-      <p class="doctrine-copy">Our approach starts with the operational problem, not the technology trend. Every system we build — from onboard AI to recovery hardware — is designed around real mission gaps identified in the field, then engineered, prototyped, and hardened until it's ready for deployment. We combine autonomy, embedded engineering, and data intelligence into a single, field-ready technology stack.</p>
+      <p class="doctrine-copy">Our approach starts with the operational problem, not the technology trend. Every system we build, from onboard AI to recovery hardware, is designed around real mission gaps identified in the field, then engineered, prototyped, and hardened until it's ready for deployment. Autonomy, embedded engineering, and data intelligence come together in one technology stack.</p>
       <a href="about.html" class="link-arrow">OUR APPROACH →</a>
     </div>
   </div>
@@ -471,7 +478,7 @@
 
 <!-- ===== CORE TECHNOLOGIES ===== -->
 <section class="wrap">
-  <div class="eyebrow"><span class="rule"></span>OUR STACK</div>
+  <div class="eyebrow">OUR STACK</div>
   <div class="cap-head">
     <h2>CORE TECHNOLOGIES.<br><span class="fade">ENGINEERED IN-HOUSE.</span></h2>
   </div>
@@ -481,85 +488,166 @@
       <div>
         <i class="fa-solid fa-brain domain-icon"></i>
         <h3>Artificial Intelligence</h3>
-        <p>Onboard decision-support models that classify targets and flag anomalies in real time, reducing operator workload during live missions.</p>
+        <p>We use AI for intelligent decision-making, real-time threat detection, object recognition, predictive analytics, and autonomous mission planning in defence applications.</p>
       </div>
     </div>
     <div class="domain">
       <div>
-        <i class="fa-solid fa-satellite-dish domain-icon"></i>
-        <h3>Internet of Things</h3>
-        <p>Networked sensor mesh linking airframes, ground stations, and command nodes for continuous telemetry across the battlespace.</p>
+        <i class="fa-solid fa-route domain-icon"></i>
+        <h3>Autonomous Systems</h3>
+        <p>Our autonomous technologies support unmanned operations through intelligent navigation, obstacle avoidance, path planning, and mission execution for drones, robotic platforms, and surveillance systems.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-microchip domain-icon"></i>
         <h3>Embedded Systems</h3>
-        <p>Custom flight controllers and low-latency firmware engineered for the power, weight, and reliability limits of unmanned airframes.</p>
-      </div>
-    </div>
-    <div class="domain">
-      <div>
-        <i class="fa-solid fa-robot domain-icon"></i>
-        <h3>Robotics</h3>
-        <p>Unmanned aerial and recovery mechanisms — actuation, flotation, and flight hardware engineered for autonomous, unattended operation.</p>
-      </div>
-    </div>
-    <div class="domain">
-      <div>
-        <i class="fa-solid fa-gears domain-icon"></i>
-        <h3>Automation</h3>
-        <p>Automated pre-flight diagnostics and mission planning that cut deployment time and reduce human error under operational pressure.</p>
-      </div>
-    </div>
-    <div class="domain">
-      <div>
-        <i class="fa-solid fa-cloud domain-icon"></i>
-        <h3>Cloud Computing</h3>
-        <p>Secure mission data infrastructure behind AEGIS C2, syncing fleet status and telemetry across coalition command nodes.</p>
-      </div>
-    </div>
-    <div class="domain">
-      <div>
-        <i class="fa-solid fa-chart-line domain-icon"></i>
-        <h3>Data Analytics</h3>
-        <p>Post-mission ISR data fusion that turns raw sensor feeds into actionable situational intelligence for command review.</p>
-      </div>
-    </div>
-    <div class="domain">
-      <div>
-        <i class="fa-solid fa-circle-nodes domain-icon"></i>
-        <h3>Machine Learning</h3>
-        <p>Adaptive tracking models that improve detection accuracy with every deployment, trained on field-collected mission data.</p>
+        <p>We design high-performance embedded hardware and firmware for mission-critical defence equipment, built for reliability, low power consumption, and real-time operation in demanding environments.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-eye domain-icon"></i>
         <h3>Computer Vision</h3>
-        <p>EO/thermal sensor fusion enabling day-and-night object detection, tracking, and threat identification from the air.</p>
+        <p>Using image processing and computer vision, our systems provide automated target detection, tracking, facial recognition, object classification, and situational awareness.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-satellite-dish domain-icon"></i>
+        <h3>Internet of Things</h3>
+        <p>Connected sensors and smart devices support continuous monitoring, environmental sensing, asset tracking, and secure data collection across defence infrastructures.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-tower-broadcast domain-icon"></i>
+        <h3>Secure Communication Systems</h3>
+        <p>We develop secure communication architectures that support encrypted data transmission, reliable networking, and uninterrupted coordination between defence assets.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-helicopter domain-icon"></i>
+        <h3>Drone &amp; UAV Technologies</h3>
+        <p>Our expertise includes unmanned aerial systems for surveillance, reconnaissance, mapping, inspection, and intelligence gathering with autonomous flight capabilities.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-robot domain-icon"></i>
+        <h3>Robotics &amp; Automation</h3>
+        <p>We build robotic systems capable of performing hazardous, repetitive, and precision-based operations, reducing risk to personnel and improving operational efficiency.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-gears domain-icon"></i>
+        <h3>Mechanical Engineering</h3>
+        <p>Our mechanical design team develops rugged enclosures, precision components, structural assemblies, and products engineered for harsh operational environments.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-bolt domain-icon"></i>
+        <h3>Electronics &amp; PCB Design</h3>
+        <p>We design custom electronic circuits, sensor interfaces, power management systems, and multilayer PCBs optimized for defence-grade applications.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-circle-nodes domain-icon"></i>
+        <h3>Sensor Fusion</h3>
+        <p>By combining data from multiple sensors, including cameras, radar, GPS, IMUs, LiDAR, and environmental sensors, we deliver accurate situational awareness and intelligent decision-making.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-cloud domain-icon"></i>
+        <h3>Cloud &amp; Edge Computing</h3>
+        <p>Our solutions use edge computing for low-latency processing while integrating cloud platforms for centralized monitoring, analytics, and secure data management.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-shield-halved domain-icon"></i>
+        <h3>Cybersecurity</h3>
+        <p>Security is built into every solution through secure architectures, encrypted communications, authentication mechanisms, and protection against cyber threats.</p>
+      </div>
+    </div>
+    <div class="domain">
+      <div>
+        <i class="fa-solid fa-chart-line domain-icon"></i>
+        <h3>Data Analytics</h3>
+        <p>Advanced analytics transform operational data into actionable intelligence, helping defence organizations improve planning, monitoring, and mission effectiveness.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-cubes domain-icon"></i>
-        <h3>Digital Twin</h3>
-        <p>Simulated flight and stress-testing environments that validate airframe and recovery-system behaviour before physical builds.</p>
+        <h3>Simulation &amp; Digital Twin</h3>
+        <p>We use simulation technologies to test, validate, and optimize defence systems before deployment, reducing development time and improving reliability.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-industry domain-icon"></i>
-        <h3>Smart Manufacturing</h3>
-        <p>Precision assembly and automated quality control on the production floor, ensuring every unit meets field-readiness standards.</p>
+        <h3>Rapid Prototyping</h3>
+        <p>Fast prototyping using modern manufacturing techniques allows rapid design validation, iterative development, and accelerated product innovation.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CINEMATIC DRONE BANNER ===== -->
+<section class="cine-banner">
+  <img src="https://images.unsplash.com/photo-1545864968-f6031e1790c2?fm=jpg&q=80&w=2400&auto=format&fit=crop" alt="Close-up of a black military-style drone against a dark background">
+  <div class="cine-caption">WITHX DEFENCE UAV PLATFORM / AUTONOMOUS FLIGHT SYSTEM / FIELD-ENGINEERED HARDWARE</div>
+</section>
+
+<!-- ===== FUTURE TECHNOLOGIES ===== -->
+<section class="wrap">
+  <div class="eyebrow">ON THE HORIZON</div>
+  <div class="cap-head">
+    <h2>FUTURE TECHNOLOGIES.<br><span class="fade">CONTINUOUSLY EXPLORED.</span></h2>
+    <p class="doctrine-copy" style="margin-top:14px;">WITHX Defence continuously explores emerging technologies to stay ahead of tomorrow's mission requirements.</p>
+  </div>
+
+  <div class="tech-list">
+    <div class="tech-row">
+      <div class="tech-num">01</div>
+      <div><h3>Swarm Intelligence</h3><p>[Description pending]</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-num">02</div>
+      <div><h3>Human-Machine Collaboration</h3><p>[Description pending]</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-num">03</div>
+      <div><h3>Edge AI</h3><p>[Description pending]</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-num">04</div>
+      <div><h3>Quantum-Resistant Security</h3><p>[Description pending]</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-num">05</div>
+      <div><h3>Advanced Sensor Networks</h3><p>[Description pending]</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-num">06</div>
+      <div><h3>Intelligent Defence Analytics</h3><p>[Description pending]</p></div>
+    </div>
+    <div class="tech-row">
+      <div class="tech-num">07</div>
+      <div><h3>Next-Generation Autonomous Platforms</h3><p>[Description pending]</p></div>
     </div>
   </div>
 </section>
 
 <!-- ===== RESEARCH & DEVELOPMENT ===== -->
 <section class="wrap">
-  <div class="eyebrow"><span class="rule"></span>R&D</div>
+  <div class="eyebrow">R&D</div>
   <div class="cap-head">
     <h2>RESEARCH BEHIND<br><span class="fade">EVERY SYSTEM.</span></h2>
   </div>
@@ -576,7 +664,7 @@
       </div>
       <div class="tech-row">
         <div class="tech-num">03</div>
-        <div><h3>Field Validation</h3><p>Every system is flight-tested and stress-tested under real conditions before it's considered mission-ready.</p></div>
+        <div><h3>Field Validation</h3><p>Every system is flight-tested and stress-tested under real conditions before it's cleared for deployment.</p></div>
       </div>
       <div class="tech-row">
         <div class="tech-num">04</div>
@@ -600,7 +688,7 @@
 
 <!-- ===== DEVELOPMENT PROCESS ===== -->
 <section class="wrap">
-  <div class="eyebrow"><span class="rule"></span>METHODOLOGY</div>
+  <div class="eyebrow">METHODOLOGY</div>
   <div class="cap-head">
     <h2>OUR DEVELOPMENT<br><span class="fade">PROCESS.</span></h2>
   </div>
@@ -639,7 +727,7 @@
     <div class="process-step">
       <div class="process-num">06</div>
       <h4>Deployment</h4>
-      <p>Deliver mission-ready systems with full operational support.</p>
+      <p>Deliver deployment-ready systems with full operational support.</p>
       <span class="process-arrow">→</span>
     </div>
     <div class="process-step">
@@ -652,7 +740,7 @@
 
 <!-- ===== INDUSTRIES WE SERVE ===== -->
 <section class="wrap">
-  <div class="eyebrow"><span class="rule"></span>APPLICATIONS</div>
+  <div class="eyebrow">APPLICATIONS</div>
   <div class="cap-head">
     <h2>INDUSTRIES<br><span class="fade">WE SERVE.</span></h2>
   </div>
@@ -711,7 +799,7 @@
       <div>
         <i class="fa-solid fa-bolt domain-icon"></i>
         <h3>Energy</h3>
-        <p>Aerial inspection of infrastructure — pipelines, grids, and remote installations.</p>
+        <p>Aerial inspection of infrastructure: pipelines, grids, and remote installations.</p>
       </div>
     </div>
     <div class="domain">
@@ -726,7 +814,7 @@
 
 <!-- ===== WHY CHOOSE OUR TECHNOLOGY ===== -->
 <section class="wrap">
-  <div class="eyebrow"><span class="rule"></span>THE DIFFERENCE</div>
+  <div class="eyebrow">THE DIFFERENCE</div>
   <div class="cap-head">
     <h2>WHY CHOOSE<br><span class="fade">OUR TECHNOLOGY.</span></h2>
   </div>
@@ -765,7 +853,7 @@
     <div class="mission-card">
       <i class="fa-solid fa-bolt-lightning mission-icon"></i>
       <h4>Fast Deployment</h4>
-      <p>Streamlined onboarding gets platforms mission-ready in days, not months.</p>
+      <p>A short onboarding process gets platforms into service in days, not months.</p>
     </div>
     <div class="mission-card">
       <i class="fa-solid fa-headset mission-icon"></i>
@@ -777,7 +865,7 @@
 
 <!-- ===== TECHNOLOGY STATISTICS ===== -->
 <section class="wrap">
-  <div class="eyebrow"><span class="rule"></span>BY THE NUMBERS</div>
+  <div class="eyebrow">BY THE NUMBERS</div>
   <div class="cap-head">
     <h2>TECHNOLOGY<br><span class="fade">IN NUMBERS.</span></h2>
   </div>
@@ -813,7 +901,7 @@
 
 <!-- ===== CTA ===== -->
 <section class="cta">
-  <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>00 / ENGAGE<span class="rule"></span></div>
+  <div class="eyebrow" style="justify-content:center;">00 / ENGAGE</div>
   <h2>TALK TO OUR <span class="fade">ENGINEERS.</span></h2>
   <div class="hero-actions">
     <a href="contact.html" class="btn primary">Request a Tech Briefing</a>
