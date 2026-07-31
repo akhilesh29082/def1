@@ -33,12 +33,12 @@ header{
   position:fixed; top:0; left:0; width:100%; z-index:70;
   display:flex; align-items:center; justify-content:space-between; gap:24px;
   padding:22px clamp(20px,5vw,64px);
-  font-family:'Space Grotesk',sans-serif; font-weight:600;
-  background:rgba(255,255,255,0.92); backdrop-filter:blur(8px);
+  font-family:"Times New Roman", Times, serif; font-weight:600;
+  background:#FFFFFF;
   border-bottom:1px solid var(--line); box-shadow:0 2px 12px rgba(17,24,39,0.05);
 }
 .brand{display:flex; align-items:center; gap:14px;}
-.brand-logo{height:56px; width:auto; flex-shrink:0;}
+.brand-logo{height:56px; width:auto; flex-shrink:0; display:flex; align-items:center;}
 .brand-logo img{display:block; width:auto; max-width:100%; height:100%; object-fit:contain;}
 @media (max-width:480px){ .brand-logo{height:42px;} }
 
@@ -65,7 +65,7 @@ header{
 .mega-item:hover .mega-menu, .mega-item.active .mega-menu{opacity:1; visibility:visible; transform:translateY(0);}
 .mega-col h4{font-size:11px; letter-spacing:2px; color:#6B7280; margin-bottom:20px; text-transform:uppercase;}
 .mega-col p{font-size:16px; line-height:1.6; max-width:420px; color:#4B5563;}
-.product-toggle{background:transparent; border:none; color:#111827; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; cursor:pointer; padding:0; transition:all .3s ease;}
+.product-toggle{background:transparent; border:none; color:#111827; font-family:"Times New Roman", Times, serif; font-size:16px; font-weight:600; cursor:pointer; padding:0; transition:all .3s ease;}
 .product-toggle:hover, .product-toggle.active{color:#8A6D1E; transform:translateX(6px);}
 .product-list{display:none; margin-top:12px; padding-left:20px; border-left:1px solid var(--line);}
 .product-list.show{display:block;}
@@ -87,14 +87,14 @@ header{
 }
 .mobile-nav.open{transform:translateX(0);}
 .mobile-nav-links a{
-  display:block; font-family:'Space Grotesk',sans-serif; font-weight:600;
+  display:block; font-family:"Times New Roman", Times, serif; font-weight:600;
   font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
   padding:16px 0; border-bottom:1px solid var(--line); color:#111827;
 }
 .mnav-systems{border-bottom:1px solid var(--line);}
 .mnav-systems-toggle{
   display:flex; align-items:center; justify-content:space-between;
-  font-family:'Space Grotesk',sans-serif; font-weight:600; width:100%;
+  font-family:"Times New Roman", Times, serif; font-weight:600; width:100%;
   font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
   padding:16px 0; color:#111827; background:none; border:none; cursor:pointer;
 }
@@ -110,73 +110,88 @@ header{
 @media (min-width:1001px){ .mobile-nav{display:none;} }
 body.nav-open{overflow:hidden;}
 
-/* ---------- HERO (with sea video) ---------- */
+/* ---------- HERO (matches Air page wireframe) ---------- */
 .hero{
-  position:relative;
-  min-height:92vh;
-  display:flex;
-  align-items:flex-end;
-  padding:0 24px 60px;
-  overflow:hidden;
+padding:150px 24px 42px
 }
-.hero-bg-video{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover;
-  z-index:-2;
-}
-.hero-overlay{
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.30) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.88) 100%);
-  z-index:-1;
-}
-.hero-content{width:100%; max-width:1280px; margin:0 auto; padding-top:150px;}
 
 .hero h1{
-  font-family:var(--title);
-  font-size:clamp(68px,13vw,155px);
-  line-height:.85;
-  margin:0 0 45px;
-  letter-spacing:-.08em;
-  color:#FFFFFF;
+font-family:var(--title);
+font-size:clamp(68px,13vw,155px);
+line-height:.85;
+margin:0 0 45px;
+letter-spacing:-.08em
 }
 
 .hero-row{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr 90px;
-  gap:35px;
-  align-items:start;
-  max-width:1280px
+display:grid;
+grid-template-columns:.8fr 1.2fr 90px;
+gap:35px;
+align-items:start;
+max-width:1280px
 }
 
 .eyebrow{
-  font-size:12px;
-  text-transform:uppercase;
-  color:var(--gold);
-  letter-spacing:.18em
+font-size:12px;
+text-transform:uppercase;
+color:var(--gold);
+letter-spacing:.18em
 }
 
 .hero p{
-  margin:0;
-  color:rgba(255,255,255,0.9);
-  max-width:630px;
-  line-height:1.45;
-  font-weight:500
+margin:0;
+color:#4B5563;
+max-width:630px;
+line-height:1.45;
+font-weight:500
 }
 
 .down{
-  justify-self:end;
-  font-size:34px;
-  opacity:.7;
-  animation:bounce 1.7s infinite;
-  color:#FFFFFF;
+justify-self:end;
+font-size:34px;
+opacity:.7;
+animation:bounce 1.7s infinite
 }
 
-@keyframes bounce{ 50%{ transform:translateY(8px) } }
+@keyframes bounce{
+50%{
+transform:translateY(8px)
+}
+}
+
+.video-strip{
+    position:relative;
+    width:calc(100% - 48px);
+    height:650px;
+    margin:0 24px;
+    overflow:hidden;
+    border-radius:24px;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.domain-video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    display:block;
+}
+
+/* Mobile Responsive */
+@media(max-width:850px){
+
+.video-strip{
+height:320px;
+margin:0 16px;
+width:calc(100% - 32px);
+}
+
+}
 
 @media(max-width:850px){
-  .hero{min-height:70vh; padding:0 16px 40px;}
-  .hero-content{padding-top:110px;}
   .hero-row{grid-template-columns:1fr;}
 }
 
@@ -261,7 +276,7 @@ footer{padding:90px clamp(20px,5vw,64px) 40px; background:#F8FAFC; border-top:1p
 
 <header>
   <div class="brand">
-    <div class="brand-logo"><img src="images/logo.png" alt="WITHX"></div>
+    <div class="brand-logo"><img src="images/withx-logo.png" alt="WITHX Logo"></div>
   </div>
 
   <div class="nav-links">
@@ -269,8 +284,8 @@ footer{padding:90px clamp(20px,5vw,64px) 40px; background:#F8FAFC; border-top:1p
     <a href="about.html" class="nav-link">About</a>
     <a href="technologies.html" class="nav-link">Technology</a>
 
-   <div class="mega-item">
-      <a>Systems</a>
+    <div class="mega-item">
+      <a class="nav-link">SYSTEMS</a>
       <div class="mega-menu">
         <div class="mega-col">
           <h4>What We Build</h4>
@@ -283,7 +298,6 @@ footer{padding:90px clamp(20px,5vw,64px) 40px; background:#F8FAFC; border-top:1p
         </div>
       </div>
     </div>
-
 
     <a href="contact.html" class="nav-link">Contact</a>
   </div>
@@ -312,24 +326,23 @@ footer{padding:90px clamp(20px,5vw,64px) 40px; background:#F8FAFC; border-top:1p
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <video class="hero-bg-video" autoplay muted loop playsinline>
-    <source src="seavideo.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
+<h1>Sea</h1>
 
-  <div class="hero-content">
-    <h1>Sea</h1>
+<div class="hero-row">
+<div class="eyebrow">SEA DOMAIN</div>
 
-    <div class="hero-row">
-      <div class="eyebrow">SEA DOMAIN</div>
+<p>
+Autonomous maritime recovery and surveillance systems for coastal monitoring, marine inspection, water-based reconnaissance, and emergency drone recovery operations.
+</p>
 
-      <p>
-      Autonomous maritime recovery and surveillance systems for coastal monitoring, marine inspection, water-based reconnaissance, and emergency drone recovery operations.
-      </p>
+<div class="down">↓</div>
+</div>
+</section>
 
-      <div class="down">↓</div>
-    </div>
-  </div>
+<section class="video-strip">
+    <video class="domain-video" autoplay muted loop playsinline>
+        <source src="seavideo.mp4" type="video/mp4">
+    </video>
 </section>
 
 <section class="product-scroll">
@@ -388,7 +401,7 @@ Water activated recovery · Marine safety
   <div class="foot-top">
     <div class="foot-brand">
       <div class="brand">
-        <div class="footer-brand-logo"><img src="data:image/png;base64,..." alt="WITHX Logo"></div>
+        <div class="footer-brand-logo"><img src="images/withx-logo.png" alt="WITHX Logo"></div>
       </div>
       <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
     </div>
