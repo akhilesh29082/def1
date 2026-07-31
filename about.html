@@ -65,7 +65,7 @@
   }
 
   /* ---------- NAV ---------- */
-  header{
+header{
     position:fixed; top:0; left:0; width:100%; z-index:70;
     display:flex; align-items:center; justify-content:space-between; gap:24px;
     padding:22px clamp(20px,5vw,64px);
@@ -87,11 +87,10 @@
 
   /* ---------- NAV LINKS + MEGA MENU (desktop) ---------- */
   .nav-links{display:flex; align-items:center; gap:36px;}
-  .nav-link{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); opacity:.85; transition:opacity .2s;}
+  .nav-link{font-size:12px; font-weight:700;  letter-spacing:2px; text-transform:uppercase; color:var(--ink); opacity:.85; transition:opacity .2s;}
   .nav-link:hover{opacity:1;}
-  .nav-links li a.active{opacity:1; border-bottom:1px solid var(--ink); padding-bottom:2px;}
   .mega-item{position:relative;}
-  .mega-item > a{font-size:12px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85;}
+  .mega-item > a{font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85;}
   .mega-item:hover > a{opacity:1;}
   .mega-menu{
     position:fixed; top:96px; left:0; width:100%; background:#FFFFFF; color:var(--ink);
@@ -114,7 +113,6 @@
   .nav-touch a{text-decoration:none;}
   @media (max-width:1000px){ .nav-links, .nav-touch{display:none;} }
   @media (min-width:1001px){ .menu-btn{display:none;} }
-
   /* ---------- MOBILE NAV DRAWER ---------- */
   .mobile-nav{
     position:fixed; inset:0; z-index:95; background:#FFFFFF;
