@@ -323,6 +323,8 @@
   .foot-contact .instagram{color:#e07a9e;}
   .foot-contact .youtube{color:#e05c5c;}
   .foot-contact .phone{color:var(--accent);}
+  .foot-legal{font-size:12px; line-height:1.8; color:var(--muted); margin-top:10px;}
+  .foot-legal strong{color:var(--ink);}
   .foot-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:22px; text-transform:uppercase;}
   .foot-col a{display:block; font-size:14px; margin-bottom:14px; color:var(--ink);}
   .foot-col a:hover{color:var(--accent);}
@@ -339,6 +341,11 @@
     .cta{padding:70px 20px;}
     .news-card{height:360px;}
   }
+
+  /* ---------- BADGES (DPIIT / trust markers) ---------- */
+  .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+  .badge{font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--ink); border:1px solid var(--accent); padding:8px 14px; display:inline-flex; align-items:center; gap:8px;}
+  .badge i{color:var(--accent);}
 
   /* ---------- COOKIE BANNER ---------- */
   .cookie-banner{
@@ -360,7 +367,7 @@
 
 <header>
   <div class="brand">
-    <div class="brand-logo"><img src="images/withx defence logo.png" alt="WITHX Logo"></div>
+    <div class="brand-logo"><img src="images/withx defence logo.png" alt="WITHX Innovations Private Limited Logo"></div>
   </div>
 
   <div class="nav-links">
@@ -373,12 +380,12 @@
       <div class="mega-menu">
         <div class="mega-col">
           <h4>What We Build</h4>
-          <p>WITHX Defence engineers focused unmanned hardware — starting with aerial surveillance and drone survivability — solving real operational problems.</p>
+          <p>WITHX Innovations Private Limited engineers focused unmanned hardware — starting with aerial surveillance and drone survivability — solving real operational problems.</p>
         </div>
         <div class="mega-col">
           <h4>Products</h4>
           <button class="product-toggle" type="button">+ Our Systems</button>
-          <div class="product-list"><a href="Drone Survillence system .html">Drone Surveillance System</a><a href="Drone recovery bag .html">Drone Airbag Recovery System</a></div>
+          <div class="product-list"><a href="Drone Survillence system .html">WITHX Smart Deployable Surveillance System (SDSS)</a><a href="Drone recovery bag .html">Passive Autonomous Water Recovery System (PAWRS)</a></div>
         </div>
       </div>
     </div>
@@ -399,8 +406,8 @@
     <div class="mnav-systems">
       <button class="mnav-systems-toggle" id="mnavSystemsToggle" type="button">Systems <i class="fa-solid fa-chevron-down"></i></button>
       <div class="mnav-sub" id="mnavSub">
-        <a href="Drone Survillence system .html">Drone Surveillance System</a>
-        <a href="Drone recovery bag .html">Drone Airbag Recovery System</a>
+        <a href="Drone Survillence system .html">WITHX Smart Deployable Surveillance System (SDSS)</a>
+        <a href="Drone recovery bag .html">Passive Autonomous Water Recovery System (PAWRS)</a>
       </div>
     </div>
     <a href="contact.html">Contact</a>
@@ -420,7 +427,7 @@
 
     
     <div class="hero-text">
-      <p class="hero-copy">Withx Defence builds mission-critical unmanned platforms and command software for allied forces operating across air, land, sea, and cyber domains.</p>
+      <p class="hero-copy">WITHX Innovations Private Limited builds mission-critical unmanned platforms and command software for allied forces operating across air, land, sea, and cyber domains.</p>
       <div class="hero-actions">
         <a href="#" class="btn primary">Explore Platforms</a>
         <a href="contact.html" class="btn ghost">Request Brief</a>
@@ -430,9 +437,9 @@
 </section>
 
 <div class="ticker">
-  <span><span class="dot">●</span> STANAG 4586 COMPLIANT</span>
-  <span><span class="dot">●</span> MISSION READY 24/7</span>
-  <span><span class="dot">●</span> TRUSTED BY 14 NATIONS</span>
+  <span><span class="dot">●</span> DPIIT-RECOGNISED STARTUP</span>
+  <span><span class="dot">●</span> MADE IN INDIA</span>
+  <span><span class="dot">●</span> PATENT DRAFTING IN PROGRESS</span>
 </div>
 
 <!-- ===== DOCTRINE ===== -->
@@ -441,13 +448,13 @@
   <div class="doctrine">
     <h2>WE BUILD THE SYSTEMS THAT SEE, DECIDE AND ACT <span class="fade">BEFORE THE ADVERSARY DOES.</span></h2>
     <div>
-      <p class="doctrine-copy">Founded in 2024 by Sharad Waybase, WITHX Defence takes a problem-first approach to unmanned systems  identifying real operational gaps in surveillance and drone survivability, then engineering focused, field-ready hardware to solve them.</p>
+      <p class="doctrine-copy">Founded in 2026 by Sharad Ashruba Waybase, WITHX Innovations Private Limited takes a problem-first approach to unmanned systems — identifying real operational gaps in surveillance and drone survivability, then engineering focused, field-ready hardware to solve them.</p>
       <a href="about.html" class="link-arrow">OUR STORY →</a>
     </div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="num">2024</div><div class="label">Founded</div></div>
+    <div class="stat"><div class="num">2026</div><div class="label">Founded</div></div>
     <div class="stat"><div class="num">2</div><div class="label">Core Systems</div></div>
     <div class="stat"><div class="num">1</div><div class="label">Founder-Led Team</div></div>
     <div class="stat"><div class="num">100%</div><div class="label">Problem-First Design</div></div>
@@ -460,7 +467,7 @@
     <div class="eyebrow" id="systemsBtn"><span class="rule"></span></div>
     <div class="systems-popup" id="systemsPopup">
       <h4>Our Systems</h4>
-      <p>WITHX Defence builds focused unmanned hardware aerial surveillance and drone survivability  engineered around real operational problems.</p>
+      <p>WITHX Innovations Private Limited builds focused unmanned hardware — aerial surveillance and drone survivability — engineered around real operational problems.</p>
     </div>
   </div>
   <div class="cap-head">
@@ -472,30 +479,30 @@
     <div class="domain">
       <div class="domain-tag"><span>SYSTEM 01/02</span><span>AIR</span></div>
       <div>
-        <h3>Drone Surveillance System</h3>
-        <div class="product-name">Advanced Aerial Monitoring & Reconnaissance</div>
-        <p>Real time aerial monitoring, reconnaissance and situational awareness for security, inspection and surveillance missions  built for rapid deployment.</p>
+        <h3>WITHX Smart Deployable Surveillance System (SDSS)</h3>
+        <div class="product-name">Autonomous UAV-Deployed Surveillance Node</div>
+        <p>An indigenous UAV that autonomously transports and deploys a compact surveillance node onto trees, poles, or structures, then returns to base — enabling persistent, real-time monitoring, AI-based motion detection, and encrypted video/alerts to a Command & Control application, without keeping the aircraft airborne.</p>
         <div class="chip-row">
-          <span class="chip">Real Time Video</span>
-          <span class="chip">Autonomous Flight</span>
-          <span class="chip">Day & Night Ops</span>
+          <span class="chip">Autonomous Deployment</span>
+          <span class="chip">AI Motion Detection</span>
+          <span class="chip">Encrypted C2 Link</span>
         </div>
-        <div class="status-tag"><span class="dot-status"></span> Under Development</div>
+        <div class="status-tag"><span class="dot-status"></span> Working Prototype</div>
       </div>
       <a href="Drone Survillence system .html" class="learn">LEARN MORE →</a>
     </div>
     <div class="domain">
       <div class="domain-tag"><span>SYSTEM 02/02</span><span>RECOVERY</span></div>
       <div>
-        <h3>Drone Airbag Recovery System</h3>
-        <div class="product-name">Water-Activated Recovery Technology</div>
-        <p>Protects drones during accidental water landings — an automatic flotation mechanism deploys on contact with water, improving visibility and recovery.</p>
+        <h3>Passive Autonomous Water Recovery System (PAWRS)</h3>
+        <div class="product-name">Water-Activated, Fully Passive Recovery Technology</div>
+        <p>Protects UAVs during accidental water landings — a water-activated dissolvable trigger releases a CO₂ cartridge that inflates a buoyant airbag, with zero electronics, sensors, or software required.</p>
         <div class="chip-row">
           <span class="chip">Water-Activated</span>
-          <span class="chip">No Standby Power</span>
-          <span class="chip">Lightweight</span>
+          <span class="chip">Zero Electronics</span>
+          <span class="chip">Modular Fit</span>
         </div>
-        <div class="status-tag"><span class="dot-status"></span> Research Prototype</div>
+        <div class="status-tag"><span class="dot-status"></span> Working Prototype</div>
       </div>
       <a href="Drone recovery bag .html" class="learn">LEARN MORE →</a>
     </div>
@@ -617,9 +624,18 @@
   <div class="foot-top">
     <div class="foot-brand">
       <div class="brand">
-        <div class="footer-brand-logo"><img src="images/withx-logo.png" alt="WITHX Logo"></div>
+        <div class="footer-brand-logo"><img src="images/withx-logo.png" alt="WITHX Innovations Private Limited Logo"></div>
       </div>
       <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
+      <div class="foot-legal">
+        <strong>WITHX Innovations Private Limited</strong><br>
+        CIN: U71100PN2026PTC252377<br>
+        Dehu Phata, Alandi (D), Taluka-Khed,<br>
+        District-Pune, Maharashtra, India, 412105
+      </div>
+      <div class="badge-row">
+        <span class="badge"><i class="fa-solid fa-circle-check"></i> DPIIT Recognised Startup</span>
+      </div>
     </div>
 
     <div class="foot-col">
@@ -633,21 +649,21 @@
 
     <div class="foot-col">
       <h4>Systems</h4>
-      <a href="Drone Survillence system .html">Drone Surveillance System</a>
-      <a href="Drone recovery bag .html">Drone Airbag Recovery System</a>
+      <a href="Drone Survillence system .html">WITHX SDSS</a>
+      <a href="Drone recovery bag .html">PAWRS</a>
     </div>
 
     <div class="foot-col">
       <h4>Contact</h4>
       <div class="foot-contact">
-      
-        <a href="mailto:withx.innovations@gmail.com"><i class="fa-solid fa-envelope"></i> withx.innovations@gmail.com</a>
+        <a href="mailto:sharadwaybase2@gmail.com"><i class="fa-solid fa-envelope"></i> sharadwaybase2@gmail.com</a>
+        <a href="tel:+917666936323"><i class="fa-solid fa-phone phone"></i> +91 76669 36323</a>
       </div>
     </div>
   </div>
 
   <div class="foot-bottom">
-    <div>© 2026 WITHX DEFENCE CORP. ALL RIGHTS RESERVED.</div>
+    <div>© 2026 WITHX INNOVATIONS PRIVATE LIMITED. ALL RIGHTS RESERVED. CIN: U71100PN2026PTC252377</div>
   </div>
 </footer>
 
