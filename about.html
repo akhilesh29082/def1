@@ -196,7 +196,7 @@ header{
   .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
   .strip .cell{padding:26px var(--pad);border-left:1px solid var(--line);}
   .strip .cell:first-child{border-left:none;}
-  .strip .num{font-family:var(--disp2);font-weight:600;font-size:clamp(20px,2.4vw,30px);}
+  .strip .num{font-family:var(--disp2);font-weight:600;font-size:clamp(18px,2vw,26px);}
   .strip .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--gray-1);text-transform:uppercase;margin-top:6px;}
 
   section{position:relative;}
@@ -277,12 +277,20 @@ header{
   .lead-name{font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:15px;letter-spacing:0.02em;}
   .lead-role{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-1);margin-top:6px;}
 
-  /* ===== METRICS ===== */
+  /* ===== ADVANTAGES / METRICS ===== */
   .metrics{padding:120px var(--pad) 140px;border-top:1px solid var(--line);}
-  .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
-  .metric-cell{background:var(--black);padding:40px 30px;}
-  .metric-num{font-family:var(--disp);font-weight:400;font-size:clamp(34px,4.6vw,58px);line-height:1;}
-  .metric-lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-1);margin-top:12px;}
+  .metrics-head{margin-bottom:50px;}
+  .metrics-head h2{
+    font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:0.98;margin-top:18px;
+  }
+  .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+  .metric-cell{background:var(--black);padding:40px 34px;}
+  .metric-cell h3{font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:0.08em;margin-bottom:18px;color:var(--white);}
+  .metric-cell ul{list-style:none;}
+  .metric-cell li{
+    font-size:13.5px;line-height:1.75;color:var(--gray-1);font-weight:300;padding-left:16px;position:relative;margin-bottom:8px;
+  }
+  .metric-cell li::before{content:'—';position:absolute;left:0;color:var(--gray-2);}
 
   /* ===== FOOTER ===== */
 footer{padding:90px clamp(20px,5vw,64px) 40px;}
@@ -385,7 +393,7 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
     .t-row:hover{padding-left:14px;}
     .t-year{font-size:20px;}
     .lead-grid{grid-template-columns:repeat(2,1fr);}
-    .metrics-grid{grid-template-columns:repeat(2,1fr);}
+    .metrics-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr;gap:36px;}
     .hero-top{padding-top:96px;}
     .form-two{grid-template-columns:1fr;}
@@ -394,7 +402,6 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
   @media (max-width:420px){
     .strip .wrap{grid-template-columns:repeat(2,1fr);}
     .lead-grid{grid-template-columns:1fr;}
-    .metrics-grid{grid-template-columns:1fr;}
   }
   @media (prefers-reduced-motion:reduce){
     .hero-bg{animation:none;}
@@ -464,14 +471,14 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
   <div class="hero-top">
     <div class="hero-coords">
       <br><br>
-      LAT 12.9716° N<br>
-      LON 77.5946° E
+      DEHU PHATA, ALANDI (D)<br>
+      PUNE, MAHARASHTRA
     </div>
-    <div class="live-feed"><br><br><br><span class="live-dot"></span> LIVE FEED</div>
+    <div class="live-feed"><br><br><br><span class="live-dot"></span> DPIIT RECOGNISED STARTUP</div>
   </div>
   <div class="hero-content">
-    <h1>Built by warfighters.<br>Engineered for what<br>comes next.</h1>
-    <p>Since 2011, Withx Defence has grown from a five-person garage team into a sovereign integrator of unmanned platforms and mission software trusted across four continents.</p>
+    <h1>Engineered in Pune.<br>Built for the next<br>generation of defence.</h1>
+    <p>WITHX Innovations Private Limited is a Pune-based engineering and defence technology company developing indigenous unmanned systems under the Make in India initiative — from persistent surveillance platforms to passive UAV recovery hardware.</p>
   </div>
   <div class="scroll-ind">
     <span>Scroll</span>
@@ -482,10 +489,10 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
 <!-- QUICK STRIP -->
 <div class="strip">
   <div class="wrap">
-    <div class="cell"><div class="num">14</div><div class="lbl">Nations Served</div></div>
-    <div class="cell"><div class="num">36 HRS</div><div class="lbl">Peak Endurance</div></div>
-    <div class="cell"><div class="num">1,200+</div><div class="lbl">Personnel</div></div>
-    <div class="cell"><div class="num">180K SQ.FT</div><div class="lbl">Manufacturing</div></div>
+    <div class="cell"><div class="num">2024</div><div class="lbl">Company Founded</div></div>
+    <div class="cell"><div class="num">DPIIT</div><div class="lbl">Recognised Startup</div></div>
+    <div class="cell"><div class="num">2</div><div class="lbl">Systems in Development</div></div>
+    <div class="cell"><div class="num">Pune, IN</div><div class="lbl">Engineering Base</div></div>
   </div>
 </div>
 
@@ -497,10 +504,10 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
       <h2>Our<br>Story</h2>
     </div>
     <div class="story-right reveal">
-      <p>The battlespace is undergoing a profound transformation. Contested skies, contested seas, contested spectrum. The nations we serve face adversaries who innovate at unprecedented speed. Meeting that challenge demands sovereign capability, not imported dependency.</p>
-      <p>Withx Defence was founded on a single conviction — that unmanned systems will save time, money and, most importantly, the lives of the men and women who serve. We design, build and sustain platforms end-to-end, from composite airframe to autonomy stack, from radar cross-section to logistics chain.</p>
-      <p>Today our systems operate across maritime, aerial and ground domains, bound together by a common mission architecture built for interoperability with allied forces. What began in a garage is now a vertically integrated house of engineering, manufacturing and sustainment.</p>
-      <div class="story-statement">We do not ship product.<br>We ship capability.</div>
+      <p>WITHX Innovations Private Limited was founded by Sharad Ashruba Waybase to build indigenous unmanned defence hardware for problems the industry hadn't solved: how to extend surveillance beyond the limits of drone battery endurance, and how to prevent the permanent loss of UAVs after an accidental water impact.</p>
+      <p>Registered as WITHX Innovations Private Limited (CIN U71100PN2026PTC252377) and headquartered at Dehu Phata, Alandi (D), Taluka-Khed, in the Pune district of Maharashtra, the company operates as an engineering-led product house — taking each system from CAD and rapid prototyping through to working hardware.</p>
+      <p>WITHX is recognised as a startup under DPIIT, with patent drafting currently in progress on its core recovery technology. The company's work is designed and developed under the Make in India initiative, aimed at delivering scalable, modular, cost-effective capability for defence, homeland security, and disaster response.</p>
+      <div class="story-statement">We engineer hardware that solves<br>real operational problems.</div>
     </div>
   </div>
 </section>
@@ -508,7 +515,7 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
 <!-- FULL IMAGE -->
 <section class="full-image" id="parallaxSection">
   <div class="img-layer" id="parallaxLayer"></div>
-  <div class="full-image-cap">Pune Manufacturing Facility / 180,000 sq. ft — Composites Final Assembly</div>
+  <div class="full-image-cap">WITHX Innovations Private Limited — Pune, Maharashtra</div>
 </section>
 
 <!-- TIMELINE -->
@@ -516,38 +523,33 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
   <div class="wrap">
     <div class="timeline-head reveal">
       <div class="eyebrow">02 / Timeline</div>
-      <h2>Fifteen Years.<span>One Mission.</span></h2>
+      <h2>Our<span>Journey So Far.</span></h2>
     </div>
     <div class="timeline-rows reveal">
       <div class="t-row">
-        <div class="t-year">2011</div>
+        <div class="t-year">2024</div>
         <div class="t-title">Foundation</div>
-        <div class="t-desc">Withx Defence founded in Bengaluru by veterans of the armed forces and aerospace industry, with a mandate to build sovereign unmanned capability.</div>
+        <div class="t-desc">WITHX Innovations Private Limited is founded by Sharad Ashruba Waybase in Pune, Maharashtra, with a mandate to build indigenous unmanned defence hardware.</div>
       </div>
       <div class="t-row">
-        <div class="t-year">2014</div>
-        <div class="t-title">First Flight</div>
-        <div class="t-desc">Sentinel MK-I completes its maiden autonomous flight — a 14-hour endurance milestone that established our aerial systems programme.</div>
+        <div class="t-year">DPIIT</div>
+        <div class="t-title">Startup Recognition</div>
+        <div class="t-desc">WITHX is formally recognised as a startup under DPIIT, validating its innovation-driven product development approach.</div>
       </div>
       <div class="t-row">
-        <div class="t-year">2017</div>
-        <div class="t-title">Naval Charter</div>
-        <div class="t-desc">Marlin USV programme launched. First maritime autonomy contract signed with an allied navy, opening our surface and sub-surface division.</div>
+        <div class="t-year">Prototype</div>
+        <div class="t-title">Working Hardware</div>
+        <div class="t-desc">A working prototype of the Passive Autonomous Water Recovery System (PAWRS) is completed, with patent drafting now in progress.</div>
       </div>
       <div class="t-row">
-        <div class="t-year">2020</div>
-        <div class="t-title">Global Deployments</div>
-        <div class="t-desc">Systems enter operational service across seven nations. Aegis C2 mission software platform released to allied command centres.</div>
+        <div class="t-year">In Progress</div>
+        <div class="t-title">Smart Deployable Surveillance System</div>
+        <div class="t-desc">Development begins on the WITHX Smart Deployable Surveillance System (SDSS) — an autonomous UAV-deployed surveillance node with AI-based motion detection and a Command &amp; Control platform, proposed on a 12-month development timeline.</div>
       </div>
       <div class="t-row">
-        <div class="t-year">2023</div>
-        <div class="t-title">Composites Plant</div>
-        <div class="t-desc">180,000 sq. ft. manufacturing facility opens in Pune, achieving vertical integration of composites, avionics and final assembly.</div>
-      </div>
-      <div class="t-row">
-        <div class="t-year">2026</div>
-        <div class="t-title">Next Horizon</div>
-        <div class="t-desc">Loyal-wingman airframe development commences under a new strategic alliance, extending our reach into next-generation air dominance.</div>
+        <div class="t-year">Ahead</div>
+        <div class="t-title">Field Validation &amp; Scale</div>
+        <div class="t-desc">Planned prototype integration, field trials, and defence demonstration, with future scalability toward AI-based object classification, thermal imaging, mesh networking, and multi-UAV operations.</div>
       </div>
     </div>
   </div>
@@ -557,50 +559,59 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
 <section class="leadership">
   <div class="wrap">
     <div class="leadership-head reveal">
-      <div class="eyebrow">03 / Command</div>
-      <h2>Leadership</h2>
+      <div class="eyebrow">03 / Leadership</div>
+      <h2>Founder</h2>
     </div>
-    <div class="lead-grid reveal">
+    <div class="lead-grid reveal" style="grid-template-columns:repeat(4,1fr);max-width:340px;">
       <div class="lead-card">
-        <div class="lead-img-wrap"><img src="https://picsum.photos/id/1015/600/800" alt="Portrait of Vikram Anand"></div>
+        <div class="lead-img-wrap"><img src="https://picsum.photos/id/1027/600/800" alt="Sharad Ashruba Waybase"></div>
         <div class="lead-info">
-          <div class="lead-name">Vikram Anand</div>
-          <div class="lead-role">Founder &amp; Chief Executive</div>
-        </div>
-      </div>
-      <div class="lead-card">
-        <div class="lead-img-wrap"><img src="https://picsum.photos/id/1025/600/800" alt="Portrait of Dr. Rhea Kapoor"></div>
-        <div class="lead-info">
-          <div class="lead-name">Dr. Rhea Kapoor</div>
-          <div class="lead-role">Chief Technology Officer</div>
-        </div>
-      </div>
-      <div class="lead-card">
-        <div class="lead-img-wrap"><img src="https://picsum.photos/id/1027/600/800" alt="Portrait of Col. J. Menon (Retd.)"></div>
-        <div class="lead-info">
-          <div class="lead-name">Col. J. Menon (Retd.)</div>
-          <div class="lead-role">Chief Operating Officer</div>
-        </div>
-      </div>
-      <div class="lead-card">
-        <div class="lead-img-wrap"><img src="https://picsum.photos/id/1011/600/800" alt="Portrait of Priya Nair"></div>
-        <div class="lead-info">
-          <div class="lead-name">Priya Nair</div>
-          <div class="lead-role">Chief Programmes Officer</div>
+          <div class="lead-name">Sharad Ashruba Waybase</div>
+          <div class="lead-role">Founder</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- METRICS -->
+<!-- ADVANTAGES / CAPABILITIES -->
 <section class="metrics">
   <div class="wrap">
+    <div class="metrics-head reveal">
+      <div class="eyebrow">04 / Capability</div>
+      <h2>What Sets<br>Us Apart</h2>
+    </div>
     <div class="metrics-grid reveal">
-      <div class="metric-cell"><div class="metric-num" data-target="14" data-suffix="">0</div><div class="metric-lbl">Nations Served</div></div>
-      <div class="metric-cell"><div class="metric-num" data-target="36" data-suffix=" HRS">0</div><div class="metric-lbl">Peak Endurance</div></div>
-      <div class="metric-cell"><div class="metric-num" data-target="1200" data-suffix="+">0</div><div class="metric-lbl">Personnel</div></div>
-      <div class="metric-cell"><div class="metric-num" data-target="180" data-suffix="K SQ.FT">0</div><div class="metric-lbl">Manufacturing</div></div>
+      <div class="metric-cell">
+        <h3>Technology</h3>
+        <ul>
+          <li>Fully passive, zero-electronics recovery activation</li>
+          <li>Autonomous UAV-based surveillance node deployment</li>
+          <li>AI-enabled motion detection and event alerts</li>
+          <li>Secure, encrypted data transmission</li>
+          <li>Modular, mission-adaptable architecture</li>
+        </ul>
+      </div>
+      <div class="metric-cell">
+        <h3>Product</h3>
+        <ul>
+          <li>Prevents permanent loss of UAVs after water impact</li>
+          <li>Extends surveillance beyond UAV flight endurance</li>
+          <li>Compact, lightweight, easy platform integration</li>
+          <li>Low maintenance, all-weather field operation</li>
+          <li>Suitable across multiple UAV categories</li>
+        </ul>
+      </div>
+      <div class="metric-cell">
+        <h3>Capabilities</h3>
+        <ul>
+          <li>Working prototype available (PAWRS)</li>
+          <li>DPIIT-recognised startup; patent drafting in progress</li>
+          <li>In-house CAD, rapid prototyping &amp; engineering simulation</li>
+          <li>Embedded software and AI-enabled system design</li>
+          <li>Developed under the Make in India initiative</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -640,7 +651,7 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
   </div>
 
   <div class="foot-bottom">
-    <div>© 2026 WITHX DEFENCE CORP. ALL RIGHTS RESERVED.</div>
+    <div>© 2026 WITHX INNOVATIONS PRIVATE LIMITED. ALL RIGHTS RESERVED. CIN: U71100PN2026PTC252377</div>
   </div>
 </footer>
 
@@ -779,33 +790,6 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
       parallaxLayer.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
     }
   }, {passive:true});
-
-  // ---- Animated counters ----
-  const counters = document.querySelectorAll('.metric-num');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.4});
-  counters.forEach(c => counterObserver.observe(c));
-
-  function animateCounter(el){
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    const suffix = el.getAttribute('data-suffix') || '';
-    const duration = 1400;
-    const start = performance.now();
-    function tick(now){
-      const t = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      const value = Math.round(eased * target);
-      el.textContent = value.toLocaleString('en-US') + suffix;
-      if(t < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
 
   // ---- Modal ----
   const modalOverlay = document.getElementById('modalOverlay');
