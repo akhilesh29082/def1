@@ -155,12 +155,27 @@
   .systems-popup p{font-size:14px; line-height:1.6; color:var(--muted);}
 
   /* ---------- HERO ---------- */
-  .hero{
-    position:relative; min-height:85vh; width:100%;
+  
+    .hero {
+       position:relative; min-height:85vh; width:100%;
     display:flex; flex-direction:column; justify-content:flex-end;
     padding-bottom:60px; overflow:hidden;
-  }
-  
+    padding-top: 0;
+    min-height: 100vh; /* Full screen height */
+    display: flex;
+    align-items: center;
+
+    /* Background Image */
+    background: linear-gradient(
+                rgba(10, 25, 47, 0.65),
+                rgba(10, 25, 47, 0.65)
+              ),
+              url("https://images.unsplash.com/photo-1520870121499-7dddb6ccbcde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJvbmUlMjBkZWZlbmNlJTIwaW1hZ2V8ZW58MHx8MHx8fDA%3D");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
   
   
@@ -176,17 +191,20 @@
   h1.headline{
     font-weight:400; text-transform:uppercase; line-height:0.96; letter-spacing:-0.5px;
     font-size:clamp(38px, 8.4vw, 104px); max-width:1050px;
+    color: #fff;
   }
   h1.headline .accent{font-style:italic; font-weight:500; text-transform:none; display:block;}
 
   .hero-text{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-top:38px; flex-wrap:wrap;}
-  .hero-copy{max-width:440px; font-size:16px; line-height:1.75; color:var(--muted);}
+  .hero-copy{max-width:440px; font-size:16px; line-height:1.75; color: #fff;}
   .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{padding:16px 30px; font-size:13px; letter-spacing:2px; border:1px solid var(--ink); transition:all .25s ease; white-space:nowrap; display:inline-block;}
   .btn.primary{background:var(--ink); color:#FFFFFF;}
   .btn.primary:hover{background:var(--accent); border-color:var(--accent); color:#FFFFFF;}
   .btn.ghost{background:transparent; color:var(--ink);}
   .btn.ghost:hover{background:rgba(17,24,39,0.05);}
+
+
 
   /* ---------- TICKER ---------- */
   .ticker{
@@ -342,7 +360,7 @@
 
 <header>
   <div class="brand">
-    <div class="brand-logo"><img src="images/withx-logo.png" alt="WITHX Logo"></div>
+    <div class="brand-logo"><img src="images/withx defence logo.png" alt="WITHX Logo"></div>
   </div>
 
   <div class="nav-links">
@@ -421,9 +439,9 @@
 <section class="wrap">
   
   <div class="doctrine">
-    <h2>WE BUILD THE SYSTEMS THAT SEE, DECIDE AND ACT — <span class="fade">BEFORE THE ADVERSARY DOES.</span></h2>
+    <h2>WE BUILD THE SYSTEMS THAT SEE, DECIDE AND ACT <span class="fade">BEFORE THE ADVERSARY DOES.</span></h2>
     <div>
-      <p class="doctrine-copy">Founded in 2024 by Sharad Waybase, WITHX Defence takes a problem-first approach to unmanned systems — identifying real operational gaps in surveillance and drone survivability, then engineering focused, field-ready hardware to solve them.</p>
+      <p class="doctrine-copy">Founded in 2024 by Sharad Waybase, WITHX Defence takes a problem-first approach to unmanned systems  identifying real operational gaps in surveillance and drone survivability, then engineering focused, field-ready hardware to solve them.</p>
       <a href="about.html" class="link-arrow">OUR STORY →</a>
     </div>
   </div>
@@ -442,7 +460,7 @@
     <div class="eyebrow" id="systemsBtn"><span class="rule"></span></div>
     <div class="systems-popup" id="systemsPopup">
       <h4>Our Systems</h4>
-      <p>WITHX Defence builds focused unmanned hardware aerial surveillance and drone survivability — engineered around real operational problems.</p>
+      <p>WITHX Defence builds focused unmanned hardware aerial surveillance and drone survivability  engineered around real operational problems.</p>
     </div>
   </div>
   <div class="cap-head">
@@ -456,7 +474,7 @@
       <div>
         <h3>Drone Surveillance System</h3>
         <div class="product-name">Advanced Aerial Monitoring & Reconnaissance</div>
-        <p>Real time aerial monitoring, reconnaissance and situational awareness for security, inspection and surveillance missions — built for rapid deployment.</p>
+        <p>Real time aerial monitoring, reconnaissance and situational awareness for security, inspection and surveillance missions  built for rapid deployment.</p>
         <div class="chip-row">
           <span class="chip">Real Time Video</span>
           <span class="chip">Autonomous Flight</span>
@@ -565,43 +583,28 @@
   <div class="news-grid">
     <div class="news-card">
       <div class="card-art">
-        <img src="images/WITHX Delivers 40th Sentinel.png" alt="WITHX Sentinel MK-IV">
+        <img src="https://images.unsplash.com/photo-1583872341575-610c859c7a57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1pbGl0YXJ5fGVufDB8fDB8fHww" alt="WITHX Sentinel MK-IV">
       </div>
-      <div class="news-overlay">
-        <div class="news-meta">12 JAN 2026 / PROGRAM</div>
-        <h3>WITHX Delivers 40th Sentinel Mk-IV to Allied Air Command</h3>
-        <p>Milestone delivery marks completion of Phase II under the multi-year long endurance ISR programme.</p>
-        <a href="#" class="read">READ FILE →</a>
-      </div>
+      
     </div>
     <div class="news-card">
       <div class="card-art">
-        <img src="images/AEGIS C2 Achieves NATO STANAG.png" alt="AEGIS C2 Achieves NATO STANAG 4586 Level 5 Interoperability">
+        <img src="https://images.unsplash.com/photo-1508530786855-dfea35260b8d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1pbGl0YXJ5fGVufDB8fDB8fHww" alt="AEGIS C2 Achieves NATO STANAG 4586 Level 5 Interoperability">
       </div>
-      <div class="news-overlay">
-        <div class="news-meta">08 JAN 2026 / TECHNOLOGY</div>
-        <h3>AEGIS C2 Achieves NATO STANAG 4586 Level 5 Interoperability</h3>
-        <p>Independent certification confirms full command and control interoperability across coalition unmanned platforms.</p>
-        <a href="#" class="read">READ FILE →</a>
-      </div>
+      
     </div>
     <div class="news-card">
       <div class="card-art">
-        <img src="images/Marlin USV 90-Day Ocean Patrol.png" alt="Marlin USV Completes 90-Day Autonomous Ocean Patrol">
+        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1pbGl0YXJ5fGVufDB8fDB8fHww" alt="Marlin USV Completes 90-Day Autonomous Ocean Patrol">
       </div>
-      <div class="news-overlay">
-        <div class="news-meta">03 JAN 2026 / MARITIME</div>
-        <h3>Marlin USV Completes 90-Day Autonomous Ocean Patrol</h3>
-        <p>Longest recorded unmanned surface deployment in the Indian Ocean conducted without operator intervention.</p>
-        <a href="#" class="read">READ FILE →</a>
-      </div>
+      
     </div>
   </div>
 </section>
 
 <!-- ===== CTA ===== -->
 <section class="cta">
-  <div class="eyebrow" style="justify-content:center;"><span class="rule"></span>00 / ENGAGE<span class="rule"></span></div>
+  
   <h2>SOVEREIGN FORCE. <span class="fade">DELIVERED.</span></h2>
   <div class="hero-actions">
     <a href="#" class="btn primary">Schedule a Briefing</a>
