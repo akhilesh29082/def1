@@ -310,8 +310,14 @@
 
   /* ---------- FOOTER ---------- */
   footer{padding:90px clamp(20px,5vw,64px) 40px;}
-  .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid var(--line);}
-  .foot-brand .brand{margin-bottom:22px; align-items:center;}
+  .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid var(--line); align-items:start;}
+  .foot-brand .brand{
+    height:14px;               /* anchors to the same text cap-height as .foot-col h4 below */
+    display:flex;
+    align-items:center;        /* the taller logo image centers around this line, top and bottom */
+    overflow:visible;
+    margin-bottom:26px;
+  }
   .foot-brand p{font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:26px;}
   .foot-contact div{font-size:13px; color:var(--muted); line-height:1.9;}
   .foot-contact{display:flex; flex-direction:column; gap:16px;}
@@ -325,7 +331,7 @@
   .foot-contact .phone{color:var(--accent);}
   .foot-legal{font-size:12px; line-height:1.8; color:var(--muted); margin-top:10px;}
   .foot-legal strong{color:var(--ink);}
-  .foot-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:22px; text-transform:uppercase;}
+  .foot-col h4{font-size:11px; line-height:14px; letter-spacing:2px; color:var(--muted); margin-bottom:26px; text-transform:uppercase;}
   .foot-col a{display:block; font-size:14px; margin-bottom:14px; color:var(--ink);}
   .foot-col a:hover{color:var(--accent);}
   .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:34px; font-size:11px; letter-spacing:1.5px; color:var(--muted);}
