@@ -425,6 +425,14 @@ padding:12px 0 12px 4px;border-top:1px solid var(--line);
 @media(min-width:1001px){.mobile-nav{display:none}}
 body.nav-open{overflow:hidden}
 
+/* ---------- DRONE CURSOR ---------- */
+#drone-cursor{
+  position:fixed; top:-25px; left:-25px; width:50px; height:50px;
+  background-size:contain; background-repeat:no-repeat; background-position:center;
+  pointer-events:none; z-index:9999; transition:background-image .2s ease-in-out; will-change:transform, background-image;
+}
+@media (max-width:900px){ #drone-cursor{display:none;} }
+
 </style>
 </head>
 
@@ -705,6 +713,36 @@ mnavSystemsToggle.addEventListener('click', () => {
   mnavSub.classList.toggle('show');
   mnavSystemsToggle.classList.toggle('open');
 });
+
+/* DRONE CURSOR (desktop only) */
+if (window.matchMedia('(min-width: 901px)').matches) {
+  const cursor = document.createElement('div');
+  cursor.id = 'drone-cursor';
+  document.body.appendChild(cursor);
+
+  const normalDrone = 'https://static.vecteezy.com/system/resources/thumbnails/049/514/995/small/drone-hovering-in-mid-air-above-a-landscape-during-daylight-cut-out-transparent-png.png';
+  const hoverDrone = normalDrone;
+  cursor.style.backgroundImage = `url('${normalDrone}')`;
+
+  let mx = 0, my = 0;
+  let cx = 0, cy = 0;
+  const speed = 0.1;
+
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  function animateCursor(){
+    cx += (mx - cx) * speed;
+    cy += (my - cy) * speed;
+    cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  document.querySelectorAll('a, button, .domain, .news-card, .tech-row').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.backgroundImage = `url('${hoverDrone}')`; });
+    el.addEventListener('mouseleave', () => { cursor.style.backgroundImage = `url('${normalDrone}')`; });
+  });
+}
 </script>
 <script src="script.js"></script>
 
