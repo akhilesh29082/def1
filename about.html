@@ -13,7 +13,1157 @@
     --black:#FFFFFF;
     --black-2:#F8FAFC;
     --white:#111827;
+    --gray-1:#4B5563;<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Withx Defence | Sovereign Unmanned Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  :root{
+    --black:#FFFFFF;
+    --black-2:#F8FAFC;
+    --white:#111827;
     --gray-1:#4B5563;
+    --gray-2:#6B7280;
+    --gray-3:#E5E7EB;
+    --line:#E5E7EB;
+    --line-strong:#D1D5DB;
+    --accent:#B23A2E;
+    --disp:"Times New Roman", Times, serif;
+    --disp2:"Times New Roman", Times, serif;
+    --body:"Times New Roman", Times, serif;
+    --mono:"Times New Roman", Times, serif;
+    --maxw:1440px;
+    --pad: clamp(20px, 4vw, 80px);
+    --card-shadow:0 8px 30px rgba(0,0,0,0.08);
+    --ink: var(--white);
+    --muted: var(--gray-1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gray-1);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:6px;height:6px;background:var(--white);display:inline-block;}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease, transform 0.9s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* grain overlay */
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:0.045;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size:120px 120px;
+  }
+
+  /* ---------- NAV ---------- */
+header{
+    position:fixed; top:0; left:0; width:100%; z-index:70;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    padding:14px clamp(20px,5vw,64px);
+     font-family: "Times New Roman", Times, serif; font-weight:600;
+    background:#FFFFFF;
+    border-bottom:1px solid var(--line); box-shadow:0 2px 12px rgba(17,24,39,0.05);
+  }
+  .brand{display:flex; align-items:center; gap:14px;}
+  .brand-logo{height:56px; width:auto; flex-shrink:0; display:flex; align-items:center;}
+  .brand-logo img{display:block;width:auto;max-width:100%;height:56px;object-fit:contain;opacity:1;visibility:visible;}
+  .footer-brand-logo{height:44px; width:auto; flex-shrink:0; display:flex; align-items:center;}
+  .footer-brand-logo img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;opacity:1;visibility:visible;}
+  @media (max-width:480px){ .brand-logo{height:42px;} .brand-logo img{height:42px;} }
+  .menu-btn{display:flex; flex-direction:column; gap:6px; cursor:pointer; padding:8px; z-index:110;}
+  .menu-btn span{width:26px; height:1.5px; background:var(--ink); display:block; transition:transform .3s ease, opacity .3s ease;}
+  .menu-btn span:last-child{width:16px;}
+  .menu-btn.open span:first-child{transform:translateY(3.5px) rotate(45deg); width:24px;}
+  .menu-btn.open span:last-child{transform:translateY(-3.5px) rotate(-45deg); width:24px;}
+
+  /* ---------- NAV LINKS + MEGA MENU (desktop) ---------- */
+  .nav-links{display:flex; align-items:center; gap:36px;}
+  .nav-link{font-size:12px; font-weight:700;  letter-spacing:2px; text-transform:uppercase; color:var(--ink); opacity:.85; transition:opacity .2s; line-height:1;}
+  .nav-link:hover{opacity:1;}
+  .mega-item{position:relative; display:flex; align-items:center;}
+  .mega-item > a{font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; color:var(--ink); opacity:.85; line-height:1;}
+  .mega-item:hover > a{opacity:1;}
+  .mega-menu{
+    position:fixed; top:96px; left:0; width:100%; background:#FFFFFF; color:var(--ink);
+    padding:50px clamp(20px,5vw,64px); display:grid; grid-template-columns:1.2fr 1fr; gap:80px;
+    opacity:0; visibility:hidden; transform:translateY(-14px);
+    transition:opacity .3s ease, transform .3s ease, visibility .3s ease;
+    z-index:60; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    box-shadow:0 20px 45px rgba(17,24,39,0.10);
+  }
+  .mega-item:hover .mega-menu, .mega-item.active .mega-menu{opacity:1; visibility:visible; transform:translateY(0);}
+  .mega-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:20px; text-transform:uppercase;}
+  .mega-col p{font-size:16px; line-height:1.6; max-width:420px; color:var(--muted);}
+  .product-toggle{background:transparent; border:none; color:var(--ink); font-family: "Times New Roman", Times, serif; font-size:16px; font-weight:600; cursor:pointer; padding:0; transition:all .3s ease;}
+  .product-toggle:hover, .product-toggle.active{color:var(--accent); transform:translateX(6px);}
+  .product-list{display:none; margin-top:12px; padding-left:20px; border-left:1px solid var(--line);}
+  .product-list.show{display:block;}
+  .product-list a{display:block; font-size:14px; margin-bottom:10px; color:var(--muted); transition:all .3s ease;}
+  .product-list a:hover{color:var(--ink); transform:translateX(6px);}
+  .nav-touch{padding:11px 24px; font-size:11px; letter-spacing:2px; border:1px solid var(--ink); flex-shrink:0; display:flex; align-items:center;}
+  .nav-touch a{text-decoration:none;}
+  @media (max-width:1000px){ .nav-links, .nav-touch{display:none;} }
+  @media (min-width:1001px){ .menu-btn{display:none;} }
+  /* ---------- MOBILE NAV DRAWER ---------- */
+  .mobile-nav{
+    position:fixed; inset:0; z-index:95; background:#FFFFFF;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:110px clamp(24px,8vw,64px) 60px;
+    transform:translateX(100%);
+    transition:transform .45s cubic-bezier(.16,1,.3,1);
+    overflow-y:auto;
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav-links a{
+    display:block; font-family: "Times New Roman", Times, serif; font-weight:600;
+    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
+    padding:16px 0; border-bottom:1px solid var(--line); color:var(--ink);
+  }
+  .mobile-nav-links li a.active{color:var(--accent);}
+  .mnav-systems{border-bottom:1px solid var(--line);}
+  .mnav-systems-toggle{
+    display:flex; align-items:center; justify-content:space-between;
+     font-family: "Times New Roman", Times, serif; font-weight:600; width:100%;
+    font-size:clamp(26px,8vw,38px); text-transform:uppercase; letter-spacing:0.5px;
+    padding:16px 0; color:var(--ink); background:none; border:none; cursor:pointer;
+  }
+  .mnav-systems-toggle i{font-size:16px; color:var(--muted); transition:transform .3s ease;}
+  .mnav-systems-toggle.open i{transform:rotate(180deg);}
+  .mnav-sub{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .mnav-sub.show{max-height:220px;}
+  .mnav-sub a{
+    display:block; font-size:14px; letter-spacing:1px; color:var(--muted);
+    padding:12px 0 12px 4px; border-top:1px solid var(--line);
+  }
+  .mnav-cta{margin-top:32px; display:inline-block; padding:16px 30px; border:1px solid var(--ink); font-size:12px; letter-spacing:2px; color:var(--ink);}
+  @media (min-width:1001px){ .mobile-nav{display:none;} }
+
+  body.nav-open{overflow:hidden;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+    overflow:hidden;padding-bottom:70px;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:linear-gradient(180deg, rgba(7,7,7,0.55) 0%, rgba(7,7,7,0.55) 40%, rgba(7,7,7,0.96) 100%), url('https://i.postimg.cc/FRWqL5B5/jason-leem-5O6oz1-3Zmg-unsplash.jpg') center/cover no-repeat;
+    filter:grayscale(1) contrast(1.15) brightness(0.45);
+    animation:heroZoom 24s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
+  .hero-top{
+    position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;
+    padding:110px var(--pad) 0;
+  }
+  .hero-coords{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;color:rgba(255,255,255,0.8);line-height:1.7;}
+  .live-feed{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:#FFFFFF;}
+  .live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+  .hero-content{position:relative;z-index:2;padding:0 var(--pad);margin-top:auto;}
+  .hero h1{
+    font-family:var(--disp);
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(38px, 7.4vw, 100px);
+    line-height:0.98;
+    letter-spacing:0.005em;
+    max-width:20ch;
+    color:#FFFFFF;
+  }
+  .hero p{
+    margin-top:26px;max-width:540px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.7;font-weight:300;
+  }
+  .type-cursor{
+    display:inline-block;
+    width:0.5ch;
+    margin-left:2px;
+    background:#FFFFFF;
+    animation:typeBlink 0.9s step-end infinite;
+  }
+  @keyframes typeBlink{0%,50%{opacity:1;}50.01%,100%{opacity:0;}}
+  .scroll-ind{
+    position:relative;z-index:2;margin:46px var(--pad) 0;display:flex;align-items:center;gap:12px;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:rgba(255,255,255,0.8);text-transform:uppercase;
+  }
+  .scroll-ind .bar{width:1px;height:34px;background:rgba(255,255,255,0.3);position:relative;overflow:hidden;}
+  .scroll-ind .bar::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:#FFFFFF;animation:scrollBar 2.2s ease-in-out infinite;}
+  @keyframes scrollBar{0%{top:-100%;}50%{top:0;}100%{top:100%;}}
+
+  /* ===== METRIC STRIP (top, thin) ===== */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+  .strip .cell{padding:26px var(--pad);border-left:1px solid var(--line);}
+  .strip .cell:first-child{border-left:none;}
+  .strip .num{font-family:var(--disp2);font-weight:600;font-size:clamp(18px,2vw,26px);}
+  .strip .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--gray-1);text-transform:uppercase;margin-top:6px;}
+
+  section{position:relative;}
+
+  /* ===== STORY ===== */
+  .story{padding:140px var(--pad) 120px;}
+  .story .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;padding:0;}
+  .story-left{position:sticky;top:120px;align-self:start;}
+  .story-left h2{
+    font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(40px,5vw,64px);
+    line-height:0.95;margin-top:18px;
+  }
+  .story-right p{
+    font-size:16px;line-height:1.85;color:var(--gray-1);font-weight:300;margin-bottom:22px;max-width:640px;
+  }
+  .story-statement{
+    margin-top:36px;padding-top:30px;border-top:1px solid var(--line);
+    font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:clamp(18px,2vw,26px);
+    color:var(--white);line-height:1.35;letter-spacing:0.01em;
+  }
+
+  /* ===== FULL IMAGE ===== */
+  .full-image{height:78vh;position:relative;overflow:hidden;}
+  .full-image .img-layer{
+    position:absolute;inset:-6% -6%;
+    background:url('https://i.postimg.cc/tJ0nB8LS/Chat-GPT-Image-Aug-3-2026-06-23-52-PM.png') center/cover no-repeat;
+    filter:grayscale(1) contrast(1.1) brightness(0.62);
+    will-change:transform;
+  }
+  .full-image::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(7,7,7,0.25) 0%, rgba(7,7,7,0.15) 45%, rgba(7,7,7,0.95) 100%);
+  }
+  .full-image-cap{
+    position:absolute;left:var(--pad);bottom:26px;z-index:3;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline{padding:140px var(--pad) 100px;}
+  .timeline-head h2{
+    font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:0.98;
+  }
+  .timeline-head h2 span{color:var(--gray-2);display:block;}
+  .timeline-rows{margin-top:64px;border-top:1px solid var(--line);}
+  .t-row{
+    display:grid;grid-template-columns:140px 260px 1fr;gap:40px;align-items:center;
+    padding:34px 0;border-bottom:1px solid var(--line);position:relative;
+    transition:padding-left 0.35s ease, background 0.35s ease;
+  }
+  .t-row::before{
+    content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--white);
+    transform:scaleY(0);transform-origin:top;transition:transform 0.4s ease;
+  }
+  .t-row:hover{padding-left:20px;background:rgba(17,24,39,0.03);}
+  .t-row:hover::before{transform:scaleY(1);}
+  .t-year{font-family:var(--disp2);font-weight:600;font-size:26px;color:var(--gray-2);transition:color 0.35s ease;}
+  .t-row:hover .t-year{color:var(--white);}
+  .t-title{font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:16px;letter-spacing:0.03em;}
+  .t-desc{color:var(--gray-1);font-size:14px;line-height:1.7;font-weight:300;max-width:560px;}
+
+  /* ===== ACHIEVEMENTS ===== */
+achievements{
+    padding:140px var(--pad) 120px;
+}
+
+.achievements-head h2{
+    font-family:var(--disp);
+    font-size:clamp(40px,5vw,72px);
+    text-transform:uppercase;
+    font-weight:400;
+    margin-top:18px;
+}
+
+.achievement-grid{
+    margin-top:70px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.achievement-card{
+    border:1px solid var(--line);
+    padding:40px;
+    transition:.4s;
+    background:var(--black);
+}
+
+.achievement-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+}
+
+.achievement-number{
+    font-size:14px;
+    letter-spacing:4px;
+    color:var(--accent);
+    margin-bottom:22px;
+}
+
+.achievement-card h3{
+    font-family:var(--disp2);
+    font-size:24px;
+    font-weight:600;
+    text-transform:uppercase;
+    margin-bottom:16px;
+}
+
+.achievement-card p{
+    color:var(--gray-1);
+    line-height:1.8;
+    font-size:15px;
+}
+
+@media(max-width:768px){
+
+.achievement-grid{
+
+grid-template-columns:1fr;
+
+}
+}
+
+  /* ===== ADVANTAGES / METRICS ===== */
+  /* ===== WHAT SETS US APART ===== */
+
+.metrics{
+    padding:100px var(--pad);
+    border-top:1px solid var(--line);
+}
+
+.metrics-head{
+    margin-bottom:45px;
+}
+
+.metrics-head h2{
+    font-family:var(--disp);
+    font-size:clamp(38px,5vw,70px);
+    font-weight:400;
+    text-transform:uppercase;
+    line-height:1;
+}
+
+/* Cards */
+
+.metrics-grid{
+    display:flex;
+    gap:18px;
+    height:320px;
+}
+
+.metric-card{
+    flex:1;
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.5s;
+}
+
+.metric-card:hover{
+    flex:2;
+}
+
+/* Images */
+
+.metric-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.metric-card:hover img{
+    transform:scale(1.08);
+}
+
+/* Dark Overlay */
+
+.metric-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.92),
+        rgba(0,0,0,.2)
+    );
+}
+
+/* Heading */
+
+.metric-title{
+    position:absolute;
+    left:25px;
+    bottom:30px;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-transform:uppercase;
+    transition:.4s;
+}
+
+/* List */
+
+.metric-content{
+    position:absolute;
+    left:25px;
+    bottom:70px;
+    color:white;
+    opacity:0;
+    transform:translateY(20px);
+    transition:.4s;
+}
+
+.metric-card:hover .metric-content{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.metric-content li{
+    list-style:none;
+    margin:10px 0;
+    font-size:14px;
+}
+
+.metric-content li::before{
+    content:"✓ ";
+    color:#7CFC00;
+}
+
+@media(max-width:900px){
+
+.metrics-grid{
+    flex-direction:column;
+    height:auto;
+}
+
+.metric-card{
+    height:250px;
+}
+
+.metric-card:hover{
+    flex:1;
+}
+
+}
+
+  /* ===== FOOTER ===== */
+footer{padding:90px clamp(20px,5vw,64px) 40px;}
+  .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid var(--line);}
+  .foot-brand .brand{margin-bottom:22px; align-items:center;}
+  .foot-brand p{font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:26px;}
+  .foot-contact div{font-size:13px; color:var(--muted); line-height:1.9;}
+  .foot-contact{display:flex; flex-direction:column; gap:16px;}
+  .foot-contact a{display:flex; align-items:center; gap:12px; font-size:14px; color:var(--muted); transition:all .3s ease;}
+  .foot-contact a:hover{color:var(--ink); transform:translateX(6px);}
+  .foot-contact i{width:20px; font-size:16px; text-align:center;}
+  .foot-contact .whatsapp{color:#25D366;}
+  .foot-contact .linkedin{color:#4a90e2;}
+  .foot-contact .instagram{color:#e07a9e;}
+  .foot-contact .youtube{color:#e05c5c;}
+  .foot-contact .phone{color:var(--accent);}
+  .foot-legal{font-size:12px; line-height:1.8; color:var(--muted); margin-top:10px;}
+  .foot-legal strong{color:var(--ink);}
+  .foot-col h4{font-size:11px; letter-spacing:2px; color:var(--muted); margin-bottom:22px; text-transform:uppercase;}
+  .foot-col a{display:block; font-size:14px; margin-bottom:14px; color:var(--ink);}
+  .foot-col a:hover{color:var(--accent);}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:34px; font-size:11px; letter-spacing:1.5px; color:var(--muted);}
+  .foot-bottom a{margin-left:24px; color:var(--muted);}
+  .foot-bottom a:hover{color:var(--ink);}
+  @media (max-width:900px){ .foot-top{grid-template-columns:1fr 1fr; row-gap:50px;} }
+  @media (max-width:560px){ .foot-top{grid-template-columns:1fr;} .foot-bottom{flex-direction:column; align-items:flex-start;} .foot-bottom a{margin-left:0; margin-right:20px;} }
+  @media (max-width:480px){
+    header{padding:14px 20px;}
+    .brand-name{font-size:16px;}
+    .brand-mark{width:36px; height:36px;}
+    h1.headline{font-size:clamp(34px,11vw,52px);}
+    .cta{padding:70px 20px;}
+    .news-card{height:360px;}
+  }
+
+
+  /* ===== MODAL ===== */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(17,24,39,0.5);backdrop-filter:blur(4px);
+    z-index:800;display:flex;align-items:center;justify-content:center;padding:24px;
+    opacity:0;pointer-events:none;transition:opacity 0.3s ease;
+  }
+  .modal-overlay.open{opacity:1;pointer-events:auto;}
+  .modal{
+    background:var(--black-2);border:1px solid var(--line-strong);max-width:560px;width:100%;
+    max-height:88vh;overflow-y:auto;padding:44px;position:relative;
+    transform:translateY(16px);transition:transform 0.35s ease;
+    box-shadow:0 20px 50px rgba(17,24,39,0.16);
+  }
+  .modal-overlay.open .modal{transform:translateY(0);}
+  .modal-close{
+    position:absolute;top:20px;right:20px;background:none;border:1px solid var(--line-strong);
+    width:32px;height:32px;color:var(--white);font-size:16px;line-height:1;
+  }
+  .modal-close:hover{background:var(--white);color:var(--black);}
+  .modal h3{font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:26px;letter-spacing:0.02em;margin-bottom:8px;}
+  .modal .sub{color:var(--gray-1);font-size:13px;margin-bottom:30px;font-weight:300;}
+  .form-row{margin-bottom:20px;}
+  .form-row label{
+    display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--gray-1);margin-bottom:8px;
+  }
+  .form-row input, .form-row select, .form-row textarea{
+    width:100%;background:#FFFFFF;border:1px solid var(--line-strong);color:var(--white);
+    padding:12px 14px;font-family:var(--body);font-size:14px;
+  }
+  .form-row textarea{resize:vertical;min-height:90px;}
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus{outline:2px solid var(--accent);outline-offset:2px;}
+  .form-row .err{color:var(--accent);font-size:11px;margin-top:6px;display:none;}
+  .form-row.invalid .err{display:block;}
+  .form-row.invalid input, .form-row.invalid select, .form-row.invalid textarea{border-color:var(--accent);}
+  .form-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .submit-btn{
+    width:100%;background:var(--white);color:var(--black);border:none;padding:15px;
+    font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;margin-top:10px;
+    transition:background 0.25s ease;
+  }
+  .submit-btn:hover{background:var(--gray-1);}
+  .success-msg{display:none;text-align:center;padding:30px 0;}
+  .success-msg.show{display:block;}
+  .success-msg .mark{width:40px;height:40px;border:1px solid var(--white);border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .success-msg h4{font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:18px;margin-bottom:10px;}
+  .success-msg p{color:var(--gray-1);font-size:13px;font-weight:300;}
+  .form-content.hide{display:none;}
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1024px){
+    nav.primary .nav-links{display:none;}
+    .hamburger{display:flex;}
+    .story .wrap{grid-template-columns:1fr;gap:40px;}
+    .story-left{position:static;}
+    .lead-grid{grid-template-columns:repeat(2,1fr);}
+    .metrics-grid{grid-template-columns:repeat(2,1fr);}
+    .strip .wrap{grid-template-columns:repeat(2,1fr);}
+    .strip .cell:nth-child(3){border-left:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:40px 30px;}
+  }
+  @media (max-width:760px){
+    .req-brief-btn{display:none;}
+    .t-row{grid-template-columns:1fr;gap:10px;padding:26px 0;}
+    .t-row:hover{padding-left:14px;}
+    .t-year{font-size:20px;}
+    .lead-grid{grid-template-columns:repeat(2,1fr);}
+    .metrics-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:36px;}
+    .hero-top{padding-top:96px;}
+    .form-two{grid-template-columns:1fr;}
+    .modal{padding:30px 22px;}
+  }
+  @media (max-width:420px){
+    .strip .wrap{grid-template-columns:repeat(2,1fr);}
+    .lead-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-bg{animation:none;}
+    .reveal{transition:none;opacity:1;transform:none;}
+    *{scroll-behavior:auto !important;}
+  }
+
+  /* ---------- DRONE CURSOR ---------- */
+  #drone-cursor{
+    position:fixed; top:-25px; left:-25px; width:50px; height:50px;
+    background-size:contain; background-repeat:no-repeat; background-position:center;
+    pointer-events:none; z-index:9999; transition:background-image .2s ease-in-out; will-change:transform, background-image;
+  }
+  @media (max-width:900px){ #drone-cursor{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- NAV -->
+<header id="siteHeader">
+  <div class="brand">
+    <div class="brand-logo"><img src="images/logo.png" alt="WITHX Defence Logo"></div>
+  </div>
+
+  <div class="nav-links">
+   <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="technology.html" class="nav-link">Technology</a>
+    <a href="Marine.html" class="nav-link">Marine</a>
+    <a href="Terrain.html" class="nav-link">Terrain</a>
+
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+
+  <div class="nav-touch"><a href="contact.html">Get in Touch</a></div>
+  <div class="menu-btn" id="menuBtn" aria-label="Open menu" role="button" tabindex="0"><span></span><span></span></div>
+</header>
+
+<!-- ===== MOBILE NAV DRAWER ===== -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="technology.html">Technology</a>
+    <a href="Marine.html">Marine</a>
+    <a href="Terrain.html">Terrain</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="mnav-cta">Get in Touch</a>
+</nav>
+  
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-top">
+    <div class="hero-coords">
+      <br><br>
+      DEHU PHATA, ALANDI (D)<br>
+      PUNE, MAHARASHTRA
+    </div>
+    <div class="live-feed"><br><br><br><span class="live-dot"></span> DPIIT RECOGNISED STARTUP</div>
+  </div>
+  <div class="hero-content">
+    <h1 id="heroTitle"><br><span id="heroTypewriter"></span><span class="type-cursor" id="heroCursor"></span></h1>
+    <p>WITHX Innovations Private Limited is a Pune-based engineering and defence technology company developing indigenous unmanned systems under the Make in India initiative — from persistent surveillance platforms to passive UAV recovery hardware.</p>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <span class="bar"></span>
+  </div>
+</section>
+
+<!-- QUICK STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div class="cell"><div class="num">2024</div><div class="lbl">Company Founded</div></div>
+    <div class="cell"><div class="num">DPIIT</div><div class="lbl">Recognised Startup</div></div>
+    <div class="cell"><div class="num">2</div><div class="lbl">Systems in Development</div></div>
+    <div class="cell"><div class="num">Pune, IN</div><div class="lbl">Engineering Base</div></div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <div class="wrap">
+    <div class="story-left reveal">
+      <div class="eyebrow"></div>
+      <h2>Our<br>Story</h2>
+    </div>
+    <div class="story-right reveal">
+      <p>WITHX Innovations Private Limited was founded by Sharad Ashruba Waybase to build indigenous unmanned defence hardware for problems the industry hadn't solved: how to extend surveillance beyond the limits of drone battery endurance, and how to prevent the permanent loss of UAVs after an accidental water impact.</p>
+      <p>Registered as WITHX Innovations Private Limited (CIN U71100PN2026PTC252377) and headquartered at Dehu Phata, Alandi (D), Taluka-Khed, in the Pune district of Maharashtra, the company operates as an engineering-led product house — taking each system from CAD and rapid prototyping through to working hardware.</p>
+      <p>WITHX is recognised as a startup under DPIIT, with patent drafting currently in progress on its core recovery technology. The company's work is designed and developed under the Make in India initiative, aimed at delivering scalable, modular, cost-effective capability for defence, homeland security, and disaster response.</p>
+      <div class="story-statement">We engineer hardware that solves<br>real operational problems.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL IMAGE -->
+<section class="full-image" id="parallaxSection">
+  <div class="img-layer" id="parallaxLayer"></div>
+  <div class="full-image-cap">WITHX Innovations Private Limited  Pune, Maharashtra</div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="wrap">
+    <div class="timeline-head reveal">
+      <div class="eyebrow"></div>
+      <h2>Our<span>Journey So Far.</span></h2>
+    </div>
+    <div class="timeline-rows reveal">
+      <div class="t-row">
+        <div class="t-year">2024</div>
+        <div class="t-title">Foundation</div>
+        <div class="t-desc">WITHX Innovations Private Limited is founded by Sharad Ashruba Waybase in Pune, Maharashtra, with a mandate to build indigenous unmanned defence hardware.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">DPIIT</div>
+        <div class="t-title">Startup Recognition</div>
+        <div class="t-desc">WITHX is formally recognised as a startup under DPIIT, validating its innovation-driven product development approach.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">Prototype</div>
+        <div class="t-title">Working Hardware</div>
+        <div class="t-desc">A working prototype of the Passive Autonomous Water Recovery System (PAWRS) is completed, with patent drafting now in progress.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">In Progress</div>
+        <div class="t-title">Smart Deployable Surveillance System</div>
+        <div class="t-desc">Development begins on the WITHX Smart Deployable Surveillance System (SDSS) — an autonomous UAV-deployed surveillance node with AI-based motion detection and a Command &amp; Control platform, proposed on a 12-month development timeline.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">Ahead</div>
+        <div class="t-title">Field Validation &amp; Scale</div>
+        <div class="t-desc">Planned prototype integration, field trials, and defence demonstration, with future scalability toward AI-based object classification, thermal imaging, mesh networking, and multi-UAV operations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements">
+  <div class="wrap">
+
+    <div class="achievements-head reveal">
+      <div class="eyebrow"></div>
+      <h2>Milestones & Recognition</h2>
+    </div>
+
+    <div class="achievement-grid reveal">
+
+      <div class="achievement-card">
+        <div class="achievement-number"></div>
+        <h3>Innovation Excellence</h3>
+        <p>Successfully developed indigenous surveillance technologies for next-generation unmanned systems.</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="achievement-number"></div>
+        <h3>Research & Development</h3>
+        <p>Focused on AI-powered surveillance, autonomous navigation and advanced recovery technologies.</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="achievement-number"></div>
+        <h3>Strategic Collaborations</h3>
+        <p>Working with academia and industry experts to accelerate indigenous defence innovation.</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="achievement-number"></div>
+        <h3>Future Ready</h3>
+        <p>Building reliable surveillance and recovery systems for modern defence operations.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ADVANTAGES / CAPABILITIES -->
+<section class="metrics">
+  <div class="wrap">
+    <div class="metrics-head reveal">
+      <div class="eyebrow"></div>
+      <h2>What Sets<br>Us Apart</h2>
+    </div>
+    <div class="metrics-grid reveal">
+
+    <div class="metric-card">
+
+        <img src="https://images.unsplash.com/photo-1517976487492-576ea6b2936d?w=900" alt="Technology">
+
+        <div class="metric-overlay"></div>
+
+        <div class="metric-content">
+            <ul>
+                <li>Passive recovery system</li>
+                <li>AI motion detection</li>
+                <li>Encrypted communication</li>
+                <li>Mission adaptable</li>
+            </ul>
+        </div>
+
+        <div class="metric-title">
+            Technology
+        </div>
+
+    </div>
+
+    <div class="metric-card">
+
+        <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=900" alt="Product">
+
+        <div class="metric-overlay"></div>
+
+        <div class="metric-content">
+            <ul>
+                <li>Water impact recovery</li>
+                <li>Extended surveillance</li>
+                <li>Lightweight integration</li>
+                <li>All weather operation</li>
+            </ul>
+        </div>
+
+        <div class="metric-title">
+            Product
+        </div>
+
+    </div>
+
+    <div class="metric-card">
+
+        <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=900" alt="Capabilities">
+
+        <div class="metric-overlay"></div>
+
+        <div class="metric-content">
+            <ul>
+                <li>Working prototype</li>
+                <li>DPIIT recognised</li>
+                <li>Patent drafting</li>
+                <li>Make in India</li>
+            </ul>
+        </div>
+
+        <div class="metric-title">
+            Capabilities
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="brand">
+        <div class="footer-brand-logo"><img src="images/logo.png" alt="WITHX Innovations Private Limited Logo"></div>
+      </div>
+      <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
+      <div class="foot-legal">
+        <strong>WITHX Innovations Private Limited</strong><br>
+      
+        Dehu Phata, Alandi (D), Taluka-Khed,<br>
+        District-Pune, Maharashtra, India, 412105
+      </div>
+    
+    </div>
+
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="technologies.html">Technology</a>
+      
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="foot-col">
+      <h4>Systems</h4>
+      <a href="Marine.html">WITHX SDSS</a>
+      <a href="Terrain.html">PAWRS</a>
+    </div>
+
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <div class="foot-contact">
+        <a href="mailto:withx.innovations@gmail.com"><i class="fa-solid fa-envelope"></i>withx.innovations@gmail.com</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <div>© 2026 WITHX INNOVATIONS PRIVATE LIMITED. ALL RIGHTS RESERVED. CIN: U71100PN2026PTC252377</div>
+  </div>
+</footer>
+
+
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to enhance your development experience and keep your data secure. <a href="privacy-policy.html">Privacy Policy</a> · <a href="cookie-policy.html">Cookie Policy</a></p>
+  <div class="cookie-actions">
+    <button class="accept" id="cookieAccept">OK</button>
+    <button class="manage">Manage preferences</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close">✕</button>
+    <div class="form-content" id="formContent">
+      <h3 id="modalTitle">Request Brief</h3>
+      <p class="sub">Submit your details and a member of our programmes team will respond via secure channel.</p>
+      <form id="briefForm" novalidate>
+        <div class="form-two">
+          <div class="form-row" data-field="fullName">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName">
+            <div class="err">Please enter your full name.</div>
+          </div>
+          <div class="form-row" data-field="organization">
+            <label for="organization">Organization *</label>
+            <input type="text" id="organization" name="organization">
+            <div class="err">Please enter your organization.</div>
+          </div>
+        </div>
+        <div class="form-two">
+          <div class="form-row" data-field="email">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email">
+            <div class="err">Please enter a valid email.</div>
+          </div>
+          <div class="form-row" data-field="phone">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div class="form-row" data-field="interest">
+          <label for="interest">Area of Interest *</label>
+          <select id="interest" name="interest">
+            <option value="">Select an area</option>
+            <option>Aerial Unmanned Systems</option>
+            <option>Maritime Unmanned Systems</option>
+            <option>Ground Robotics</option>
+            <option>C4ISR &amp; Mission Software</option>
+            <option>Electronic Warfare / Counter-UAS</option>
+            <option>Training, Simulation &amp; MRO</option>
+          </select>
+          <div class="err">Please select an area of interest.</div>
+        </div>
+        <div class="form-row" data-field="message">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message"></textarea>
+          <div class="err">Please enter a brief message.</div>
+        </div>
+        <button type="submit" class="submit-btn">Submit Request</button>
+      </form>
+    </div>
+    <div class="success-msg" id="successMsg">
+      <div class="mark">✓</div>
+      <h4>Request Received</h4>
+      <p>Thank you. Your brief request has been logged. A member of our team will contact you via secure channel within 2 business days.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---- Header scroll state ----
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ---- Hero heading typewriter effect ----
+  (function(){
+    const target = document.getElementById('heroTypewriter');
+    if(!target) return;
+    const lines = ['Built for the next', 'generation of defence.'];
+    const typeSpeed = 45;   // ms per character
+    const lineDelay = 250;  // pause between lines
+    let lineIndex = 0, charIndex = 0;
+
+    function typeNext(){
+      if(lineIndex >= lines.length) return; // done, cursor keeps blinking
+      const currentLine = lines[lineIndex];
+      if(charIndex < currentLine.length){
+        target.insertAdjacentHTML('beforeend', currentLine.charAt(charIndex));
+        charIndex++;
+        setTimeout(typeNext, typeSpeed);
+      } else {
+        lineIndex++;
+        charIndex = 0;
+        if(lineIndex < lines.length){
+          target.insertAdjacentHTML('beforeend', '<br>');
+          setTimeout(typeNext, lineDelay);
+        }
+      }
+    }
+    setTimeout(typeNext, 400); // small delay before typing starts
+  })();
+
+  // ---- Mega menu product toggle ----
+  document.querySelectorAll('.product-toggle').forEach((btn) => {
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      const list = this.nextElementSibling;
+      const isOpen = list.classList.contains('show');
+      document.querySelectorAll('.product-list').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll('.product-toggle').forEach(el => el.classList.remove('active'));
+      if(!isOpen){ list.classList.add('show'); this.classList.add('active'); }
+    });
+  });
+
+  // ---- Mobile nav drawer ----
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  function toggleMobileNav(){
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+  }
+  menuBtn.addEventListener('click', toggleMobileNav);
+  menuBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggleMobileNav(); } });
+
+  // Close drawer when a nav link is tapped
+  document.querySelectorAll('#mobileNav .mobile-nav-links > a, #mobileNav .mnav-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+      document.body.classList.remove('nav-open');
+    });
+  });
+
+  // Systems accordion inside mobile drawer
+  const mnavSystemsToggle = document.getElementById('mnavSystemsToggle');
+  const mnavSub = document.getElementById('mnavSub');
+  mnavSystemsToggle.addEventListener('click', () => {
+    mnavSub.classList.toggle('show');
+    mnavSystemsToggle.classList.toggle('open');
+  });
+
+  // ---- Scroll reveal ----
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ---- Parallax on full-width image ----
+  const parallaxSection = document.getElementById('parallaxSection');
+  const parallaxLayer = document.getElementById('parallaxLayer');
+  window.addEventListener('scroll', () => {
+    const rect = parallaxSection.getBoundingClientRect();
+    const winH = window.innerHeight;
+    if(rect.top < winH && rect.bottom > 0){
+      const progress = (winH - rect.top) / (winH + rect.height);
+      const shift = (progress - 0.5) * 60;
+      parallaxLayer.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
+    }
+  }, {passive:true});
+
+  // ---- Modal ----
+  const modalOverlay = document.getElementById('modalOverlay');
+  const openModalBtn = document.getElementById('openModalBtn');
+  const footerBriefLink = document.getElementById('footerBriefLink');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const formContent = document.getElementById('formContent');
+  const successMsg = document.getElementById('successMsg');
+  const briefForm = document.getElementById('briefForm');
+  let lastFocused = null;
+
+  function openModal(e){
+    if(e) e.preventDefault();
+    lastFocused = document.activeElement;
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const firstInput = document.getElementById('fullName');
+    if(firstInput) firstInput.focus();
+  }
+  function closeModal(){
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if(lastFocused) lastFocused.focus();
+  }
+
+  if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+  if (footerBriefLink) footerBriefLink.addEventListener('click', openModal);
+  modalCloseBtn.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', (e) => {
+    if(e.target === modalOverlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
+  });
+
+  // ---- Form validation ----
+  briefForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    const fields = {
+      fullName: v => v.trim().length > 1,
+      organization: v => v.trim().length > 1,
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+      interest: v => v.trim().length > 0,
+      message: v => v.trim().length > 4
+    };
+
+    Object.keys(fields).forEach(name => {
+      const input = document.getElementById(name);
+      const row = briefForm.querySelector('[data-field="' + name + '"]');
+      const isValid = fields[name](input.value);
+      row.classList.toggle('invalid', !isValid);
+      if(!isValid) valid = false;
+    });
+
+    if(!valid) return;
+
+    formContent.classList.add('hide');
+    successMsg.classList.add('show');
+
+    setTimeout(() => {
+      closeModal();
+      setTimeout(() => {
+        briefForm.reset();
+        briefForm.querySelectorAll('.form-row').forEach(r => r.classList.remove('invalid'));
+        formContent.classList.remove('hide');
+        successMsg.classList.remove('show');
+      }, 400);
+    }, 2600);
+  });
+
+  /* DRONE CURSOR (desktop only) */
+  if (window.matchMedia('(min-width: 901px)').matches) {
+    const cursor = document.createElement('div');
+    cursor.id = 'drone-cursor';
+    document.body.appendChild(cursor);
+
+    const normalDrone = 'https://static.vecteezy.com/system/resources/thumbnails/049/514/995/small/drone-hovering-in-mid-air-above-a-landscape-during-daylight-cut-out-transparent-png.png';
+    const hoverDrone = normalDrone;
+    cursor.style.backgroundImage = `url('${normalDrone}')`;
+
+    let mx = 0, my = 0;
+    let cx = 0, cy = 0;
+    const speed = 0.1;
+
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+    function animateCursor(){
+      cx += (mx - cx) * speed;
+      cy += (my - cy) * speed;
+      cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('a, button, .domain, .news-card, .tech-row').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.backgroundImage = `url('${hoverDrone}')`; });
+      el.addEventListener('mouseleave', () => { cursor.style.backgroundImage = `url('${normalDrone}')`; });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
+
     --gray-2:#6B7280;
     --gray-3:#E5E7EB;
     --line:#E5E7EB;
