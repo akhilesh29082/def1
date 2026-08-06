@@ -180,6 +180,14 @@ header{
   .hero p{
     margin-top:26px;max-width:540px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.7;font-weight:300;
   }
+  .type-cursor{
+    display:inline-block;
+    width:0.5ch;
+    margin-left:2px;
+    background:#FFFFFF;
+    animation:typeBlink 0.9s step-end infinite;
+  }
+  @keyframes typeBlink{0%,50%{opacity:1;}50.01%,100%{opacity:0;}}
   .scroll-ind{
     position:relative;z-index:2;margin:46px var(--pad) 0;display:flex;align-items:center;gap:12px;
     font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:rgba(255,255,255,0.8);text-transform:uppercase;
@@ -621,7 +629,7 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
     <div class="live-feed"><br><br><br><span class="live-dot"></span> DPIIT RECOGNISED STARTUP</div>
   </div>
   <div class="hero-content">
-    <h1><br>Built for the next<br>generation of defence.</h1>
+    <h1 id="heroTitle"><br><span id="heroTypewriter"></span><span class="type-cursor" id="heroCursor"></span></h1>
     <p>WITHX Innovations Private Limited is a Pune-based engineering and defence technology company developing indigenous unmanned systems under the Make in India initiative — from persistent surveillance platforms to passive UAV recovery hardware.</p>
   </div>
   <div class="scroll-ind">
@@ -939,6 +947,34 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
   };
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+
+  // ---- Hero heading typewriter effect ----
+  (function(){
+    const target = document.getElementById('heroTypewriter');
+    if(!target) return;
+    const lines = ['Built for the next', 'generation of defence.'];
+    const typeSpeed = 45;   // ms per character
+    const lineDelay = 250;  // pause between lines
+    let lineIndex = 0, charIndex = 0;
+
+    function typeNext(){
+      if(lineIndex >= lines.length) return; // done, cursor keeps blinking
+      const currentLine = lines[lineIndex];
+      if(charIndex < currentLine.length){
+        target.insertAdjacentHTML('beforeend', currentLine.charAt(charIndex));
+        charIndex++;
+        setTimeout(typeNext, typeSpeed);
+      } else {
+        lineIndex++;
+        charIndex = 0;
+        if(lineIndex < lines.length){
+          target.insertAdjacentHTML('beforeend', '<br>');
+          setTimeout(typeNext, lineDelay);
+        }
+      }
+    }
+    setTimeout(typeNext, 400); // small delay before typing starts
+  })();
 
   // ---- Mega menu product toggle ----
   document.querySelectorAll('.product-toggle').forEach((btn) => {
