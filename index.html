@@ -620,17 +620,35 @@
     }
 }
 /* HERO BUTTON HOVER EFFECT */
+/* HERO BUTTONS */
+
 .hero .btn {
     transition: all 0.3s ease;
 }
 
-.hero .btn:hover {
+/* Explore Platforms - keep existing golden hover */
+.hero .btn.primary:hover {
     background: #8A6D1E;
     border-color: #8A6D1E;
     color: #FFFFFF;
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}  
+}
+
+/* Request Brief - golden border */
+.hero .btn.ghost {
+    border-color: #8A6D1E;
+    color: #FFFFFF;
+}
+
+/* Request Brief - hover WITHOUT golden background */
+.hero .btn.ghost:hover {
+    background: rgba(255,255,255,0.10);
+    border-color: #8A6D1E;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
 
 </style>
 </head>
