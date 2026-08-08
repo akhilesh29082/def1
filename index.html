@@ -1067,25 +1067,34 @@
     }
   });
 /* TECHNOLOGY DROPDOWN */
-/* ---------- FULL HERO TYPEWRITER EFFECT ---------- */
+/* ---------- HERO TYPEWRITER EFFECT ---------- */
 
-const typewriter = document.getElementById("typewriter");
+document.addEventListener("DOMContentLoaded", function () {
 
-const text = `EDGE OF THE
-unmanned
-BATTLESPACE`;
+    const heroTypewriterElement = document.getElementById("typewriter");
 
-let index = 0;
+    const heroTypewriterText = "EDGE OF THE\nunmanned\nBATTLESPACE";
 
-function typeText() {
-    if (index < text.length) {
-        typewriter.textContent += text.charAt(index);
-        index++;
-        setTimeout(typeText, 100);
+    let heroTypewriterIndex = 0;
+
+    function runHeroTypewriter() {
+
+        if (heroTypewriterIndex < heroTypewriterText.length) {
+
+            heroTypewriterElement.textContent +=
+                heroTypewriterText.charAt(heroTypewriterIndex);
+
+            heroTypewriterIndex++;
+
+            setTimeout(runHeroTypewriter, 100);
+        }
     }
-}
 
-typeText();
+    if (heroTypewriterElement) {
+        runHeroTypewriter();
+    }
+
+});
 
 </script>
 
