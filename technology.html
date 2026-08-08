@@ -255,7 +255,7 @@
   .domain:hover{z-index:5;}
   .domain:last-child{border-right:none;}
   .domain > div{
-    padding:44px 30px; flex:1; display:flex; flex-direction:column; justify-content:space-between;
+    padding:44px 30px; flex:1; display:flex; flex-direction:column; justify-content:flex-start;
     background:var(--black);
     opacity:0; transform:scale(0.82) translateY(50px);
     transition:opacity .7s cubic-bezier(.22,.9,.3,1.4),
@@ -272,7 +272,16 @@
 
   /* ---------- MISSION IMPACT ---------- */
   .mission-grid{margin-top:60px; border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr);}
-  .mission-card{padding:46px clamp(16px,3vw,36px); border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .mission-card{
+    padding:46px clamp(16px,3vw,36px); border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    position:relative; z-index:1; background:var(--bg);
+    transition:transform .5s cubic-bezier(.22,.9,.3,1.4), box-shadow .5s cubic-bezier(.22,.9,.3,1.4);
+  }
+  .mission-card:hover{
+    z-index:5; transform:scale(1.06) translateY(-8px);
+    box-shadow:0 30px 60px -12px rgba(17,24,39,0.22), 0 0 0 1px rgba(17,24,39,0.04);
+  }
+  .mission-card:hover .mission-icon{transform:scale(1.18) rotate(-6deg);}
   .mission-card:last-child{border-right:none;}
   .mission-num{display:flex; align-items:baseline; gap:4px;}
   .mission-num .counter{ font-family: "Times New Roman", Times, serif; font-weight:700; font-size:clamp(32px,4vw,48px); letter-spacing:-1px;}
@@ -280,7 +289,7 @@
   .mission-card h4{font-size:14px; text-transform:uppercase; letter-spacing:1px; margin:14px 0 8px;}
   .mission-card p{font-size:13px; line-height:1.6; color:var(--muted);}
   @media (max-width:768px){ .mission-grid{grid-template-columns:repeat(2,1fr);} .mission-card:nth-child(2){border-right:none;} }
-  .domain h3{font-family: 'Space Grotesk', sans-serif; font-weight:700; font-size:24px; margin:30px 0 16px; text-transform:uppercase;}
+  .domain h3{font-family: 'Space Grotesk', sans-serif; font-weight:700; font-size:24px; margin:30px 0 16px; text-transform:uppercase; min-height:64px; display:flex; align-items:flex-end;}
   .domain p{font-size:14px; line-height:1.7; color:var(--muted);}
   .domain .learn{margin-top:24px; font-size:12px; letter-spacing:2px;}
   @media (max-width:900px){ .domains{grid-template-columns:1fr 1fr;} }
@@ -363,7 +372,7 @@
   /* ---------- CARD ICONS (Core Technologies / Industries / Why Choose) ---------- */
   .domain-icon{font-size:22px; color:var(--accent); margin-bottom:4px; display:block; transition:transform .4s ease;}
   .domain:hover .domain-icon{transform:scale(1.18) rotate(-6deg);}
-  .mission-card .mission-icon{font-size:20px; color:var(--accent); margin-bottom:14px; display:block;}
+  .mission-card .mission-icon{font-size:20px; color:var(--accent); margin-bottom:14px; display:block; transition:transform .4s ease;}
 
   /* ---------- STATS GRID: 5-COLUMN MODIFIER (Technology Statistics) ---------- */
   .mission-grid.cols-5{grid-template-columns:repeat(5,1fr);}
@@ -464,7 +473,7 @@
       <div>
         <i class="fa-solid fa-brain domain-icon"></i>
         <h3>Artificial Intelligence</h3>
-        <p>Our AI-powered defence systems enable autonomous target detection, real-time object tracking, intelligent flight navigation, and mission planning.</p>
+        <p>Our AI-powered defence systems enable autonomous target detection, real-time object tracking, intelligent flight navigation, and mission planning. By processing sensor and camera data on-board, our drones deliver faster situational awareness, reduce operator workload, and enhance decision-making during surveillance and reconnaissance missions.</p>
       </div>
     </div>
     <div class="domain">
@@ -485,28 +494,28 @@
       <div>
         <i class="fa-solid fa-microchip domain-icon"></i>
         <h3>Computer Vision</h3>
-        <p>We leverage advanced computer vision and AI-powered image processing to enable real-time object detection, target tracking, aerial surveillance, and enhanced situational awareness.</p>
+        <p>We leverage advanced computer vision and AI-powered image processing to enable real-time object detection, target tracking, aerial surveillance, and enhanced situational awareness, providing defence drones with intelligent reconnaissance and mission support capabilities.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-satellite-dish domain-icon"></i>
         <h3>Internet of Things</h3>
-        <p>Our IoT-enabled communication systems provide secure telemetry, real-time video transmission, and continuous data exchange between unmanned aerial platforms and ground control stations.</p>
+        <p>Our IoT-enabled communication systems provide secure telemetry, real-time video transmission, and continuous data exchange between unmanned aerial platforms and ground control stations. By integrating smart sensors and connected devices, we enable real-time situational awareness, remote monitoring, and efficient mission coordination for surveillance and reconnaissance operations.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-tower-broadcast domain-icon"></i>
         <h3>Secure Communication Systems</h3>
-        <p>We develop IoT-enabled secure communication systems that provide encrypted telemetry, real-time data transmission, and reliable command-and-control connectivity between unmanned aerial platforms and ground control stations.</p>
+        <p>We develop IoT-enabled secure communication systems that provide encrypted telemetry, real-time data transmission, and reliable command-and-control connectivity between unmanned aerial platforms and ground control stations, ensuring seamless mission coordination and operational awareness.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-helicopter domain-icon"></i>
         <h3>Drone &amp; UAV Technologies</h3>
-        <p>We design and develop advanced unmanned aerial systems (UAS) that deliver autonomous flight, real-time surveillance, reconnaissance, border monitoring, and intelligence gathering.</p>
+        <p>We design and develop advanced unmanned aerial systems (UAS) that deliver autonomous flight, real-time surveillance, reconnaissance, border monitoring, and intelligence gathering, providing defence organizations with reliable mission-ready aerial capabilities.</p>
       </div>
     </div>
     <div class="domain">
@@ -520,21 +529,21 @@
       <div>
         <i class="fa-solid fa-gears domain-icon"></i>
         <h3>Mechanical Engineering</h3>
-        <p>Our mechanical engineering team develops advanced UAV airframes, precision structural components, and mission-ready drone platforms engineered for durability, stability.</p>
+        <p>Our mechanical engineering team develops advanced UAV airframes, precision structural components, and mission-ready drone platforms engineered for durability, stability, and reliable performance in demanding defence and security operations.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-bolt domain-icon"></i>
         <h3>Electronics &amp; PCB Design</h3>
-        <p>We design advanced PCB solutions and embedded electronic systems that integrate flight controllers, sensors, communication modules, navigation systems, and power management.</p>
+        <p>We design advanced PCB solutions and embedded electronic systems that integrate flight controllers, sensors, communication modules, navigation systems, and power management, ensuring reliable performance and seamless operation in mission-ready defence drones.</p>
       </div>
     </div>
     <div class="domain">
       <div>
         <i class="fa-solid fa-circle-nodes domain-icon"></i>
         <h3>Sensor Fusion</h3>
-        <p>By integrating data from advanced payloads and onboard systems—including EO/IR cameras, radar, GPS, IMUs, LiDAR, and environmental sensors—we enable precise situational awareness.
+        <p>By integrating data from advanced payloads and onboard systems—including EO/IR cameras, radar, GPS, IMUs, LiDAR, and environmental sensors—we enable precise situational awareness, real-time target tracking, and intelligent autonomous decision-making for mission-critical defence operations.
 </p>
       </div>
     </div>
@@ -542,7 +551,7 @@
       <div>
         <i class="fa-solid fa-cloud domain-icon"></i>
         <h3>Cloud &amp; Edge Computing</h3>
-        <p>Our defence drone solutions combine powerful onboard edge computing with secure networked systems to support real-time data processing, mission coordination, fleet monitoring, operational analytics.
+        <p>Our defence drone solutions combine powerful onboard edge computing with secure networked systems to support real-time data processing, mission coordination, fleet monitoring, operational analytics, and dependable information management in mission-critical environments.
 </p>
       </div>
     </div>
