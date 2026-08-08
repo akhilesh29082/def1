@@ -1063,29 +1063,36 @@
 /* TECHNOLOGY DROPDOWN */
 /* ---------- HERO TYPEWRITER EFFECT ---------- */
 /* ---------- HERO TYPEWRITER EFFECT ---------- */
+/* ---------- HERO TYPEWRITER EFFECT ---------- */
 
-const heroTypewriterElement = document.getElementById("typewriter");
+document.addEventListener("DOMContentLoaded", function () {
 
-const heroTypewriterText = "EDGE OF THE\nunmanned\nBATTLESPACE";
+    const typewriter = document.getElementById("typewriter");
 
-let heroTypewriterIndex = 0;
+    if (!typewriter) return;
 
-function runHeroTypewriter() {
+    const text = "EDGE OF THE\nunmanned\nBATTLESPACE";
 
-    if (heroTypewriterIndex < heroTypewriterText.length) {
+    let index = 0;
 
-        heroTypewriterElement.textContent += 
-            heroTypewriterText.charAt(heroTypewriterIndex);
+    function typeWriterEffect() {
 
-        heroTypewriterIndex++;
+        if (index < text.length) {
 
-        setTimeout(runHeroTypewriter, 100);
+            typewriter.textContent += text.charAt(index);
+
+            index++;
+
+            setTimeout(typeWriterEffect, 100);
+
+        }
+
     }
-}
 
-if (heroTypewriterElement) {
-    runHeroTypewriter();
-}
+    typeWriterEffect();
+
+});
+
 
 
 </script>
