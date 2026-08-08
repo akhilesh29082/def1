@@ -122,8 +122,13 @@
   body.nav-open{overflow:hidden;}
 
   /* ---------- TECHNOLOGY ---------- */
-  .tech-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
-  .tech-list{border-top:1px solid var(--line);}
+  .tech-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:stretch;}
+  .tech-list{
+    border-top:1px solid var(--line);
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
   .tech-row{display:flex; gap:22px; padding:26px 4px; border-bottom:1px solid var(--line); cursor:default;}
   .tech-row .tech-num{font-size:12px; letter-spacing:2px; color:var(--muted); min-width:38px; padding-top:4px;}
   .tech-row h3{font-size:19px; text-transform:uppercase; font-weight:700; margin-bottom:8px;}
@@ -514,12 +519,22 @@
 
 .tech-row {
     cursor: pointer;
+    flex: 1;
+    min-height: 0;
     padding: 26px 10px;
     border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     transition:
         background 0.35s ease,
         padding-left 0.35s ease,
         transform 0.35s ease;
+}
+
+.tech-row:last-child {
+    border-bottom: none;
 }
 
 /* Hover effect */
@@ -553,6 +568,10 @@
 .tech-title span {
     font-size: 24px;
     color: var(--accent);
+    width: 24px;
+    min-width: 24px;
+    text-align: center;
+    display: inline-block;
     transition:
         transform 0.35s ease,
         color 0.3s ease;
@@ -622,11 +641,13 @@
 /* HERO BUTTON HOVER EFFECT */
 /* HERO BUTTONS */
 
+/* ---------- HERO BUTTONS ---------- */
+
 .hero .btn {
     transition: all 0.3s ease;
 }
 
-/* Explore Platforms - keep existing golden hover */
+/* EXPLORE PLATFORMS */
 .hero .btn.primary:hover {
     background: #8A6D1E;
     border-color: #8A6D1E;
@@ -635,10 +656,40 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-/* Request Brief - golden border */
+/* REQUEST BRIEF */
 .hero .btn.ghost {
     border-color: #8A6D1E;
     color: #FFFFFF;
+}
+
+.hero .btn.ghost:hover {
+    background: rgba(255,255,255,0.10);
+    border-color: #8A6D1E;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+
+/* ---------- CTA BUTTONS ---------- */
+
+.cta .btn {
+    transition: all 0.3s ease;
+}
+
+.cta .btn.primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.cta .btn.ghost:hover {
+    background: rgba(17,24,39,0.05);
+    border-color: var(--ink);
+    color: var(--ink);
+    transform: translateY(-3px);
 }
 
 /* Request Brief - hover WITHOUT golden background */
