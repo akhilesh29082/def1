@@ -585,6 +585,29 @@
 .tech-row.active .tech-title span {
     transform: rotate(45deg);
 }
+/* ---------- FULL HERO TYPEWRITER ---------- */
+
+#typewriter {
+    white-space: pre-wrap;
+}
+
+.cursor {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    margin-left: 3px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -633,17 +656,15 @@
     <div class="wrap hero-inner">
     
     <h1 class="headline">
-      EDGE OF THE
-      unmanned
-      BATTLESPACE
-    </h1>
+  <span id="typewriter"></span><span class="cursor">|</span>
+</h1>
 
     
     <div class="hero-text">
       <p class="hero-copy">WITHX Innovations Private Limited builds mission-critical unmanned platforms and command software for allied forces operating across air, land, sea, and cyber domains.</p>
       <div class="hero-actions">
         <a href="#" class="btn primary">Explore Platforms</a>
-        <a href="contact.html" class="btn ghost">Request Brief</a>
+        <a href="contact.html" class="btn primary">Request Brief</a>
       </div>
     </div>
   </div>
@@ -1046,7 +1067,25 @@
     }
   });
 /* TECHNOLOGY DROPDOWN */
+/* ---------- FULL HERO TYPEWRITER EFFECT ---------- */
 
+const typewriter = document.getElementById("typewriter");
+
+const text = `EDGE OF THE
+unmanned
+BATTLESPACE`;
+
+let index = 0;
+
+function typeText() {
+    if (index < text.length) {
+        typewriter.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 100);
+    }
+}
+
+typeText();
 
 </script>
 
