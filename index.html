@@ -1013,13 +1013,7 @@
     });
   });
 
-  // Systems accordion inside mobile drawer
-  const mnavSystemsToggle = document.getElementById('mnavSystemsToggle');
-  const mnavSub = document.getElementById('mnavSub');
-  mnavSystemsToggle.addEventListener('click', () => {
-    mnavSub.classList.toggle('show');
-    mnavSystemsToggle.classList.toggle('open');
-  });
+  
 
   /* DRONE CURSOR (desktop only) */
   if (window.matchMedia('(min-width: 901px)').matches) {
@@ -1068,33 +1062,31 @@
   });
 /* TECHNOLOGY DROPDOWN */
 /* ---------- HERO TYPEWRITER EFFECT ---------- */
+/* ---------- HERO TYPEWRITER EFFECT ---------- */
 
-document.addEventListener("DOMContentLoaded", function () {
+const heroTypewriterElement = document.getElementById("typewriter");
 
-    const heroTypewriterElement = document.getElementById("typewriter");
+const heroTypewriterText = "EDGE OF THE\nunmanned\nBATTLESPACE";
 
-    const heroTypewriterText = "EDGE OF THE\nunmanned\nBATTLESPACE";
+let heroTypewriterIndex = 0;
 
-    let heroTypewriterIndex = 0;
+function runHeroTypewriter() {
 
-    function runHeroTypewriter() {
+    if (heroTypewriterIndex < heroTypewriterText.length) {
 
-        if (heroTypewriterIndex < heroTypewriterText.length) {
+        heroTypewriterElement.textContent += 
+            heroTypewriterText.charAt(heroTypewriterIndex);
 
-            heroTypewriterElement.textContent +=
-                heroTypewriterText.charAt(heroTypewriterIndex);
+        heroTypewriterIndex++;
 
-            heroTypewriterIndex++;
-
-            setTimeout(runHeroTypewriter, 100);
-        }
+        setTimeout(runHeroTypewriter, 100);
     }
+}
 
-    if (heroTypewriterElement) {
-        runHeroTypewriter();
-    }
+if (heroTypewriterElement) {
+    runHeroTypewriter();
+}
 
-});
 
 </script>
 
