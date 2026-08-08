@@ -162,7 +162,7 @@ header{
     position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;
     padding:110px var(--pad) 0;
   }
-  .hero-coords{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;color:rgba(255,255,255,0.8);line-height:1.7;}
+  .hero-coords{font-family:var(--mono);font-size:13px;letter-spacing:0.12em;color:rgba(255,255,255,0.8);line-height:1.7;}
   .live-feed{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:#FFFFFF;}
   .live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.6s ease-in-out infinite;}
   @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
@@ -180,6 +180,15 @@ header{
   .hero p{
     margin-top:26px;max-width:540px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.7;font-weight:300;
   }
+  .type-line{display:inline-block;white-space:nowrap;}
+  .type-cursor{
+    display:inline-block;
+    width:0.5ch;
+    margin-left:2px;
+    background:#FFFFFF;
+    animation:typeBlink 0.9s step-end infinite;
+  }
+  @keyframes typeBlink{0%,50%{opacity:1;}50.01%,100%{opacity:0;}}
   .scroll-ind{
     position:relative;z-index:2;margin:46px var(--pad) 0;display:flex;align-items:center;gap:12px;
     font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:rgba(255,255,255,0.8);text-transform:uppercase;
@@ -621,7 +630,7 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
     <div class="live-feed"><br><br><br><span class="live-dot"></span> DPIIT RECOGNISED STARTUP</div>
   </div>
   <div class="hero-content">
-    <h1><br>Built for the next<br>generation of defence.</h1>
+    <h1 id="heroTitle"><br><span class="type-line" id="tw1"></span><br><span class="type-line" id="tw2"></span><br><span class="type-line" id="tw3"></span><br><span class="type-line" id="tw4"></span><span class="type-cursor" id="heroCursor"></span></h1>
     <p>WITHX Innovations Private Limited is a Pune-based engineering and defence technology company developing indigenous unmanned systems under the Make in India initiative — from persistent surveillance platforms to passive UAV recovery hardware.</p>
   </div>
   <div class="scroll-ind">
@@ -750,7 +759,7 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
 
     <div class="metric-card">
 
-        <img src="https://images.unsplash.com/photo-1517976487492-576ea6b2936d?w=900" alt="Technology">
+        <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?fm=jpg&q=80&w=900&auto=format&fit=crop" alt="Technology">
 
         <div class="metric-overlay"></div>
 
@@ -939,6 +948,29 @@ footer{padding:90px clamp(20px,5vw,64px) 40px;}
   };
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+
+  // ---- Hero heading typewriter effect (all lines typed together) ----
+  (function(){
+    const lineTexts = ['Built for the', 'next', 'generation of', 'defence.'];
+    const targets = ['tw1','tw2','tw3','tw4'].map(id => document.getElementById(id));
+    if(targets.some(t => !t)) return;
+
+    const typeSpeed = 60;   // ms per tick (advances every line by one char)
+    let charIndex = 0;
+    const maxLen = Math.max(...lineTexts.map(t => t.length));
+
+    function typeTick(){
+      if(charIndex >= maxLen) return; // done, cursor keeps blinking
+      lineTexts.forEach((text, idx) => {
+        if(charIndex < text.length){
+          targets[idx].textContent += text.charAt(charIndex);
+        }
+      });
+      charIndex++;
+      setTimeout(typeTick, typeSpeed);
+    }
+    setTimeout(typeTick, 400); // small delay before typing starts
+  })();
 
   // ---- Mega menu product toggle ----
   document.querySelectorAll('.product-toggle').forEach((btn) => {
