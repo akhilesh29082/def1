@@ -265,7 +265,7 @@
   .domains-two{grid-template-columns:1fr 1fr;}
   .domains-two .domain{min-height:auto; padding:44px;}
   .chip-row{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0;}
-  .chip{font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--muted);.chip{
+  .chip{font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(#d9c27a);.chip{
     color:#fff;
     border:1px solid rgba(255,255,255,.25);
     background:rgba(255,255,255,.08);
@@ -486,6 +486,95 @@
   .cookie-actions button{font-family:inherit; font-size:12px; letter-spacing:2px; padding:14px; border:1px solid var(--ink); cursor:pointer; background:transparent; color:var(--ink);}
   .cookie-actions button.accept{background:var(--ink); color:var(--bg);}
   .cookie-actions button.manage{border-color:transparent; color:var(--muted); padding:6px;}
+/* TECHNOLOGY DROPDOWN */
+
+/* ---------- TECHNOLOGY HOVER + DROPDOWN ---------- */
+
+.tech-row {
+    cursor: pointer;
+    padding: 26px 10px;
+    border-bottom: 1px solid var(--line);
+    transition:
+        background 0.35s ease,
+        padding-left 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* Hover effect */
+.tech-row:hover {
+    background: rgba(138,109,30,0.06);
+    padding-left: 20px;
+}
+
+/* Title */
+.tech-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.tech-title h3 {
+    margin: 0;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Heading changes slightly on hover */
+.tech-row:hover .tech-title h3 {
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
+/* Plus icon */
+.tech-title span {
+    font-size: 24px;
+    color: var(--accent);
+    transition:
+        transform 0.35s ease,
+        color 0.3s ease;
+}
+
+/* Plus rotates slightly when hovering */
+.tech-row:hover .tech-title span {
+    transform: rotate(90deg);
+}
+
+/* Description */
+.tech-row p {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+
+    transition:
+        max-height 0.5s ease,
+        opacity 0.4s ease,
+        margin-top 0.4s ease;
+}
+
+/* SHOW TEXT WHEN HOVERING */
+.tech-row:hover p {
+    max-height: 150px;
+    opacity: 1;
+    margin-top: 12px;
+}
+
+/* Open row gets accent background */
+.tech-row.active {
+    background: rgba(138,109,30,0.06);
+}
+
+/* Open row heading */
+.tech-row.active .tech-title h3 {
+    color: var(--accent);
+}
+
+/* Open row plus becomes X */
+.tech-row.active .tech-title span {
+    transform: rotate(45deg);
+}
 </style>
 </head>
 <body>
@@ -625,34 +714,87 @@
 
 <!-- ===== TECHNOLOGY ===== -->
 <section class="wrap">
-  <div class="eyebrow"><span class="rule"></span></div>
+  <div class="eyebrow">
+    <span class="rule"></span>
+  </div>
+
   <div class="cap-head">
-    <h2>INTELLIGENCE BEHIND<br><span class="fade">EVERY MISSION.</span></h2>
+    <h2>
+      INTELLIGENCE BEHIND<br>
+      <span class="fade">EVERY MISSION.</span>
+    </h2>
   </div>
 
   <div class="tech-wrap">
+
     <div class="tech-list">
+
+      <!-- AI TRACKING -->
       <div class="tech-row">
-       
-        <div><h3>AI Tracking</h3><p>Real-time object detection and autonomous target tracking powered by advanced machine learning.</p></div>
+        <div class="tech-title">
+          <h3>AI Tracking</h3>
+          <span>+</span>
+        </div>
+
+        <p>
+          Real-time object detection and autonomous target tracking
+          powered by advanced machine learning.
+        </p>
       </div>
+
+
+      <!-- COMPUTER VISION -->
       <div class="tech-row">
-        
-        <div><h3>Computer Vision</h3><p>Intelligent image analysis for enhanced situational awareness and threat identification.</p></div>
+        <div class="tech-title">
+          <h3>Computer Vision</h3>
+          <span>+</span>
+        </div>
+
+        <p>
+          Intelligent image analysis for enhanced situational
+          awareness and threat identification.
+        </p>
       </div>
+
+
+      <!-- SWARM INTELLIGENCE -->
       <div class="tech-row">
-       
-        <div><h3>Swarm Intelligence</h3><p>Coordinated multi-drone operations enabling efficient area coverage and mission execution.</p></div>
+        <div class="tech-title">
+          <h3>Swarm Intelligence</h3>
+          <span>+</span>
+        </div>
+
+        <p>
+          Coordinated multi-drone operations enabling efficient
+          area coverage and mission execution.
+        </p>
       </div>
+
+
+      <!-- AIRBAG RECOVERY -->
       <div class="tech-row">
-        
-        <div><h3>Airbag Recovery System</h3><p>Innovative recovery technology designed to improve landing safety and protect critical equipment.</p></div>
+        <div class="tech-title">
+          <h3>Airbag Recovery System</h3>
+          <span>+</span>
+        </div>
+
+        <p>
+          Innovative recovery technology designed to improve
+          landing safety and protect critical equipment.
+        </p>
       </div>
+
     </div>
 
+
+    <!-- TECHNOLOGY IMAGE -->
     <div class="tech-visual">
-    <img src="https://images.unsplash.com/photo-1664431398786-aaffcf1c0cee?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      <img
+        src="https://images.unsplash.com/photo-1664431398786-aaffcf1c0cee?q=80&w=1170&auto=format&fit=crop"
+        alt="WITHX Technology"
+      >
     </div>
+
   </div>
 </section>
 
@@ -893,6 +1035,9 @@
       sysPopup.classList.remove('show');
     }
   });
+/* TECHNOLOGY DROPDOWN */
+
+
 </script>
 
 </body>
