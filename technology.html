@@ -221,12 +221,53 @@
   .ticker span.dot{color:var(--accent);}
 
   /* ---------- DOCTRINE ---------- */
-  section{padding:120px 0 0;}
-  .doctrine{display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:start;}
-  .doctrine h2{ font-family: "Times New Roman", Times, serif; font-weight:700; font-size:clamp(30px,4.4vw,52px); line-height:1.12; text-transform:uppercase;}
-  .doctrine h2 .fade{color:var(--muted);}
-  .doctrine-copy{font-size:16px; line-height:1.8; color:var(--muted); margin-top:26px; max-width:480px;}
-  .link-arrow{display:inline-block; margin-top:28px; font-size:13px; letter-spacing:2px; border-bottom:1px solid var(--ink); padding-bottom:4px;}
+ /* ---------- DOCTRINE ---------- */
+section{padding:120px 0 0;}
+
+.doctrine{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+
+.doctrine h2{
+  font-family:"Times New Roman", Times, serif;
+  font-weight:700;
+  font-size:clamp(30px,4.4vw,52px);
+  line-height:1.12;
+  text-transform:uppercase;
+}
+
+.doctrine h2 .fade{
+  color:var(--muted);
+}
+
+/* Enlarged paragraph — no hover effect */
+.doctrine-copy{
+  font-size:19px;
+  line-height:1.8;
+  color:#121111;
+  margin-top:0;
+  max-width:480px;
+}
+
+/* OUR APPROACH hover */
+.link-arrow{
+  display:inline-block;
+  margin-top:28px;
+  font-size:13px;
+  letter-spacing:2px;
+  color:#111827;
+  border-bottom:1px solid #111827;
+  padding-bottom:4px;
+  transition:color .3s ease, border-color .3s ease;
+}
+
+.link-arrow:hover{
+  color:#8A6D1E !important;
+  border-bottom-color:#8A6D1E !important;
+}
 
   /* ---------- STATS ---------- */
   .stats{
