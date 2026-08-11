@@ -312,33 +312,71 @@ margin:auto
 /* ================= FOOTER (matches index.html) ================= */
 footer{padding:90px clamp(20px,5vw,64px) 40px; background:#000000; color:#FFFFFF;}
   .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid rgba(255,255,255,0.15); align-items:start;}
-  .foot-brand .brand{margin-bottom:22px;}
-  .footer-brand-logo{height:56px; width:auto; display:flex; align-items:center;}
-  .footer-brand-logo img{display:block; width:auto; max-width:100%; height:100%; object-fit:contain; filter:brightness(0) invert(1);}
-  @media (max-width:480px){ .footer-brand-logo{height:40px;} }
+  .foot-brand .brand{
+    height:14px;               /* anchors to the same text cap-height as .foot-col h4 below */
+    display:flex;
+    align-items:center;        /* the taller logo image centers around this line, top and bottom */
+    overflow:visible;
+    margin-bottom:26px;
+  }
+  .footer-brand-logo{
+    height:44px;
+    width:auto;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+  }
+  .footer-brand-logo img{
+    display:block;
+    width:auto;
+    max-width:100%;
+    height:100%;
+    object-fit:contain;
+    opacity:1;
+    visibility:visible;
+    filter:brightness(0) invert(1);
+  }
   .foot-brand p{font-size:15px; line-height:1.75; color:rgba(255,255,255,0.75); max-width:340px; margin-bottom:26px;}
   .foot-contact div{font-size:14px; color:rgba(255,255,255,0.75); line-height:1.9;}
   .foot-contact{display:flex; flex-direction:column; gap:16px;}
   .foot-contact a{display:flex; align-items:center; gap:12px; font-size:15px; color:rgba(255,255,255,0.75); transition:all .3s ease;}
-  .foot-contact a:hover{color:var(--gold); transform:translateX(6px);}
+  .social-links{
+  display:flex;
+  flex-direction:row;
+  gap:16px;
+  margin-top:4px;
+}
+.social-links a{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.social-links a i{
+  font-size:22px;   /* change this number to whatever size you want */
+  width:auto;
+
+}
+
+  .foot-contact a:hover{color:#FFFFFF; transform:translateX(6px);}
   .foot-contact i{width:20px; font-size:17px; text-align:center;}
+
   .foot-contact .whatsapp{color:#25D366;}
   .foot-contact .linkedin{color:#4a90e2;}
   .foot-contact .instagram{color:#e07a9e;}
   .foot-contact .youtube{color:#e05c5c;}
-  .foot-contact .phone{color:var(--gold);}
+  .foot-contact .phone{color:var(--accent);}
   .foot-legal{font-size:13px; line-height:1.9; color:rgba(255,255,255,0.75); margin-top:10px;}
-  .foot-legal strong{color:#FFFFFF;}
-  .foot-col h4{font-size:12px; letter-spacing:2px; color:rgba(255,255,255,0.6); margin-bottom:26px; text-transform:uppercase;}
-  .foot-col a{display:block; font-size:15px; margin-bottom:14px; color:#FFFFFF; transition:color .2s ease;}
-  .foot-col a:hover{color:var(--gold);}
+.foot-legal strong{color:#FFFFFF; font-size:17px; display:inline-block; margin-bottom:4px;}
+  .foot-col h4{font-size:14px; line-height:15px; letter-spacing:2px; color:rgba(255,255,255,0.6); margin-bottom:26px; text-transform:uppercase;}
+  .foot-col a{display:block; font-size:15px; margin-bottom:14px; color:#FFFFFF;}
+  .foot-col a:hover{color:#E9C46A;}
   .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:32px; font-size:12px; letter-spacing:1.5px; color:rgba(255,255,255,0.6);}
   .foot-bottom a{margin-left:24px; color:rgba(255,255,255,0.6);}
   .foot-bottom a:hover{color:#FFFFFF;}
   @media (max-width:900px){ .foot-top{grid-template-columns:1fr 1fr; row-gap:50px;} }
   @media (max-width:560px){ .foot-top{grid-template-columns:1fr;} .foot-bottom{flex-direction:column; align-items:flex-start;} .foot-bottom a{margin-left:0; margin-right:20px;} }
   @media (max-width:480px){
-    header{padding:18px 20px;}
+    header{padding:14px 20px;}
     .brand-name{font-size:16px;}
     .brand-mark{width:36px; height:36px;}
     h1.headline{font-size:clamp(34px,11vw,52px);}
@@ -347,8 +385,11 @@ footer{padding:90px clamp(20px,5vw,64px) 40px; background:#000000; color:#FFFFFF
     footer{padding:60px 20px 30px;}
     .foot-top{gap:36px; padding-bottom:44px;}
     .foot-brand p{max-width:100%;}
+    .domains-two .domain{padding:28px 22px; min-height:auto;}
+    .mobile-nav{padding:100px 24px 50px;}
+    .mobile-nav-links a{font-size:clamp(24px,9vw,34px); padding:13px 0;}
+    .cookie-banner{left:14px; right:14px; bottom:14px; padding:20px 20px 18px;}
   }
-
 
 /* ================= NAV (matches index.html) ================= */
 header.site-header{
@@ -465,7 +506,7 @@ body.nav-open{overflow:hidden}
     <a href="about.html" class="nav-link">About</a>
     <a href="technology.html" class="nav-link">Technology</a>
     <a href="Marine.html" class="nav-link">Marine</a>
-    <a href="Terrain.html" class="nav-link">Terrain</a>
+    <a href="Terrain.html" class="nav-link active">Terrain</a>
 
     <a href="contact.html" class="nav-link">Contact</a>
   </div>
@@ -561,16 +602,14 @@ Real-Time Aerial Surveillance · Air safety
   <div class="foot-top">
     <div class="foot-brand">
       <div class="brand">
-        <div class="footer-brand-logo"><img src="images/logo.png" alt="WITHX Innovations Private Limited Logo"></div>
+        <div class="footer-brand-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApIAAACECAYAAAAjmMvJAAC4qUlEQVR4nOz955dcR7blCf7MrnAR7qEVIgIR0FoTIAhQazLJZL7MV090v6nu6e7Vq9d0z6z50PN/9JeZ6bV6qqamRFd1Zb7Ml5nMTEqQoAJBkNBaBIAIBELrcHmF2Xywez0COqBIvkzfiwARwt3tKrNj++yzj9BaU0UVVVRRRRVVVFFFFfcL+UMPoIoqqqiiiiqqqKKKf56oBpJVVFFFFVVUUUUVVTwQqoHkAlST/FVUUUUVVVRRRRWLh/1DD+CHhtYarTVKaRaGklJKpKzG2VVUUUUVVVRRRRV3wp91IKm0JggCvHKZYqlEPl/QWpvvq1Dh+T5Dw8OUy2X8IEQphRACy5LUpNM0NDSQzWZxbAvXdUklEyKRcHEdB8uyEEIQFysJIX7go62iiiqqqKKKKqr4fvFnE0hqDb7vUygWmZ3N6enZWUZGxxkdG2d6eppCPk8un0dphVKglAkyJ6am8DwPpbXhI6O/Eq5LpqaGdDqF6zgkky7JRELXpNPUpFPUpNLYtg2R3lEpRRCElEtlyl6ZfD7P9PQMk9NTzM3mmJqeYWJ6jul8CY1E64ixFBKBpiaVpK62hqWdS1i1vIc1q1ewZ/cu2ltbRCZTg+M41WCyiiqqqKKKKqr4c8CPPpAMQ8XE5CRnz13QBw5+y5W+fgYGBxkdm2Bul8PzfEplH2FbpNMpWpqbWd7dw5L2VtraWujp6qStpZmEa+O6NlJIbNvGcR1c2zGBnRQIBKDR2qTOQxUShgrf88gXCpTKZZRSTE/PMDw6ztjkDGMTUwwOjzBwfYiRkVHy+TyWJbGkIOHaZNIpGuvr6O7uYkVPN5s2rmfzxvX0dC8Vtv3PUlVQRRVVVFFFFVVUUcGPMpDUWlMqe/RevqIvXLzM+YuXOHfhIpd6rzA5NUWxVEJKSV1tlra2Npa0t9PW2kJrazOtLc20tbTQUF9HQ30djY0NIlNTgwCEMBpIIYjSzLLy7zvBMJQBWmuElJRLZXL5vM7lC8xEusyR0XFGRseYnJpmenqGq319DA0PMzc7SxgGCARtrS10L+1izeqVbN2yiW1bNtHR3i5SqWSVoayiiiqqqKKKKv5Z4kcVSAZBQKFYYnJqWl++2s/+L77m8NET9PZeYWZ2hkTCJZ1K0tTUSGdHO8t6lrJ6xXLWrllNT3cXTY0NIplMIqM09fcVoAVhSKlUYmZ2To+MjHLi9FkuXLxE/7UBBoeGGRi4TtnzCcOQdE0Nq1Ys55WXnmfblk10d3XS1FAvstkMVZayiiqqqKKKKqr454QfTSCptGZ0dIzLV/v1ocPHeO+j/Zw9f5lQKaSARMKhqaGedauW89yze9i+dTPLurtEfV3tj844PAxD5nI5rvYP6MNHjnHw0HecPHOO4dEximUPgaS+vo61q1eya8cWdj+xnc0b14uW5mYs68d1LFVUUUUVVVRRRRV3wo8ikFRKkcsX+E+//LX+eP+XXOjtY3K2QKnso5Umm02zY8sG/u7nb7Fl43raWptEOp3Cse0fXRAZQymFHwQUCkWmZ2b0B/v28/7Hn3Li1DmKJQ8N1GSy1GVrWLVsKa+++Ax/+4t3RCaTwfqRHlMVVVRRRRVVVFHFYvygudQwVMzMzHLhUq/e/8UBPv3iS3qv9pPLl5HSobmhllUrlrFr+xaeenI72zatF7W1GVzH+dEGkDGklLiOi11rk06nxU9ef1kv6+nm28PH+Oa7Y5zvvUKpVGakWGBudpbp6Wl8P9BPP7WLnu4ukclksC3rhz6MKqqooooqqqiiijviB2MkC8US585d1N98d4TDx09x4sxZBgYHCZWisb6O5Uu7eWbvU6xfu4o1q1awtHOJqM1mfpCxPgzis6u1Zm4ux/XBIX32wiWOnTzDkaPHudp/jZnZHEJKVi3vYdvmjWzZtJ5tWzaxacO64djVYLKKKqqooooqqvhx4nsPJMNQMT09zZnzl/SHH33GR59+zsUrfQQoampSrFi2lK0b1/Hk1s28+vKLtDQ3CcdxvtcxPm74vs+1gUG9//OvOHz0OKcvXKK3b4BcLk9dNsPK5T08t3c3P33zNZYvWyqymZpqIU4VVVRRRRVVVPGjw/caSAZByPTMLF8fPKR/9es/cPjYKUbGJyh5ZVKZJDt3bOXt11/hleefYXnPUuE4zp913+pSqcyl3st632df8ut33+PcpSvGz1IrWpsaefqpXfyLv3qbLZvWi8bGhmqqu4oqqqiiiiqq+FHhewskldYMDAzqjz7ezz/+9o9cvHSFuVweaUmamup48bmn+dlP32TLxvWisaG+0lLwzxlaa0qlMsMjo/r4qTP89k8fcODgt8zO5kgmE9Rls/R0dvD3f/NXPPfMHjo7l/yZn5EqqqiiiiqqqOKfE76XQDIIAg4dPqb/9ME+vjzwLUMjo/ieT3dXJ0/u3MbTe3axeuUyOjraRTaTwfoLYt601niex+xcjv6B6/rgocMcOnyUs+cuMDY2geO4LO/p4vmn9/Dyi8+yedOGqol5FVVUUUUVVVTxo8BjFd4ppckXCnx75IT+04efsP+LrxkYHCabqWH79s08t3c3z+zZxbo1q0Q6nfqLDI6EECQSCZpdl4b6OtHS1KhXr1zOwW8Ps//zr7h2fYiLUYV3Lp/H9wO9edN6kcnU/EUF3FVUUUUVVVRRxY8Pjy2QDMOQubk8R0+c1r/8zR/46tARhsfGqalJs3bNSt5+8xWef/openq7RNU30QSUtm3TvbRLtLe10tmxRKdTKfbt/5Krfde42j9AuewRKoXSWm/euE7U/QjN2Kuooooqqqiiir8cPJZAUiljdXPq7AX9b/79L/nmyEmGxyfI1KTZuG4Nf/OzN3ntpWdZ0tb6l0dBLgKu67J2zSrR2NCgHcfhT+/vo/dqH4Mjo3zw8X7KpTLJhKs3blgnamrSP/Rwq6iiiiqqqKKKKr5nPNJAMgxDzp6/qPd/cYCDh44yM5Ojqb6O1199gTdefZ4ntm8SLc2Nf5FFNQ+CWDfZsaRdPPPUk1oKiQoVp86eZ2Jymi8PfktNpoZ0KqWXdXcJ27ar57aKKqqooooqqvje8EgCSa01vh8wNDqi39+3ny++PsTo+CT1dVmee2Y3f/uLt9iyeZ3IZmoexcf9RUEIEELS2bFEPLPnSQ3GTunU2fNc7R/g08+/oiad5s1XX9Dtba0ikUhUg8kqqqiiiiqqqOJ7wSMJJH3fZ3R8Qn/wyWe8+/5H9F7upzabYdvmDfyP/8N/zcoVPSKVTDyKj/qLhZSCJe2t4pWXnqNYLOlcPsfF3itcvHSFX//2DyQTLi+98IzuWNIunGo7xSqqqKKKKqqo4nvAQ0ccYRhyfXhEv//xp/xv/+4/c31wiHQiyZZN6/mX//ALVixbKpIJ91GM9S8eUkrq62r5xTs/EZ7n6d/8/o8cP3Ga02dn+bf/4Vc01NeTqamhqbHhhx5qFVVUUUUVVVTxF4CHqnjRWjM0PKK/+voQ//THj7g+PEoQhqxbu5LXXnmeXTu2imSymmp9lLCkJJOp4cXn9/Ls3t10L+1ECMmVa9d476NPOXXmnPZ9/4ceZhVVVFFFFVVU8ReAhwokC4UiR0+c4r2PPuXYyTMUiyUa6mrZtX0Lz+x5ksbGhqph9mOAEIKlnR1iz+6dPLlzO7W1WTzf49ipsxw9cYahkbHvp4F6FVVUUUUVVVTxF40HjvK01ly9NqAPfPMdhw4fI58rIAVsWLOKndu3sLxnaZWGfIxwXZf161bz9N7drFy+jEQiwdjENIdPnObwsZPMzMzyffRRr6KKKqqooooq/nLxQBpJrTWlsseBg99y5NhJcrkCddksDfVZXn7uaTasW4OUEq1N1XEVjxbmnAqam5rE9i2b9PXBYYbHJ5mcmeP4qXOkkwmaGur07l1PCNd1qF6CKqqooooqqqjiceCBAskgCLnaf00fOnyUK339hGFAXU0Nf/fX7/Dic3vpbG8XQohqEPkYEXtMLuteKt75yev62uAIn319iImJaQ4dOUHCtlizaiXNTY3YdrWDUBVVVFFFFVVU8ehx36ntIAwZm5jUv/zN7zh++gy5QpH6ulq2blzD6y89x7LupSKZTFDttPL4IQDXdVjS3irefuNlli5pBx0yNj7OkeOn+cP7H+nR8XFdTXFXUUUVVVRRRRWPA/cdSM7MzHLk+Ek++fwAQ8PjaKXpWtLOW2+8wppVK0Q2U1MtsPkeIYQglUyybfMGsW3zWlqb6vHKZQZHxvjjh59ytW+AUrn8Qw+ziiqqqKKKKqr4M8R9RXye79N37bp+/6P99F65hu+HdHYsYe/unbzy4nPUZjPVIPIHgGVJmhrq2btrB+tWLyeRsJnLFzl68hxHTpxmZLTKSlZRRRVVVFFFFY8ei476tNZMT89w4uQZPvhoP4V8iZp0Da+8+Dz/xd/9gqVdncKyqlq8HxLbt2wWT2zdTHtLC17gM1co8NlXBzl74RJ+EPzQw6uiiiqqqKKKKv7MsOhiG63hYu8VffjYCbwgQAjN+jUrePKJraxasawqiPyBIYSgrq6WXTu2MzA0wkx+P3P5Ipev9nG1f4BcvkBjfd0PPcwqqqiiiiqqqOLPCItmJEulMn39A1y8dBm/7FGXyfDs3qfYuG4N1d7OPw64rsu6dWvEi889wxPbNmNZNhOT05w9d4GLly5X09tVVFFFFVVUUcUjxaICSa01vh8wNDqi39+3ny++PsTo+CT1dVmee2Y3f/uLt9iyeZ3IZmoexcf9RUEIEELS2bFEPLPnSQ3GTunU2fNc7R/g08+/oiad5s1XX9Dtba0ikUhUg8kqqqiiiiqqqOJ7wSMJJH3fZ3R8Qn/wyWe8+/5H9F7upzabYdvmDfyP/8N/zcoVPSKVTDyKj/qLhZSCJe2t4pWXnqNYLOlcPsfF3itcvHSFX//2DyQTLi+98IzuWNIunGo7xSqqqKKKKqqo4nvAQ0ccYRhyfXhEv//xp/xv/+4/c31wiHQiyZZN6/mX//ALVixbKpIJ91GM9S8eUkrq62r5xTs/EZ7n6d/8/o8cP3Ga02dn+bf/4Vc01NeTqamhqbHhhx5qFVVUUUUVVVTxF4CHqnjRWjM0PKK/+voQ//THj7g+PEoQhqxbu5LXXnmeXTu2imSymmp9lLCkJJOp4cXn9/Ls3t10L+1ECMmVa9d476NPOXXmnPZ9/4ceZhVVVFFFFVVU8ReAhwokC4UiR0+c4r2PPuXYyTMUiyUa6mrZtX0Lz+x5ksbGhqph9mOAEIKlnR1iz+6dPLlzO7W1WTzf49ips+w9cYahkbHvp4F6FVVUUUUVVVTxF40HjvK01ly9NqAPfPMdhw4fI58rIAVsWLOKndu3sLxnaZWGfIxwXZf161bz9N7drFy+jEQiwdjENIdPnObwsZPMzMzyffRRr6KKKqqooooq/nLxQBpJrTWlsseBg99y5NhJcrkCddksDfVZXn7uaTasW4OUEq1N1XEVjxbmnAqam5rE9i2b9PXBYYbHJ5mcmeP4qXOkkwmaGur07l1PCNd1qF6CKqqooooqqqjiceCBAskgCLnaf00fOnyUK339hGFAXU0Nf/fX7/Dic3vpbG8XQohqEPkYEXtMLuteKt75yev62uAIn319iImJaQ4dOUHCtlizaiXNTY3YdrWDUBVVVFFFFVVU8ehx36ntIAwZm5jUv/zN7zh++gy5QpH6ulq2blzD6y89x7LupSKZTFDttPL4IQDXdVjS3irefuNlli5pBx0yNj7OkeOn+cP7H+nR8XFdTXFXUUUVVVRRRRWPA/cdSM7MzHLk+Ek++fwAQ8PjaKXpWtLOW2+8wppVK0Q2U1MtsPkeIYQglUyybfMGsW3zWlqb6vHKZQZHxvjjh59ytW+AUrn8Qw+ziiqqqKKKKqr4M8R9RXye79N37bp+/6P99F65hu+HdHYsYe/unbzy4nPUZjPVIPIHgGVJmhrq2btrB+tWLyeRsJnLFzl68hxHTpxmZLTKSlZRRRVVVFFFFY8ei476tNZMT89w4uQZPvhoP4V8iZp0Da+8+Dz/xd/9gqVdncKyqlq8HxLbt2wWT2zdTHtLC17gM1co8NlXBzl74RJ+EPzQw6uiiiqqqKKKKv7MsOhiG63hYu8VffjYCbwgQAjN+jUrePKJraxasawqiPyBIYSgrq6WXTu2MzA0wkx+P3P5Ipev9nG1f4BcvkBjfd0PPcwqqqiiiiqqqOLPCItmJEulMn39A1y8dBm/7FGXyfDs3qfYuG4N1d7OPw64rsu6dWvEi889wxPbNmNZNhOT05w9d4GLly5X09tVVFFFFVVUUcUjxaICSa01vh8wNDqi39+3ny++PsTo+CT1dVmee2Y3f/uLt9iyeZ3IZmoexcf9RUEIEELS2bFEPLPnSQ3GTunU2fNc7R/g08+/oiad5s1XX9DtbaVkUhUg8kqqqiiiiqqqOJ7wSMJJH3fZ3R8Qn/wyWe8+/5H9F7upzabYdvmDfyP/8N/zcoVPSKVTDyKj/qLhZSCJe2t4pWXnqNYLOlcPsfF3itcvHSFX//2DyQTLi+98IzuWNIunGo7xSqqqKKKKqqo4nvAQ0ccYRhyfXhEv//xp/xv/+4/c31wiHQiyZZN6/mX//ALVixbKpIJ91GM9S8eUkrq62r5xTs/EZ7n6d/8/o8cP3Ga02dn+bf/4Vc01NeTqamhqbHhhx5qFVVUUUUVVVTxF4CHqnjRWjM0PKK/+voQ//THj7g+PEoQhqxbu5LXXnmeXTu2imSymmp9lLCkJJOp4cXn9/Ls3t10L+1ECMmVa9d476NPOXXmnPZ9/4ceZhVVVFFFFVVU8ReAhwokC4UiR0+c4r2PPuXYyTMUiyUa6mrZtX0Lz+x5ksbGhqph9mOAEIKlnR1iz+6dPLlzO7W1WTzf49ips+w9cYahkbHvp4F6FVVUUUUVVVTxF40HjvK01ly9NqAPfPMdhw4fI58rIAVsWLOKndu3sLxnaZWGfIxwXZf161bz9N7drFy+jEQiwdjENIdPnObwsZPMzMzyffRRr6KKKqqooooq/nLxQBpJrTWlsseBg99y5NhJcrkCddksDfVZXn7uaTasW4OUEq1N1XEVjxbmnAqam5rE9i2b9PXBYYbHJ5mcmeP4qXOkkwmaGur07l1PCNd1qF6CKqqooooqqqjiceCBAskgCLnaf00fOnyUK339hGFAXU0Nf/fX7/Dic3vpbG8XQohqEPkYEXtMLuteKt75yev62uAIn319iImJaQ4dOUHCtlizaiXNTY3YdrWDUBVVVFFFFVVU8ehx36ntIAwZm5jUv/zN7zh++gy5QpH6ulq2blzD6y89x7LupSKZTFDttPL4IQDXdVjS3irefuNlli5pBx0yNj7OkeOn+cP7H+nR8XFdTXFXUUUVVVVVUUUUUVVVVVVVVVVFFFFFXfDIzGSGo1Go9FoNJofHjqQ1Gg0Go1Go9E8EDqQ1Gg0Go1Go9E8EDqQ1Gg0Go1Go9E8EN+7ZhuNRqPRaDQazcNAOX48nP5RjUaj0Wg0Gs2PnP8ffiuqbxjeVwYAAAAASUVORK5CYII=" alt="WITHX Defence Logo"></div>
       </div>
       <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
       <div class="foot-legal">
         <strong>WITHX Innovations Private Limited</strong><br>
-      
         Dehu Phata, Alandi (D), Taluka-Khed,<br>
         District-Pune, Maharashtra, India, 412105
       </div>
-    
     </div>
 
     <div class="foot-col">
@@ -578,7 +617,6 @@ Real-Time Aerial Surveillance · Air safety
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="technology.html">Technology</a>
-      
       <a href="contact.html">Contact</a>
     </div>
 
@@ -591,8 +629,12 @@ Real-Time Aerial Surveillance · Air safety
     <div class="foot-col">
       <h4>Contact</h4>
       <div class="foot-contact">
-        <a href="mailto:with.innovations@gmail.com"><i class="fa-solid fa-envelope"></i>withx.innovations@gmail.com</a>
-        
+        <a href="mailto:withx.innovations@gmail.com"><i class="fa-solid fa-envelope"></i> withx.innovations@gmail.com</a>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/withx-innovations/"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://whatsapp.com/withx.innovations"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/withx.in"><i class="fa-brands fa-instagram"></i></a>
+        </div>
       </div>
     </div>
   </div>
