@@ -1120,10 +1120,20 @@
 </div>
 
 <script>
-  setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'), 600);
-  document.getElementById('cookieAccept').addEventListener('click', ()=>{
-    document.getElementById('cookieBanner').classList.remove('show');
-  });
+  (function(){
+    var CONSENT_KEY = 'withx_cookie_consent';
+    var banner = document.getElementById('cookieBanner');
+
+    // Only show the banner if the user hasn't already accepted before
+    if (!localStorage.getItem(CONSENT_KEY)) {
+      setTimeout(()=> banner.classList.add('show'), 600);
+    }
+
+    document.getElementById('cookieAccept').addEventListener('click', ()=>{
+      localStorage.setItem(CONSENT_KEY, 'accepted');
+      banner.classList.remove('show');
+    });
+  })();
 
   /* MISSION IMPACT COUNTERS */
   const counters = document.querySelectorAll('.counter');
