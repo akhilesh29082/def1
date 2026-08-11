@@ -454,52 +454,28 @@ grid-template-columns:1fr;
 }
 
   /* ===== FOOTER ===== */
-  footer{padding:90px clamp(20px,5vw,64px) 40px; background:#000000; color:#FFFFFF;}
-  .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid rgba(255,255,255,0.15); align-items:start;}
-  .foot-brand .brand{
-    height:14px;               /* anchors to the same text cap-height as .foot-col h4 below */
-    display:flex;
-    align-items:center;        /* the taller logo image centers around this line, top and bottom */
-    overflow:visible;
-    margin-bottom:26px;
-  }
+footer{padding:90px clamp(20px,5vw,64px) 40px; background:#000000; color:#FFFFFF;}
+  .foot-top{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:50px; padding-bottom:70px; border-bottom:1px solid rgba(255,255,255,0.15);}
+  .foot-brand .brand{margin-bottom:22px; align-items:center;}
   .foot-brand p{font-size:15px; line-height:1.75; color:rgba(255,255,255,0.75); max-width:340px; margin-bottom:26px;}
   .foot-contact div{font-size:14px; color:rgba(255,255,255,0.75); line-height:1.9;}
   .foot-contact{display:flex; flex-direction:column; gap:16px;}
   .foot-contact a{display:flex; align-items:center; gap:12px; font-size:15px; color:rgba(255,255,255,0.75); transition:all .3s ease;}
-  .social-links{
-  display:flex;
-  flex-direction:row;
-  gap:16px;
-  margin-top:4px;
-}
-.social-links a{
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-.social-links a i{
-  font-size:22px;   /* change this number to whatever size you want */
-  width:auto;
-
-}
-
-  .foot-contact a:hover{color:#FFFFFF; transform:translateX(6px);}
+  .foot-contact a:hover{color:#E9C46A; transform:translateX(6px);}
   .foot-contact i{width:20px; font-size:17px; text-align:center;}
-
   .foot-contact .whatsapp{color:#25D366;}
   .foot-contact .linkedin{color:#4a90e2;}
   .foot-contact .instagram{color:#e07a9e;}
   .foot-contact .youtube{color:#e05c5c;}
   .foot-contact .phone{color:var(--accent);}
   .foot-legal{font-size:13px; line-height:1.9; color:rgba(255,255,255,0.75); margin-top:10px;}
-.foot-legal strong{color:#FFFFFF; font-size:17px; display:inline-block; margin-bottom:4px;}
-  .foot-col h4{font-size:14px; line-height:15px; letter-spacing:2px; color:rgba(255,255,255,0.6); margin-bottom:26px; text-transform:uppercase;}
+  .foot-legal strong{color:#FFFFFF;}
+  .foot-col h4{font-size:12px; letter-spacing:2px; color:rgba(255,255,255,0.6); margin-bottom:22px; text-transform:uppercase;}
   .foot-col a{display:block; font-size:15px; margin-bottom:14px; color:#FFFFFF;}
   .foot-col a:hover{color:#E9C46A;}
   .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:32px; font-size:12px; letter-spacing:1.5px; color:rgba(255,255,255,0.6);}
   .foot-bottom a{margin-left:24px; color:rgba(255,255,255,0.6);}
-  .foot-bottom a:hover{color:#FFFFFF;}
+  .foot-bottom a:hover{color:#E9C46A;}
   @media (max-width:900px){ .foot-top{grid-template-columns:1fr 1fr; row-gap:50px;} }
   @media (max-width:560px){ .foot-top{grid-template-columns:1fr;} .foot-bottom{flex-direction:column; align-items:flex-start;} .foot-bottom a{margin-left:0; margin-right:20px;} }
   @media (max-width:480px){
@@ -512,63 +488,17 @@ grid-template-columns:1fr;
     footer{padding:60px 20px 30px;}
     .foot-top{gap:36px; padding-bottom:44px;}
     .foot-brand p{max-width:100%;}
-    .domains-two .domain{padding:28px 22px; min-height:auto;}
     .mobile-nav{padding:100px 24px 50px;}
     .mobile-nav-links a{font-size:clamp(24px,9vw,34px); padding:13px 0;}
+    .hero-top{flex-direction:column; align-items:flex-start; gap:18px; padding-top:96px;}
+    .achievement-card{padding:26px 22px;}
+    .story{padding:90px 20px 80px;}
+    .timeline{padding:90px 20px 60px;}
+    .achievements{padding:90px 20px 80px;}
+    .metrics{padding:60px 20px;}
     .cookie-banner{left:14px; right:14px; bottom:14px; padding:20px 20px 18px;}
   }
 
-
-  /* ===== MODAL ===== */
-  .modal-overlay{
-    position:fixed;inset:0;background:rgba(17,24,39,0.5);backdrop-filter:blur(4px);
-    z-index:800;display:flex;align-items:center;justify-content:center;padding:24px;
-    opacity:0;pointer-events:none;transition:opacity 0.3s ease;
-  }
-  .modal-overlay.open{opacity:1;pointer-events:auto;}
-  .modal{
-    background:var(--black-2);border:1px solid var(--line-strong);max-width:560px;width:100%;
-    max-height:88vh;overflow-y:auto;padding:44px;position:relative;
-    transform:translateY(16px);transition:transform 0.35s ease;
-    box-shadow:0 20px 50px rgba(17,24,39,0.16);
-  }
-  .modal-overlay.open .modal{transform:translateY(0);}
-  .modal-close{
-    position:absolute;top:20px;right:20px;background:none;border:1px solid var(--line-strong);
-    width:32px;height:32px;color:var(--white);font-size:16px;line-height:1;
-  }
-  .modal-close:hover{background:var(--white);color:var(--black);}
-  .modal h3{font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:26px;letter-spacing:0.02em;margin-bottom:8px;}
-  .modal .sub{color:var(--gray-1);font-size:13px;margin-bottom:30px;font-weight:300;}
-  .form-row{margin-bottom:20px;}
-  .form-row label{
-    display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--gray-1);margin-bottom:8px;
-  }
-  .form-row input, .form-row select, .form-row textarea{
-    width:100%;background:#FFFFFF;border:1px solid var(--line-strong);color:var(--white);
-    padding:12px 14px;font-family:var(--body);font-size:14px;
-  }
-  .form-row textarea{resize:vertical;min-height:90px;}
-  .form-row input:focus, .form-row select:focus, .form-row textarea:focus{outline:2px solid var(--accent);outline-offset:2px;}
-  .form-row .err{color:var(--accent);font-size:11px;margin-top:6px;display:none;}
-  .form-row.invalid .err{display:block;}
-  .form-row.invalid input, .form-row.invalid select, .form-row.invalid textarea{border-color:var(--accent);}
-  .form-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  .submit-btn{
-    width:100%;background:var(--white);color:var(--black);border:none;padding:15px;
-    font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;margin-top:10px;
-    transition:background 0.25s ease;
-  }
-  .submit-btn:hover{background:var(--gray-1);}
-  .success-msg{display:none;text-align:center;padding:30px 0;}
-  .success-msg.show{display:block;}
-  .success-msg .mark{width:40px;height:40px;border:1px solid var(--white);border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:18px;}
-  .success-msg h4{font-family:var(--disp2);font-weight:600;text-transform:uppercase;font-size:18px;margin-bottom:10px;}
-  .success-msg p{color:var(--gray-1);font-size:13px;font-weight:300;}
-  .form-content.hide{display:none;}
-
-  a:focus-visible, button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
   /* ===== RESPONSIVE ===== */
   @media (max-width:1024px){
@@ -592,7 +522,6 @@ grid-template-columns:1fr;
     .footer-grid{grid-template-columns:1fr;gap:36px;}
     .hero-top{padding-top:96px;}
     .form-two{grid-template-columns:1fr;}
-    .modal{padding:30px 22px;}
   }
   @media (max-width:420px){
     .strip .wrap{grid-template-columns:repeat(2,1fr);}
@@ -654,17 +583,11 @@ grid-template-columns:1fr;
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-top">
-    <div class="hero-coords">
-      <br><br>
-      DEHU PHATA, ALANDI (D)<br>
-      PUNE, MAHARASHTRA
-    </div>
-    <div class="live-feed"><br><br><br><span class="live-dot"></span> DPIIT RECOGNISED STARTUP</div>
-  </div>
+ 
   <div class="hero-content">
-    <h1 id="heroTitle"><br><span class="type-line" id="tw1"></span><br><span class="type-line" id="tw2"></span><br><span class="type-line" id="tw3"></span><br><span class="type-line" id="tw4"></span><span class="type-cursor" id="heroCursor"></span></h1>
-    <p>WITHX Innovations Private Limited is a Pune-based engineering and defence technology company developing indigenous unmanned systems under the Make in India initiative — from persistent surveillance platforms to passive UAV recovery hardware.</p>
+    <h1 id="heroTitle"><br><span class="type-line" id="tw1"></span><br><span class="type-line" id="tw2"></span><br><span class="type-line" id="tw3"></span><span class="type-cursor" id="heroCursor"></span></h1>
+    <br><br>
+    <br><p>WITHX Innovations Private Limited is a Pune-based engineering and defence technology company developing indigenous unmanned systems under the Make in India initiative — from persistent surveillance platforms to passive UAV recovery hardware.</p>
   </div>
   <div class="scroll-ind">
     <span>Scroll</span>
@@ -678,7 +601,7 @@ grid-template-columns:1fr;
     <div class="cell"><div class="num">2024</div><div class="lbl">Company Founded</div></div>
     <div class="cell"><div class="num">DPIIT</div><div class="lbl">Recognised Startup</div></div>
     <div class="cell"><div class="num">2</div><div class="lbl">Systems in Development</div></div>
-    <div class="cell"><div class="num">Pune, IN</div><div class="lbl">Engineering Base</div></div>
+    <div class="cell"><div class="num">PUNE, INDIA</div><div class="lbl">Engineering Base</div></div>
   </div>
 </div>
 
@@ -865,9 +788,9 @@ grid-template-columns:1fr;
       <p>Developing next-generation surveillance and recovery technologies for unmanned systems.</p>
       <div class="foot-legal">
         <strong>WITHX Innovations Private Limited</strong><br>
-      
+      <p>
         Dehu Phata, Alandi (D), Taluka-Khed,<br>
-        District-Pune, Maharashtra, India, 412105
+        District-Pune, Maharashtra, India, 412105</p>
       </div>
     
     </div>
@@ -883,96 +806,24 @@ grid-template-columns:1fr;
 
     <div class="foot-col">
       <h4>Systems</h4>
-      <a href="Drone Survillence system .html">WITHX SDSS</a>
-      <a href="Drone recovery bag .html">PAWRS</a>
+      <a href="Marine.html">WITHX SDSS</a>
+      <a href="Terrain.html">WITHX PAWRS</a>
     </div>
 
     <div class="foot-col">
       <h4>Contact</h4>
       <div class="foot-contact">
-        
-  <a href="mailto:with.innovations@gmail.com"><i class="fa-solid fa-envelope"></i> withx.innovations@gmail.com</a>
-  <div class="social-links">
-    <a href="https://www.linkedin.com/company/withx-innovations/"><i class="fa-brands fa-linkedin"> </i>   </a>
-    <a href="https://whatsapp.com/withx.innovations"><i class="fa-brands fa-whatsapp"> </i>   </a>
-    <a href="https://www.instagram.com/withx.in"><i class="fa-brands fa-instagram">  </i>    </a><br>
-  
-    
-  </div>
-</div>
-
-
-
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@withx.in" target="_blank"><i class="fa-solid fa-envelope"></i>  support@withx.in</a>
         
       </div>
     </div>
-  
+  </div>
 
   <div class="foot-bottom">
-    <div>© 2026 WITHX INNOVATIONS PRIVATE LIMITED. ALL RIGHTS RESERVED. CIN: U71100PN2026PTC252377</div>
+    <div>© 2026 WITHX INNOVATIONS PRIVATE LIMITED. ALL RIGHTS RESERVED.</div>
   </div>
 </footer>
 
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalCloseBtn" aria-label="Close">✕</button>
-    <div class="form-content" id="formContent">
-      <h3 id="modalTitle">Request Brief</h3>
-      <p class="sub">Submit your details and a member of our programmes team will respond via secure channel.</p>
-      <form id="briefForm" novalidate>
-        <div class="form-two">
-          <div class="form-row" data-field="fullName">
-            <label for="fullName">Full Name *</label>
-            <input type="text" id="fullName" name="fullName">
-            <div class="err">Please enter your full name.</div>
-          </div>
-          <div class="form-row" data-field="organization">
-            <label for="organization">Organization *</label>
-            <input type="text" id="organization" name="organization">
-            <div class="err">Please enter your organization.</div>
-          </div>
-        </div>
-        <div class="form-two">
-          <div class="form-row" data-field="email">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email">
-            <div class="err">Please enter a valid email.</div>
-          </div>
-          <div class="form-row" data-field="phone">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone">
-          </div>
-        </div>
-        <div class="form-row" data-field="interest">
-          <label for="interest">Area of Interest *</label>
-          <select id="interest" name="interest">
-            <option value="">Select an area</option>
-            <option>Aerial Unmanned Systems</option>
-            <option>Maritime Unmanned Systems</option>
-            <option>Ground Robotics</option>
-            <option>C4ISR &amp; Mission Software</option>
-            <option>Electronic Warfare / Counter-UAS</option>
-            <option>Training, Simulation &amp; MRO</option>
-          </select>
-          <div class="err">Please select an area of interest.</div>
-        </div>
-        <div class="form-row" data-field="message">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message"></textarea>
-          <div class="err">Please enter a brief message.</div>
-        </div>
-        <button type="submit" class="submit-btn">Submit Request</button>
-      </form>
-    </div>
-    <div class="success-msg" id="successMsg">
-      <div class="mark">✓</div>
-      <h4>Request Received</h4>
-      <p>Thank you. Your brief request has been logged. A member of our team will contact you via secure channel within 2 business days.</p>
-    </div>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -986,8 +837,8 @@ grid-template-columns:1fr;
 
   // ---- Hero heading typewriter effect (all lines typed together) ----
   (function(){
-    const lineTexts = ['Built for the', 'next', 'generation of', 'defence.'];
-    const targets = ['tw1','tw2','tw3','tw4'].map(id => document.getElementById(id));
+    const lineTexts = ['Built for the', 'next generation', 'of defence'];
+    const targets = ['tw1','tw2','tw3'].map(id => document.getElementById(id));
     if(targets.some(t => !t)) return;
 
     const typeSpeed = 60;   // ms per tick (advances every line by one char)
@@ -1075,77 +926,6 @@ grid-template-columns:1fr;
       parallaxLayer.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
     }
   }, {passive:true});
-
-  // ---- Modal ----
-  const modalOverlay = document.getElementById('modalOverlay');
-  const openModalBtn = document.getElementById('openModalBtn');
-  const footerBriefLink = document.getElementById('footerBriefLink');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const formContent = document.getElementById('formContent');
-  const successMsg = document.getElementById('successMsg');
-  const briefForm = document.getElementById('briefForm');
-  let lastFocused = null;
-
-  function openModal(e){
-    if(e) e.preventDefault();
-    lastFocused = document.activeElement;
-    modalOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    const firstInput = document.getElementById('fullName');
-    if(firstInput) firstInput.focus();
-  }
-  function closeModal(){
-    modalOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-    if(lastFocused) lastFocused.focus();
-  }
-
-  if (openModalBtn) openModalBtn.addEventListener('click', openModal);
-  if (footerBriefLink) footerBriefLink.addEventListener('click', openModal);
-  modalCloseBtn.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => {
-    if(e.target === modalOverlay) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
-  });
-
-  // ---- Form validation ----
-  briefForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let valid = true;
-
-    const fields = {
-      fullName: v => v.trim().length > 1,
-      organization: v => v.trim().length > 1,
-      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
-      interest: v => v.trim().length > 0,
-      message: v => v.trim().length > 4
-    };
-
-    Object.keys(fields).forEach(name => {
-      const input = document.getElementById(name);
-      const row = briefForm.querySelector('[data-field="' + name + '"]');
-      const isValid = fields[name](input.value);
-      row.classList.toggle('invalid', !isValid);
-      if(!isValid) valid = false;
-    });
-
-    if(!valid) return;
-
-    formContent.classList.add('hide');
-    successMsg.classList.add('show');
-
-    setTimeout(() => {
-      closeModal();
-      setTimeout(() => {
-        briefForm.reset();
-        briefForm.querySelectorAll('.form-row').forEach(r => r.classList.remove('invalid'));
-        formContent.classList.remove('hide');
-        successMsg.classList.remove('show');
-      }, 400);
-    }, 2600);
-  });
 
   /* DRONE CURSOR (desktop only) */
   if (window.matchMedia('(min-width: 901px)').matches) {
